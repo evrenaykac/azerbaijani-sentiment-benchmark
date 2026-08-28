@@ -1,4 +1,4 @@
-# Azerbaijani Sentiment Benchmark (SentiAzNet)
+# Azerbaijani Sentiment Benchmark
 
 A leakage-audited, multi-domain sentiment benchmark for Azerbaijani, together
 with the full evaluation protocol, the audit tooling, and the recorded results
