@@ -1,0 +1,17 @@
+# Core requirements (torch is installed separately by 00_kurulum.ps1 with the right CUDA channel)
+transformers==5.15.1
+tokenizers>=0.22
+numpy>=2.0,<3
+pandas>=2.2
+pyarrow>=16
+openpyxl>=3.1
+scikit-learn>=1.5
+scipy>=1.13
+matplotlib>=3.8
+umap-learn>=0.5.6
+datasketch>=1.6
+nvidia-ml-py>=12.0
+PyYAML>=6.0
+tqdm>=4.66
+sentencepiece>=0.2
+protobuf>=4.25

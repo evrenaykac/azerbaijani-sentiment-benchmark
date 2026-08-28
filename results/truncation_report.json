@@ -1,0 +1,99 @@
+{
+  "max_len": 128,
+  "by_tokenizer": {
+    "xlm-roberta-base": {
+      "Finance": {
+        "n": 47473,
+        "mean_subwords": 31.0905778021191,
+        "p95_subwords": 78.0,
+        "p99_subwords": 149.0,
+        "share_truncated": 0.014787352811071557,
+        "token_mass_lost": 0.04079980324710037
+      },
+      "Public": {
+        "n": 47249,
+        "mean_subwords": 39.76727549789413,
+        "p95_subwords": 104.0,
+        "p99_subwords": 211.0,
+        "share_truncated": 0.03168321022667146,
+        "token_mass_lost": 0.068530849979031
+      },
+      "Retail": {
+        "n": 34566,
+        "mean_subwords": 27.2115373488399,
+        "p95_subwords": 70.0,
+        "p99_subwords": 135.0,
+        "share_truncated": 0.011109182433605277,
+        "token_mass_lost": 0.03396577056625919
+      },
+      "Social": {
+        "n": 84206,
+        "mean_subwords": 30.948887252689833,
+        "p95_subwords": 75.0,
+        "p99_subwords": 151.0,
+        "share_truncated": 0.014191387787093557,
+        "token_mass_lost": 0.046044598750154445
+      },
+      "Tech": {
+        "n": 57784,
+        "mean_subwords": 28.218624532742627,
+        "p95_subwords": 68.0,
+        "p99_subwords": 139.0,
+        "share_truncated": 0.01201024505053302,
+        "token_mass_lost": 0.06447747280883855
+      },
+      "ALL": {
+        "n": 271278,
+        "share_truncated": 0.016484934274065718,
+        "token_mass_lost": 0.05228037638176749
+      }
+    },
+    "microsoft/mdeberta-v3-base": {
+      "Finance": {
+        "n": 47473,
+        "mean_subwords": 36.36157394729636,
+        "p95_subwords": 92.0,
+        "p99_subwords": 176.27999999999884,
+        "share_truncated": 0.022138900006319382,
+        "token_mass_lost": 0.05213379963885846
+      },
+      "Public": {
+        "n": 47249,
+        "mean_subwords": 46.21257592753286,
+        "p95_subwords": 121.0,
+        "p99_subwords": 244.5199999999968,
+        "share_truncated": 0.04442422061842579,
+        "token_mass_lost": 0.08802984935181987
+      },
+      "Retail": {
+        "n": 34566,
+        "mean_subwords": 31.279667881733495,
+        "p95_subwords": 81.75,
+        "p99_subwords": 157.0,
+        "share_truncated": 0.016027310073482612,
+        "token_mass_lost": 0.04245879396566634
+      },
+      "Social": {
+        "n": 84206,
+        "mean_subwords": 34.79898107023252,
+        "p95_subwords": 84.0,
+        "p99_subwords": 168.0,
+        "share_truncated": 0.01847849321901052,
+        "token_mass_lost": 0.052580245662279035
+      },
+      "Tech": {
+        "n": 57784,
+        "mean_subwords": 32.600235359269,
+        "p95_subwords": 79.0,
+        "p99_subwords": 162.0,
+        "share_truncated": 0.017167381974248927,
+        "token_mass_lost": 0.06917716156732344
+      },
+      "ALL": {
+        "n": 271278,
+        "share_truncated": 0.023046468935925508,
+        "token_mass_lost": 0.062468593698352025
+      }
+    }
+  }
+}

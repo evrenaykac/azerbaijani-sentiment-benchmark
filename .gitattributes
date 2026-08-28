@@ -1,0 +1,16 @@
+# Keep LF endings on checkout everywhere, including Windows: the SHA-256 digests
+# in data/checksums.sha256 are computed over LF files, and CRLF conversion would
+# silently invalidate them.
+* text=auto eol=lf
+
+*.csv    text eol=lf
+*.txt    text eol=lf
+*.json   text eol=lf
+*.md     text eol=lf
+*.py     text eol=lf
+*.yaml   text eol=lf
+
+*.gz      binary
+*.parquet binary
+*.xlsx    binary
+*.pdf     binary

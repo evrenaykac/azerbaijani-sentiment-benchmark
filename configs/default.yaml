@@ -1,0 +1,176 @@
+# =============================================================================
+# azsent v2 configuration
+#
+# Differences from v1, each traceable to something that went wrong or was
+# measured in the first full run:
+#   * the dataset arrives already split and leakage-audited, so there is no
+#     dedup/gold/split stage to get wrong at run time (see src/azsent/ingest.py);
+#   * silver labels default to OFF - with them the leave-one-domain-out mean
+#     was 0.609 and without them 0.695, so they are an ablation axis, not the
+#     default data strategy;
+#   * every encoder is loaded in fp32 regardless of how its checkpoint ships,
+#     after mDeBERTa-v3's fp16 weights silently produced a constant-class model
+#     that still looked like a plausible score.
+#
+# Environment overrides:
+#   AZSENT_DATA -> folder holding the dataset export + lexicon/
+#   AZSENT_RUNS -> output root (keep OUTSIDE OneDrive, e.g. C:\azsent_runs)
+# =============================================================================
+
+paths:
+  data_dir: null
+  runs_dir: null
+  dataset_name: "SentiAzNet_v4.parquet"
+  dataset_sheet: "data"
+  lexicon_subdir: "lexicon"
+
+corpus:
+  version: "v4"
+  domains:                # canonical short names; the export must already use these
+    Tech:    "Technology & Digital Services"
+    Finance: "Finance & Business"
+    Social:  "Social Life & Entertainment"
+    Retail:  "Retail & Lifestyle"
+    Public:  "Public Services"
+  labels: ["negative", "neutral", "positive"]
+
+data_contract:            # preflight refuses to start the run if these fail
+  require_columns: ["uid", "domain", "label", "text", "video_id_hash", "split", "gold_role"]
+  # optional but reported when present: ann1..ann3 (independent annotations),
+  # ann4 (adjudicator's decision), n_annotators (3 = triple-annotated + adjudicated,
+  # 1 = single annotator, 0 = unlabeled)
+  require_unique_uid: true
+  require_unique_normalized_text: true
+  require_group_never_spans_split: true
+  require_gold_prior_match: true      # all three gold partitions share one label prior
+  gold_prior_tolerance_pct: 1.5
+  require_domain_balance: true        # and one domain mix
+  domain_balance_tolerance_pct: 2.0
+  # Per-annotator label columns, if the export carries them. The adjudicator's
+  # column is the FINAL decision, not a fourth independent annotation - it is
+  # excluded from every agreement statistic. Leave empty if there is none.
+  adjudicator_column: "ann4"
+
+train:
+  max_len: 128
+  batch_size: 32
+  eval_batch_size: 256
+  lr: 2.0e-5
+  weight_decay: 0.01
+  warmup_ratio: 0.1
+  epochs: 5
+  max_steps: 6000
+  patience: 2
+  grad_clip: 1.0
+  num_workers: 0          # 0 on Windows: worker spawn + HF tokenizer can deadlock
+  amp: "bf16"             # per-backbone override: DeBERTa always runs fp32
+  force_fp32_backbones: ["mdeberta"]
+  vram_fraction: 0.90
+  abort_on_nonfinite_loss: true
+  seeds_indomain: [13, 21, 42, 87, 100]
+  seeds_lodo: [13, 42, 100]              # context rows
+  seeds_lodo_headline: [13, 21, 42, 87, 100]
+  # v1 ran all LODO cells on 3 seeds; the hierarchical bootstrap then returned
+  # 95% CIs ~13 points wide and only the single largest effect cleared zero.
+  # The systems the paper's claims rest on (tables.headline_lodo) get 5.
+  supcon_lambda: 0.1
+  supcon_tau: 0.07
+  eval_every_steps: 750
+  default_silver_frac: 0.0   # measured: silver labels cost 8.6 LODO Macro-F1 points
+  class_weight: "none"       # none | balanced. The gold partitions share one label
+                             # prior, but the human-labelled bulk layer that dominates
+                             # the pool is ~6 points lighter on neutral; enable only as
+                             # a reported variant, never silently.
+
+dapt:
+  steps: 6000
+  batch_size: 64          # effective (micro_batch x accumulation)
+  micro_batch: 32         # 16 on a 12 GB card, 32 on 24 GB+
+  lr: 5.0e-5
+  mask_prob: 0.15
+  max_len: 128
+  eval_every: 500
+  log_every: 50
+  patience_evals: 3
+  dev_sample: 1000
+  fixed_dev_batches: true # dev masking is drawn once, so early stopping is not luck
+
+teacher:
+  backbone: "xlm-roberta-base"
+  epochs: 8
+  patience: 3
+  lr: 2.0e-5
+  batch_size: 32
+
+backbones:
+  xlmr: "xlm-roberta-base"
+  mbert: "bert-base-multilingual-cased"
+  mdeberta: "microsoft/mdeberta-v3-base"      # ships fp16; forced to fp32 on load
+  berturk: "dbmdz/bert-base-turkish-128k-cased"
+  allma:                  # aLLMA-Base (Isbarov et al., SIGTURK 2024); gated repo
+    - "allmalab/bert-base-aze"
+    - "allmalab/bert-large-aze"
+  labse: "sentence-transformers/LaBSE"
+
+lexicon:
+  match: "prefix"         # exact | prefix. Exact matching fires on 3.6% of tokens
+  min_prefix_len: 4       # in an agglutinative language; prefix matching lifts it
+  report_coverage: true   # and coverage is reported so the ablation is readable
+
+thermal:
+  enabled: true
+  pause_temp_c: 90        # emergency backstop only (drivers throttle near 87)
+  resume_temp_c: 80
+  job_gap_temp_c: 80
+  job_gap_max_wait_s: 300
+  check_every_steps: 50
+  log_every_s: 30
+
+stats:
+  bootstrap_n: 10000
+  bootstrap_seed: 1234
+  alpha: 0.05
+  multiple_comparison: "holm"
+
+llm:
+  qlora_models:
+    qwen25: "Qwen/Qwen2.5-7B-Instruct"
+    llama31: "meta-llama/Llama-3.1-8B-Instruct"   # gated: token + accepted licence
+    qwen3: "Qwen/Qwen3-8B"
+  qlora:
+    r: 16
+    alpha: 32
+    dropout: 0.05
+    lr: 1.0e-4
+    batch_size: 4
+    grad_accum: 8
+    epochs: 1
+    max_len: 160
+  run_lodo: true          # v1 only had pooled LLM numbers, which is not the claim
+  lodo_models: ["qwen25"] # one model over the folds settles "does a 7B LLM also
+  lodo_targets: ["Public", "Tech"]   # collapse under domain shift" without a 3x5 grid
+  openai_models:
+    gpt4o: "gpt-4o-2024-08-06"
+    gpt4o_mini: "gpt-4o-mini-2024-07-18"
+  openai_batch: 20
+
+transfer:
+  turkish:
+    trsav1: "maydogan/Turkish_SentimentAnalysis_TRSAv1"
+    winvoker: "winvoker/turkish-sentiment-analysis-dataset"
+  kazakh: "issai/kazsandra"                       # gated: needs an accepted licence
+  uzbek_hf: "risqaliyevds/uzbek-sentiment-analysis"
+  azerbaijani_external: "hajili/azerbaijani_review_sentiment_classification"
+  label_scheme:           # every external set is a five-point scale
+    trsav1: "tr"
+    winvoker: "tr"
+    kazakh: "stars5"
+    uzbek: "stars5"
+    azerbaijani_external: "stars5"
+  merge_report: true      # per-task results are merged, never overwritten
+
+smoke:
+  n_bulk: 3000
+  n_gold: 900
+  dapt_steps: 40
+  epochs: 1

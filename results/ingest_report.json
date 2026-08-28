@@ -1,0 +1,18 @@
+{
+  "source_file": "/home/claude/work/embed_v4/data/SentiAzNet_v4.parquet",
+  "rows_total": 271278,
+  "gold_rows": 10000,
+  "bulk_rows": 261278,
+  "reserved_rows_dropped_from_training": 0,
+  "leakage_verification": {
+    "duplicate_normalized_texts": 0,
+    "groups_spanning_splits": 0,
+    "eval_text_in_train": 0,
+    "eval_group_in_train": 0
+  },
+  "video_id_coverage_pct": 71.0,
+  "distinct_groups": 83540,
+  "rows_in_multirow_groups_pct": 70.61,
+  "bulk_human_labeled_rows": 87069,
+  "bulk_unlabeled_rows": 174209
+}

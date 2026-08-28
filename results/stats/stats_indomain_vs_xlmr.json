@@ -1,0 +1,1102 @@
+{
+  "regime": "indomain",
+  "baseline": "xlmr_ft",
+  "seeds": [
+    13,
+    21,
+    42,
+    87,
+    100
+  ],
+  "scopes": [
+    "Tech",
+    "Finance",
+    "Social",
+    "Retail",
+    "Public"
+  ],
+  "comparisons": {
+    "mdeberta_dapt": {
+      "Tech": {
+        "diff_mean_over_seedpairs": 0.0014040494044355479,
+        "ci95": [
+          -0.04419832862201668,
+          0.05443867203285106
+        ],
+        "p_onesided_A_gt_B": 0.4936,
+        "n_boot": 10000,
+        "n_seed_pairs": 15,
+        "hierarchical": true,
+        "mcnemar_first_seed": {
+          "n01": 78,
+          "n10": 92,
+          "p": 0.3187412841052537
+        }
+      },
+      "Finance": {
+        "diff_mean_over_seedpairs": 0.012332059699980975,
+        "ci95": [
+          -0.02972497983622124,
+          0.05019336591523982
+        ],
+        "p_onesided_A_gt_B": 0.2747,
+        "n_boot": 10000,
+        "n_seed_pairs": 15,
+        "hierarchical": true,
+        "mcnemar_first_seed": {
+          "n01": 50,
+          "n10": 50,
+          "p": 1.0
+        }
+      },
+      "Social": {
+        "diff_mean_over_seedpairs": 0.03514383629930026,
+        "ci95": [
+          -0.020687894344861263,
+          0.0870342415833687
+        ],
+        "p_onesided_A_gt_B": 0.1007,
+        "n_boot": 10000,
+        "n_seed_pairs": 15,
+        "hierarchical": true,
+        "mcnemar_first_seed": {
+          "n01": 45,
+          "n10": 66,
+          "p": 0.05716364524660185
+        }
+      },
+      "Retail": {
+        "diff_mean_over_seedpairs": 0.010239271219982153,
+        "ci95": [
+          -0.04768366157965956,
+          0.059987445075641986
+        ],
+        "p_onesided_A_gt_B": 0.3377,
+        "n_boot": 10000,
+        "n_seed_pairs": 15,
+        "hierarchical": true,
+        "mcnemar_first_seed": {
+          "n01": 54,
+          "n10": 40,
+          "p": 0.17966501480803032
+        }
+      },
+      "Public": {
+        "diff_mean_over_seedpairs": 0.029376776178182188,
+        "ci95": [
+          -0.02519511688374388,
+          0.08315068563997216
+        ],
+        "p_onesided_A_gt_B": 0.1224,
+        "n_boot": 10000,
+        "n_seed_pairs": 15,
+        "hierarchical": true,
+        "mcnemar_first_seed": {
+          "n01": 27,
+          "n10": 37,
+          "p": 0.26043547657665356
+        }
+      }
+    },
+    "mbert_ft": {
+      "Tech": {
+        "diff_mean_over_seedpairs": -0.042876548718105714,
+        "ci95": [
+          -0.08911596526895887,
+          0.011608528142508137
+        ],
+        "p_onesided_A_gt_B": 0.9418,
+        "n_boot": 10000,
+        "n_seed_pairs": 15,
+        "hierarchical": true,
+        "mcnemar_first_seed": {
+          "n01": 107,
+          "n10": 56,
+          "p": 7.94570761973693e-05
+        }
+      },
+      "Finance": {
+        "diff_mean_over_seedpairs": -0.04529973311814875,
+        "ci95": [
+          -0.09266635324221228,
+          -0.009252784852082653
+        ],
+        "p_onesided_A_gt_B": 0.9927,
+        "n_boot": 10000,
+        "n_seed_pairs": 15,
+        "hierarchical": true,
+        "mcnemar_first_seed": {
+          "n01": 76,
+          "n10": 45,
+          "p": 0.0061508081499953545
+        }
+      },
+      "Social": {
+        "diff_mean_over_seedpairs": -0.06179075947552462,
+        "ci95": [
+          -0.12083159804108293,
+          -0.015678462002931878
+        ],
+        "p_onesided_A_gt_B": 0.9966,
+        "n_boot": 10000,
+        "n_seed_pairs": 15,
+        "hierarchical": true,
+        "mcnemar_first_seed": {
+          "n01": 91,
+          "n10": 51,
+          "p": 0.0009948396502908413
+        }
+      },
+      "Retail": {
+        "diff_mean_over_seedpairs": -0.04453963404523056,
+        "ci95": [
+          -0.08883007483422009,
+          0.0008299494159836196
+        ],
+        "p_onesided_A_gt_B": 0.9729,
+        "n_boot": 10000,
+        "n_seed_pairs": 15,
+        "hierarchical": true,
+        "mcnemar_first_seed": {
+          "n01": 76,
+          "n10": 50,
+          "p": 0.025543364029782935
+        }
+      },
+      "Public": {
+        "diff_mean_over_seedpairs": -0.011939267418700343,
+        "ci95": [
+          -0.07315374093525326,
+          0.030606444779493838
+        ],
+        "p_onesided_A_gt_B": 0.7106,
+        "n_boot": 10000,
+        "n_seed_pairs": 15,
+        "hierarchical": true,
+        "mcnemar_first_seed": {
+          "n01": 41,
+          "n10": 34,
+          "p": 0.48868297090314317
+        }
+      }
+    },
+    "mdeberta_ft": {
+      "Tech": {
+        "diff_mean_over_seedpairs": 0.019937423354470286,
+        "ci95": [
+          -0.03405036618030189,
+          0.06900724860701792
+        ],
+        "p_onesided_A_gt_B": 0.2372,
+        "n_boot": 10000,
+        "n_seed_pairs": 15,
+        "hierarchical": true,
+        "mcnemar_first_seed": {
+          "n01": 83,
+          "n10": 78,
+          "p": 0.7526889571542663
+        }
+      },
+      "Finance": {
+        "diff_mean_over_seedpairs": 0.0023084824805414666,
+        "ci95": [
+          -0.0403336564283511,
+          0.04263492773106172
+        ],
+        "p_onesided_A_gt_B": 0.4756,
+        "n_boot": 10000,
+        "n_seed_pairs": 15,
+        "hierarchical": true,
+        "mcnemar_first_seed": {
+          "n01": 43,
+          "n10": 48,
+          "p": 0.675222459916057
+        }
+      },
+      "Social": {
+        "diff_mean_over_seedpairs": 0.012140432751017697,
+        "ci95": [
+          -0.050369299162615865,
+          0.06374313098670786
+        ],
+        "p_onesided_A_gt_B": 0.3158,
+        "n_boot": 10000,
+        "n_seed_pairs": 15,
+        "hierarchical": true,
+        "mcnemar_first_seed": {
+          "n01": 55,
+          "n10": 74,
+          "p": 0.11265741611168018
+        }
+      },
+      "Retail": {
+        "diff_mean_over_seedpairs": 0.00033634222312300586,
+        "ci95": [
+          -0.035445365452606126,
+          0.03754095974303806
+        ],
+        "p_onesided_A_gt_B": 0.4856,
+        "n_boot": 10000,
+        "n_seed_pairs": 15,
+        "hierarchical": true,
+        "mcnemar_first_seed": {
+          "n01": 46,
+          "n10": 44,
+          "p": 0.9161288770112896
+        }
+      },
+      "Public": {
+        "diff_mean_over_seedpairs": 0.028297674253398856,
+        "ci95": [
+          -0.0385249171031394,
+          0.08276161718135784
+        ],
+        "p_onesided_A_gt_B": 0.1798,
+        "n_boot": 10000,
+        "n_seed_pairs": 15,
+        "hierarchical": true,
+        "mcnemar_first_seed": {
+          "n01": 23,
+          "n10": 37,
+          "p": 0.09246098107292373
+        }
+      }
+    },
+    "berturk_ft": {
+      "Tech": {
+        "diff_mean_over_seedpairs": 0.002068569754490331,
+        "ci95": [
+          -0.04559532568943042,
+          0.05488661397078049
+        ],
+        "p_onesided_A_gt_B": 0.4627,
+        "n_boot": 10000,
+        "n_seed_pairs": 15,
+        "hierarchical": true,
+        "mcnemar_first_seed": {
+          "n01": 96,
+          "n10": 77,
+          "p": 0.17097186370126682
+        }
+      },
+      "Finance": {
+        "diff_mean_over_seedpairs": -0.027155618722399643,
+        "ci95": [
+          -0.08009319244315663,
+          0.017316552083841596
+        ],
+        "p_onesided_A_gt_B": 0.8909,
+        "n_boot": 10000,
+        "n_seed_pairs": 15,
+        "hierarchical": true,
+        "mcnemar_first_seed": {
+          "n01": 72,
+          "n10": 52,
+          "p": 0.08755276689017025
+        }
+      },
+      "Social": {
+        "diff_mean_over_seedpairs": -0.0021775670619272065,
+        "ci95": [
+          -0.05436039611058915,
+          0.04485370833630664
+        ],
+        "p_onesided_A_gt_B": 0.5334,
+        "n_boot": 10000,
+        "n_seed_pairs": 15,
+        "hierarchical": true,
+        "mcnemar_first_seed": {
+          "n01": 66,
+          "n10": 65,
+          "p": 1.0
+        }
+      },
+      "Retail": {
+        "diff_mean_over_seedpairs": -0.035211204056501896,
+        "ci95": [
+          -0.08987606082198844,
+          0.02116580652457176
+        ],
+        "p_onesided_A_gt_B": 0.8501,
+        "n_boot": 10000,
+        "n_seed_pairs": 15,
+        "hierarchical": true,
+        "mcnemar_first_seed": {
+          "n01": 53,
+          "n10": 47,
+          "p": 0.6172994135892524
+        }
+      },
+      "Public": {
+        "diff_mean_over_seedpairs": -0.03237956148566976,
+        "ci95": [
+          -0.13457249737130744,
+          0.027293883046561815
+        ],
+        "p_onesided_A_gt_B": 0.807,
+        "n_boot": 10000,
+        "n_seed_pairs": 15,
+        "hierarchical": true,
+        "mcnemar_first_seed": {
+          "n01": 59,
+          "n10": 39,
+          "p": 0.054390558277088434
+        }
+      }
+    },
+    "allma_ft": {
+      "Tech": {
+        "diff_mean_over_seedpairs": -0.01495968322251106,
+        "ci95": [
+          -0.07176562019682407,
+          0.03781291033791673
+        ],
+        "p_onesided_A_gt_B": 0.6821,
+        "n_boot": 10000,
+        "n_seed_pairs": 15,
+        "hierarchical": true,
+        "mcnemar_first_seed": {
+          "n01": 84,
+          "n10": 78,
+          "p": 0.6945673674329711
+        }
+      },
+      "Finance": {
+        "diff_mean_over_seedpairs": -0.029549124513223328,
+        "ci95": [
+          -0.07124048730089978,
+          0.008777824401958643
+        ],
+        "p_onesided_A_gt_B": 0.9297,
+        "n_boot": 10000,
+        "n_seed_pairs": 15,
+        "hierarchical": true,
+        "mcnemar_first_seed": {
+          "n01": 71,
+          "n10": 49,
+          "p": 0.05477979691370199
+        }
+      },
+      "Social": {
+        "diff_mean_over_seedpairs": -0.02970129536098553,
+        "ci95": [
+          -0.08971889797270284,
+          0.020179645201183042
+        ],
+        "p_onesided_A_gt_B": 0.8587,
+        "n_boot": 10000,
+        "n_seed_pairs": 15,
+        "hierarchical": true,
+        "mcnemar_first_seed": {
+          "n01": 67,
+          "n10": 56,
+          "p": 0.36729673939388774
+        }
+      },
+      "Retail": {
+        "diff_mean_over_seedpairs": -0.015609746193557173,
+        "ci95": [
+          -0.059652396447198414,
+          0.027746878354425825
+        ],
+        "p_onesided_A_gt_B": 0.7702,
+        "n_boot": 10000,
+        "n_seed_pairs": 15,
+        "hierarchical": true,
+        "mcnemar_first_seed": {
+          "n01": 68,
+          "n10": 51,
+          "p": 0.14213202807505837
+        }
+      },
+      "Public": {
+        "diff_mean_over_seedpairs": 0.01590148737345319,
+        "ci95": [
+          -0.060033041850280404,
+          0.08455653563890138
+        ],
+        "p_onesided_A_gt_B": 0.3469,
+        "n_boot": 10000,
+        "n_seed_pairs": 15,
+        "hierarchical": true,
+        "mcnemar_first_seed": {
+          "n01": 33,
+          "n10": 43,
+          "p": 0.3018724904870079
+        }
+      }
+    },
+    "xlmr_dapt": {
+      "Tech": {
+        "diff_mean_over_seedpairs": 0.02742894168719631,
+        "ci95": [
+          -0.022981345046967836,
+          0.08262368777022827
+        ],
+        "p_onesided_A_gt_B": 0.1785,
+        "n_boot": 10000,
+        "n_seed_pairs": 15,
+        "hierarchical": true,
+        "mcnemar_first_seed": {
+          "n01": 40,
+          "n10": 56,
+          "p": 0.12534569718849248
+        }
+      },
+      "Finance": {
+        "diff_mean_over_seedpairs": 0.011898625159615196,
+        "ci95": [
+          -0.025195826805587105,
+          0.048769948556867816
+        ],
+        "p_onesided_A_gt_B": 0.2733,
+        "n_boot": 10000,
+        "n_seed_pairs": 15,
+        "hierarchical": true,
+        "mcnemar_first_seed": {
+          "n01": 35,
+          "n10": 34,
+          "p": 1.0
+        }
+      },
+      "Social": {
+        "diff_mean_over_seedpairs": 0.018952764615690627,
+        "ci95": [
+          -0.033191587617326074,
+          0.06332578215108257
+        ],
+        "p_onesided_A_gt_B": 0.2234,
+        "n_boot": 10000,
+        "n_seed_pairs": 15,
+        "hierarchical": true,
+        "mcnemar_first_seed": {
+          "n01": 48,
+          "n10": 53,
+          "p": 0.6908264239959597
+        }
+      },
+      "Retail": {
+        "diff_mean_over_seedpairs": 0.01704489776658215,
+        "ci95": [
+          -0.01547049177278458,
+          0.05140604980187574
+        ],
+        "p_onesided_A_gt_B": 0.1642,
+        "n_boot": 10000,
+        "n_seed_pairs": 15,
+        "hierarchical": true,
+        "mcnemar_first_seed": {
+          "n01": 34,
+          "n10": 40,
+          "p": 0.5613807442989817
+        }
+      },
+      "Public": {
+        "diff_mean_over_seedpairs": 0.03265910264803757,
+        "ci95": [
+          -0.021272003502473113,
+          0.08558849931252875
+        ],
+        "p_onesided_A_gt_B": 0.1233,
+        "n_boot": 10000,
+        "n_seed_pairs": 15,
+        "hierarchical": true,
+        "mcnemar_first_seed": {
+          "n01": 17,
+          "n10": 25,
+          "p": 0.27995623852893914
+        }
+      }
+    },
+    "xlmr_add": {
+      "Tech": {
+        "diff_mean_over_seedpairs": 0.02538135917429112,
+        "ci95": [
+          -0.018072497351907038,
+          0.0727855856033537
+        ],
+        "p_onesided_A_gt_B": 0.1373,
+        "n_boot": 10000,
+        "n_seed_pairs": 15,
+        "hierarchical": true,
+        "mcnemar_first_seed": {
+          "n01": 59,
+          "n10": 59,
+          "p": 1.0
+        }
+      },
+      "Finance": {
+        "diff_mean_over_seedpairs": -0.00930936848478454,
+        "ci95": [
+          -0.046495494926066694,
+          0.022327398247683976
+        ],
+        "p_onesided_A_gt_B": 0.7229,
+        "n_boot": 10000,
+        "n_seed_pairs": 15,
+        "hierarchical": true,
+        "mcnemar_first_seed": {
+          "n01": 25,
+          "n10": 17,
+          "p": 0.27995623852893914
+        }
+      },
+      "Social": {
+        "diff_mean_over_seedpairs": 0.0061855302824798935,
+        "ci95": [
+          -0.04132957916392702,
+          0.048289218863599555
+        ],
+        "p_onesided_A_gt_B": 0.3702,
+        "n_boot": 10000,
+        "n_seed_pairs": 15,
+        "hierarchical": true,
+        "mcnemar_first_seed": {
+          "n01": 34,
+          "n10": 46,
+          "p": 0.21851803947870374
+        }
+      },
+      "Retail": {
+        "diff_mean_over_seedpairs": 0.003096001803482255,
+        "ci95": [
+          -0.03347041800113033,
+          0.04191389900545382
+        ],
+        "p_onesided_A_gt_B": 0.4769,
+        "n_boot": 10000,
+        "n_seed_pairs": 15,
+        "hierarchical": true,
+        "mcnemar_first_seed": {
+          "n01": 29,
+          "n10": 21,
+          "p": 0.3222363203575469
+        }
+      },
+      "Public": {
+        "diff_mean_over_seedpairs": 0.0016721869208798405,
+        "ci95": [
+          -0.040443962239384464,
+          0.04477996526860484
+        ],
+        "p_onesided_A_gt_B": 0.4737,
+        "n_boot": 10000,
+        "n_seed_pairs": 15,
+        "hierarchical": true,
+        "mcnemar_first_seed": {
+          "n01": 13,
+          "n10": 12,
+          "p": 1.0
+        }
+      }
+    },
+    "xlmr_film": {
+      "Tech": {
+        "diff_mean_over_seedpairs": -0.005798288189984505,
+        "ci95": [
+          -0.0447570473659366,
+          0.03811378922711633
+        ],
+        "p_onesided_A_gt_B": 0.6492,
+        "n_boot": 10000,
+        "n_seed_pairs": 15,
+        "hierarchical": true,
+        "mcnemar_first_seed": {
+          "n01": 59,
+          "n10": 35,
+          "p": 0.017209595585930455
+        }
+      },
+      "Finance": {
+        "diff_mean_over_seedpairs": 0.0016036675351239463,
+        "ci95": [
+          -0.03417278686066265,
+          0.03817252726309527
+        ],
+        "p_onesided_A_gt_B": 0.4314,
+        "n_boot": 10000,
+        "n_seed_pairs": 15,
+        "hierarchical": true,
+        "mcnemar_first_seed": {
+          "n01": 39,
+          "n10": 34,
+          "p": 0.6399729317539425
+        }
+      },
+      "Social": {
+        "diff_mean_over_seedpairs": 0.005952723229606279,
+        "ci95": [
+          -0.039453884160958554,
+          0.04862056055045473
+        ],
+        "p_onesided_A_gt_B": 0.3827,
+        "n_boot": 10000,
+        "n_seed_pairs": 15,
+        "hierarchical": true,
+        "mcnemar_first_seed": {
+          "n01": 42,
+          "n10": 47,
+          "p": 0.6718086491746104
+        }
+      },
+      "Retail": {
+        "diff_mean_over_seedpairs": 0.00801860941372791,
+        "ci95": [
+          -0.026339136032926546,
+          0.04443071793827252
+        ],
+        "p_onesided_A_gt_B": 0.3562,
+        "n_boot": 10000,
+        "n_seed_pairs": 15,
+        "hierarchical": true,
+        "mcnemar_first_seed": {
+          "n01": 24,
+          "n10": 21,
+          "p": 0.765991824244793
+        }
+      },
+      "Public": {
+        "diff_mean_over_seedpairs": 0.012873688355902213,
+        "ci95": [
+          -0.0388910796798706,
+          0.05041335722009131
+        ],
+        "p_onesided_A_gt_B": 0.2998,
+        "n_boot": 10000,
+        "n_seed_pairs": 15,
+        "hierarchical": true,
+        "mcnemar_first_seed": {
+          "n01": 8,
+          "n10": 14,
+          "p": 0.28627872467041016
+        }
+      }
+    },
+    "xlmr_supcon": {
+      "Tech": {
+        "diff_mean_over_seedpairs": -0.007481280562025105,
+        "ci95": [
+          -0.04740636025734768,
+          0.037451405912408406
+        ],
+        "p_onesided_A_gt_B": 0.6574,
+        "n_boot": 10000,
+        "n_seed_pairs": 25,
+        "hierarchical": true,
+        "mcnemar_first_seed": {
+          "n01": 75,
+          "n10": 55,
+          "p": 0.09525341143251803
+        }
+      },
+      "Finance": {
+        "diff_mean_over_seedpairs": -0.011890308603911293,
+        "ci95": [
+          -0.05881575605150442,
+          0.04201038329556676
+        ],
+        "p_onesided_A_gt_B": 0.7003,
+        "n_boot": 10000,
+        "n_seed_pairs": 25,
+        "hierarchical": true,
+        "mcnemar_first_seed": {
+          "n01": 46,
+          "n10": 28,
+          "p": 0.04739297550405176
+        }
+      },
+      "Social": {
+        "diff_mean_over_seedpairs": -0.008895482934899501,
+        "ci95": [
+          -0.06260261265124335,
+          0.039840130763570736
+        ],
+        "p_onesided_A_gt_B": 0.6244,
+        "n_boot": 10000,
+        "n_seed_pairs": 25,
+        "hierarchical": true,
+        "mcnemar_first_seed": {
+          "n01": 51,
+          "n10": 39,
+          "p": 0.24610644971627807
+        }
+      },
+      "Retail": {
+        "diff_mean_over_seedpairs": -0.01417464880771253,
+        "ci95": [
+          -0.0573142138053558,
+          0.035395153628049215
+        ],
+        "p_onesided_A_gt_B": 0.7376,
+        "n_boot": 10000,
+        "n_seed_pairs": 25,
+        "hierarchical": true,
+        "mcnemar_first_seed": {
+          "n01": 48,
+          "n10": 26,
+          "p": 0.014079981429530049
+        }
+      },
+      "Public": {
+        "diff_mean_over_seedpairs": -0.0032402153190811854,
+        "ci95": [
+          -0.05031350428562603,
+          0.04208408997407567
+        ],
+        "p_onesided_A_gt_B": 0.6008,
+        "n_boot": 10000,
+        "n_seed_pairs": 25,
+        "hierarchical": true,
+        "mcnemar_first_seed": {
+          "n01": 24,
+          "n10": 24,
+          "p": 1.0
+        }
+      }
+    },
+    "full": {
+      "Tech": {
+        "diff_mean_over_seedpairs": 0.02756593445928306,
+        "ci95": [
+          -0.04241737426210865,
+          0.08177945680478711
+        ],
+        "p_onesided_A_gt_B": 0.2122,
+        "n_boot": 10000,
+        "n_seed_pairs": 25,
+        "hierarchical": true,
+        "mcnemar_first_seed": {
+          "n01": 78,
+          "n10": 61,
+          "p": 0.17453244937059006
+        }
+      },
+      "Finance": {
+        "diff_mean_over_seedpairs": -0.001321958779714194,
+        "ci95": [
+          -0.03919166826568185,
+          0.03224796792591622
+        ],
+        "p_onesided_A_gt_B": 0.5345,
+        "n_boot": 10000,
+        "n_seed_pairs": 25,
+        "hierarchical": true,
+        "mcnemar_first_seed": {
+          "n01": 47,
+          "n10": 40,
+          "p": 0.5202915935750733
+        }
+      },
+      "Social": {
+        "diff_mean_over_seedpairs": 0.012482669349642506,
+        "ci95": [
+          -0.036461054344268023,
+          0.05889211621562481
+        ],
+        "p_onesided_A_gt_B": 0.2996,
+        "n_boot": 10000,
+        "n_seed_pairs": 25,
+        "hierarchical": true,
+        "mcnemar_first_seed": {
+          "n01": 50,
+          "n10": 64,
+          "p": 0.22323036245554564
+        }
+      },
+      "Retail": {
+        "diff_mean_over_seedpairs": -0.00034138068621136775,
+        "ci95": [
+          -0.05286440301582071,
+          0.040830606208271426
+        ],
+        "p_onesided_A_gt_B": 0.4658,
+        "n_boot": 10000,
+        "n_seed_pairs": 25,
+        "hierarchical": true,
+        "mcnemar_first_seed": {
+          "n01": 38,
+          "n10": 42,
+          "p": 0.7375543089843226
+        }
+      },
+      "Public": {
+        "diff_mean_over_seedpairs": 0.035586657875866165,
+        "ci95": [
+          -0.018107351154636096,
+          0.09776240853803367
+        ],
+        "p_onesided_A_gt_B": 0.1072,
+        "n_boot": 10000,
+        "n_seed_pairs": 25,
+        "hierarchical": true,
+        "mcnemar_first_seed": {
+          "n01": 15,
+          "n10": 34,
+          "p": 0.009399241523873059
+        }
+      }
+    },
+    "full_midinject": {
+      "Tech": {
+        "diff_mean_over_seedpairs": 0.0238600091676919,
+        "ci95": [
+          -0.028257982314050342,
+          0.07259028222223715
+        ],
+        "p_onesided_A_gt_B": 0.1765,
+        "n_boot": 10000,
+        "n_seed_pairs": 15,
+        "hierarchical": true,
+        "mcnemar_first_seed": {
+          "n01": 80,
+          "n10": 82,
+          "p": 0.9374089336007716
+        }
+      },
+      "Finance": {
+        "diff_mean_over_seedpairs": 0.0023081629274481095,
+        "ci95": [
+          -0.036551852273745654,
+          0.03549452539260262
+        ],
+        "p_onesided_A_gt_B": 0.429,
+        "n_boot": 10000,
+        "n_seed_pairs": 15,
+        "hierarchical": true,
+        "mcnemar_first_seed": {
+          "n01": 37,
+          "n10": 42,
+          "p": 0.6529643755164601
+        }
+      },
+      "Social": {
+        "diff_mean_over_seedpairs": 0.01935653471760539,
+        "ci95": [
+          -0.032525759953464385,
+          0.06809301186763811
+        ],
+        "p_onesided_A_gt_B": 0.2265,
+        "n_boot": 10000,
+        "n_seed_pairs": 15,
+        "hierarchical": true,
+        "mcnemar_first_seed": {
+          "n01": 57,
+          "n10": 61,
+          "p": 0.7825558614117508
+        }
+      },
+      "Retail": {
+        "diff_mean_over_seedpairs": 0.006756247699784571,
+        "ci95": [
+          -0.03032776443315829,
+          0.04195544966787931
+        ],
+        "p_onesided_A_gt_B": 0.3615,
+        "n_boot": 10000,
+        "n_seed_pairs": 15,
+        "hierarchical": true,
+        "mcnemar_first_seed": {
+          "n01": 41,
+          "n10": 43,
+          "p": 0.9132023622245978
+        }
+      },
+      "Public": {
+        "diff_mean_over_seedpairs": 0.026204468062878593,
+        "ci95": [
+          -0.02065263337402226,
+          0.08080193024571912
+        ],
+        "p_onesided_A_gt_B": 0.1555,
+        "n_boot": 10000,
+        "n_seed_pairs": 15,
+        "hierarchical": true,
+        "mcnemar_first_seed": {
+          "n01": 21,
+          "n10": 35,
+          "p": 0.08142681460950618
+        }
+      }
+    },
+    "full_mbert": {
+      "Tech": {
+        "diff_mean_over_seedpairs": -0.024248120605783623,
+        "ci95": [
+          -0.07620639818009818,
+          0.028843216914920422
+        ],
+        "p_onesided_A_gt_B": 0.8382,
+        "n_boot": 10000,
+        "n_seed_pairs": 15,
+        "hierarchical": true,
+        "mcnemar_first_seed": {
+          "n01": 98,
+          "n10": 60,
+          "p": 0.0031196232899818725
+        }
+      },
+      "Finance": {
+        "diff_mean_over_seedpairs": -0.05391128843031075,
+        "ci95": [
+          -0.10255207778592727,
+          -0.015153211668885651
+        ],
+        "p_onesided_A_gt_B": 0.997,
+        "n_boot": 10000,
+        "n_seed_pairs": 15,
+        "hierarchical": true,
+        "mcnemar_first_seed": {
+          "n01": 76,
+          "n10": 39,
+          "p": 0.0007171910479201684
+        }
+      },
+      "Social": {
+        "diff_mean_over_seedpairs": -0.03315280192248356,
+        "ci95": [
+          -0.09154769256891701,
+          0.010556276616697434
+        ],
+        "p_onesided_A_gt_B": 0.9286,
+        "n_boot": 10000,
+        "n_seed_pairs": 15,
+        "hierarchical": true,
+        "mcnemar_first_seed": {
+          "n01": 72,
+          "n10": 62,
+          "p": 0.4369905490859725
+        }
+      },
+      "Retail": {
+        "diff_mean_over_seedpairs": -0.020170222737768716,
+        "ci95": [
+          -0.06295255162626043,
+          0.02467450925776356
+        ],
+        "p_onesided_A_gt_B": 0.8177,
+        "n_boot": 10000,
+        "n_seed_pairs": 15,
+        "hierarchical": true,
+        "mcnemar_first_seed": {
+          "n01": 67,
+          "n10": 44,
+          "p": 0.03630649114131781
+        }
+      },
+      "Public": {
+        "diff_mean_over_seedpairs": -0.005869256768693446,
+        "ci95": [
+          -0.06671506847892278,
+          0.04023398693170229
+        ],
+        "p_onesided_A_gt_B": 0.6505,
+        "n_boot": 10000,
+        "n_seed_pairs": 15,
+        "hierarchical": true,
+        "mcnemar_first_seed": {
+          "n01": 36,
+          "n10": 40,
+          "p": 0.7310088822226056
+        }
+      }
+    },
+    "full_mdeberta": {
+      "Tech": {
+        "diff_mean_over_seedpairs": -0.00021882791890880752,
+        "ci95": [
+          -0.049014096813055595,
+          0.053413056047238346
+        ],
+        "p_onesided_A_gt_B": 0.4902,
+        "n_boot": 10000,
+        "n_seed_pairs": 15,
+        "hierarchical": true,
+        "mcnemar_first_seed": {
+          "n01": 76,
+          "n10": 78,
+          "p": 0.9358089200203937
+        }
+      },
+      "Finance": {
+        "diff_mean_over_seedpairs": 0.02050247500082233,
+        "ci95": [
+          -0.02324745458461561,
+          0.06109998713009064
+        ],
+        "p_onesided_A_gt_B": 0.1599,
+        "n_boot": 10000,
+        "n_seed_pairs": 15,
+        "hierarchical": true,
+        "mcnemar_first_seed": {
+          "n01": 41,
+          "n10": 56,
+          "p": 0.15481578503442855
+        }
+      },
+      "Social": {
+        "diff_mean_over_seedpairs": 0.03489825396633007,
+        "ci95": [
+          -0.019140520356451515,
+          0.08728625705622421
+        ],
+        "p_onesided_A_gt_B": 0.101,
+        "n_boot": 10000,
+        "n_seed_pairs": 15,
+        "hierarchical": true,
+        "mcnemar_first_seed": {
+          "n01": 46,
+          "n10": 75,
+          "p": 0.010611459925338256
+        }
+      },
+      "Retail": {
+        "diff_mean_over_seedpairs": 0.014657592811819902,
+        "ci95": [
+          -0.03181172665712746,
+          0.057493613023437834
+        ],
+        "p_onesided_A_gt_B": 0.2696,
+        "n_boot": 10000,
+        "n_seed_pairs": 15,
+        "hierarchical": true,
+        "mcnemar_first_seed": {
+          "n01": 46,
+          "n10": 42,
+          "p": 0.7493290032022802
+        }
+      },
+      "Public": {
+        "diff_mean_over_seedpairs": 0.019822692540423258,
+        "ci95": [
+          -0.030281582682084116,
+          0.07145953899094895
+        ],
+        "p_onesided_A_gt_B": 0.1868,
+        "n_boot": 10000,
+        "n_seed_pairs": 15,
+        "hierarchical": true,
+        "mcnemar_first_seed": {
+          "n01": 25,
+          "n10": 37,
+          "p": 0.16188140552559763
+        }
+      }
+    }
+  },
+  "holm_adjusted_median_p": {
+    "xlmr_dapt": 1.0,
+    "full_mdeberta": 1.0,
+    "full_midinject": 1.0,
+    "mdeberta_dapt": 1.0,
+    "full": 1.0,
+    "mdeberta_ft": 1.0,
+    "xlmr_film": 1.0,
+    "xlmr_add": 1.0,
+    "xlmr_supcon": 1.0,
+    "allma_ft": 1.0,
+    "berturk_ft": 1.0,
+    "full_mbert": 1.0,
+    "mbert_ft": 1.0
+  },
+  "note": "hierarchical bootstrap: uniform seed-pair draw + domain-stratified cluster (source-group) resample"
+}

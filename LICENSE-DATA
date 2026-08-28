@@ -1,0 +1,26 @@
+Data and result files in this repository -- everything under data/ and
+results/ -- are licensed under the Creative Commons Attribution 4.0
+International License (CC BY 4.0).
+
+You are free to share and adapt this material for any purpose, including
+commercially, provided you give appropriate credit, link to the license, and
+indicate if changes were made.
+
+Full license text: https://creativecommons.org/licenses/by/4.0/legalcode
+Summary: https://creativecommons.org/licenses/by/4.0/
+
+Attribution:
+
+  Aykaç, Y. E., Ozkan, M., and Samet, R. (2026). SentiAzNet: A
+  Leakage-Audited, Multi-Domain Azerbaijani Sentiment Benchmark and a
+  Controlled Comparison of Encoders, Adapted LLMs, and Cross-Lingual Transfer.
+
+WHAT THIS COVERS AND WHAT IT DOES NOT
+
+This license covers the released index, annotations, splits and result files
+as a compiled dataset. It does not grant rights in the underlying comment
+text, which is not distributed here and remains subject to the terms of the
+platforms on which it was posted. See data/README.md.
+
+Source code under src/ and scripts/ is licensed separately under the MIT
+License; see LICENSE.

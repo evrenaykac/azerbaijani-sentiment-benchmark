@@ -1,0 +1,52 @@
+{
+  "protocol": {
+    "annotators": "A1, A2, A3 (bagimsiz), A4 karar verici",
+    "batch1_blind": "10.000 oge; uc bagimsiz etiketleyici; A4 TUM ogeleri inceledi (yalniz anlasmazliklari degil)",
+    "batch2_verification": "1.257 gold_test ogesi; ayni uc etiketleyici + A4; etiketleme sayfasinda onceki tek-etiketleyici karari GORUNURDU - bu parti kor yeniden-etiketleme degil, karar-onayli DOGRULAMA turudur ve makalede boyle tarif edilmelidir"
+  },
+  "batch1_blind": {
+    "n_items": 10000,
+    "fleiss_kappa": 0.7558,
+    "pairwise_cohen_kappa": {
+      "A1-A2": 0.7555,
+      "A1-A3": 0.7615,
+      "A2-A3": 0.7504
+    },
+    "unanimous_pct": 76.87,
+    "majority_2of3_pct": 23.12,
+    "no_majority_n": 1,
+    "adjudicator_overrode_majority_n": 102,
+    "kappa_by_domain": {
+      "Finance": 0.6848,
+      "Public": 0.7827,
+      "Retail": 0.7443,
+      "Social": 0.7525,
+      "Tech": 0.7544
+    }
+  },
+  "batch2_verification": {
+    "n_items": 1257,
+    "fleiss_kappa": 0.7516,
+    "pairwise_cohen_kappa": {
+      "A1-A2": 0.7684,
+      "A1-A3": 0.7493,
+      "A2-A3": 0.7373
+    },
+    "unanimous_pct": 80.51,
+    "majority_2of3_pct": 19.49,
+    "no_majority_n": 0,
+    "adjudicator_overrode_majority_n": 0
+  },
+  "triple_annotated_coverage_pct": {
+    "gold_dev": 40.0,
+    "gold_test": 100.0,
+    "gold_train": 10.8
+  },
+  "label_layers": {
+    "gold_triple_annotated": 4338,
+    "gold_single_annotator": 5662,
+    "bulk_triple_annotated": 6912,
+    "bulk_single_annotator": 80157,
+    "bulk_unlabeled": 174209
+  }
+}
