@@ -1,0 +1,106 @@
+{
+  "regime": "lodo",
+  "baseline": "mdeberta_ft",
+  "seeds": [
+    13,
+    21,
+    42,
+    87,
+    100
+  ],
+  "scopes": [
+    "Tech",
+    "Finance",
+    "Social",
+    "Retail",
+    "Public"
+  ],
+  "comparisons": {
+    "full": {
+      "Tech": {
+        "diff_mean_over_seedpairs": -0.028059182820751868,
+        "ci95": [
+          -0.06181943160058268,
+          0.007406045794575549
+        ],
+        "p_onesided_A_gt_B": 0.9418,
+        "n_boot": 10000,
+        "n_seed_pairs": 15,
+        "hierarchical": true,
+        "mcnemar_first_seed": {
+          "n01": 87,
+          "n10": 63,
+          "p": 0.06002721569726554
+        }
+      },
+      "Finance": {
+        "diff_mean_over_seedpairs": -0.03197289393022204,
+        "ci95": [
+          -0.08491259000319051,
+          0.018565801034839038
+        ],
+        "p_onesided_A_gt_B": 0.9044,
+        "n_boot": 10000,
+        "n_seed_pairs": 15,
+        "hierarchical": true,
+        "mcnemar_first_seed": {
+          "n01": 62,
+          "n10": 42,
+          "p": 0.06192637987862735
+        }
+      },
+      "Social": {
+        "diff_mean_over_seedpairs": -0.01249489240504451,
+        "ci95": [
+          -0.05441044335517173,
+          0.03030668798797952
+        ],
+        "p_onesided_A_gt_B": 0.7275,
+        "n_boot": 10000,
+        "n_seed_pairs": 15,
+        "hierarchical": true,
+        "mcnemar_first_seed": {
+          "n01": 56,
+          "n10": 54,
+          "p": 0.9240973917982831
+        }
+      },
+      "Retail": {
+        "diff_mean_over_seedpairs": -0.0009218827624134137,
+        "ci95": [
+          -0.06989158131705518,
+          0.08734987637779312
+        ],
+        "p_onesided_A_gt_B": 0.5506,
+        "n_boot": 10000,
+        "n_seed_pairs": 15,
+        "hierarchical": true,
+        "mcnemar_first_seed": {
+          "n01": 69,
+          "n10": 38,
+          "p": 0.003529272035686486
+        }
+      },
+      "Public": {
+        "diff_mean_over_seedpairs": -0.026923631950586578,
+        "ci95": [
+          -0.10330875679057384,
+          0.035163922038285104
+        ],
+        "p_onesided_A_gt_B": 0.8412,
+        "n_boot": 10000,
+        "n_seed_pairs": 15,
+        "hierarchical": true,
+        "mcnemar_first_seed": {
+          "n01": 29,
+          "n10": 24,
+          "p": 0.5831321542611763
+        }
+      }
+    }
+  },
+  "holm_adjusted_median_p": {
+    "full": 0.8412
+  },
+  "note": "hierarchical bootstrap: uniform seed-pair draw + domain-stratified cluster (source-group) resample"
+}

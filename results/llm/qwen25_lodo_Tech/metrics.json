@@ -1,0 +1,118 @@
+{
+  "run_id": "llm.qwen25_lodo_Tech",
+  "system": "qlora_qwen25",
+  "model_id": "Qwen/Qwen2.5-7B-Instruct",
+  "regime": "lodo",
+  "scope": "Tech",
+  "seed": 42,
+  "qlora": {
+    "r": 16,
+    "alpha": 32,
+    "dropout": 0.05,
+    "lr": 0.0001,
+    "batch_size": 4,
+    "grad_accum": 8,
+    "epochs": 1,
+    "max_len": 160
+  },
+  "composition": {
+    "bulk_human": 55252,
+    "bulk_silver": 0,
+    "gold_train": 3707,
+    "train_total": 58959,
+    "dev": 1483,
+    "test": 776,
+    "train_by_domain_label": {
+      "Finance|negative": 6238,
+      "Finance|neutral": 5370,
+      "Finance|positive": 6982,
+      "Public|negative": 3293,
+      "Public|neutral": 2389,
+      "Public|positive": 2119,
+      "Retail|negative": 4610,
+      "Retail|neutral": 1830,
+      "Retail|positive": 6228,
+      "Social|negative": 5476,
+      "Social|neutral": 5050,
+      "Social|positive": 9374
+    }
+  },
+  "test": {
+    "macro_f1": 0.7364655447749713,
+    "per_class_f1": {
+      "negative": 0.7837398373983739,
+      "neutral": 0.6345609065155807,
+      "positive": 0.791095890410959
+    },
+    "confusion_row_norm": [
+      [
+        0.8197,
+        0.0986,
+        0.0816
+      ],
+      [
+        0.237,
+        0.6474,
+        0.1156
+      ],
+      [
+        0.1262,
+        0.1262,
+        0.7476
+      ]
+    ],
+    "confusion_counts": [
+      [
+        241,
+        29,
+        24
+      ],
+      [
+        41,
+        112,
+        20
+      ],
+      [
+        39,
+        39,
+        231
+      ]
+    ],
+    "n": 776,
+    "by_domain": {
+      "Tech": {
+        "macro_f1": 0.7364655447749713,
+        "per_class_f1": {
+          "negative": 0.7837398373983739,
+          "neutral": 0.6345609065155807,
+          "positive": 0.791095890410959
+        },
+        "confusion_row_norm": [
+          [
+            0.8197,
+            0.0986,
+            0.0816
+          ],
+          [
+            0.237,
+            0.6474,
+            0.1156
+          ],
+          [
+            0.1262,
+            0.1262,
+            0.7476
+          ]
+        ],
+        "n": 776
+      }
+    },
+    "macro_f1_domain_avg_unweighted": 0.7364655447749713
+  },
+  "wall_seconds": 5940.3,
+  "thermal": {
+    "thermal_pauses": 0,
+    "thermal_pause_seconds": 0.0,
+    "max_temp_c": 75
+  }
+}

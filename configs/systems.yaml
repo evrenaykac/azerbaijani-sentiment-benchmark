@@ -1,0 +1,125 @@
+# =============================================================================
+# System registry. A system is a named bundle of flags.
+#   backbone     xlmr | mbert | mdeberta | berturk | allma
+#   dapt         use the scope-matched continued-pretraining checkpoint
+#   inject       none | additive | film        feats  all | pol | morph
+#   inject_point post | mid (+ mid_layer)
+#   supcon       add the supervised contrastive term
+#   sampler      shuffle | stratified | indomain | random
+#
+# Design notes. The registry was fixed before the runs reported in the article,
+# partly from measurements on the earlier (unaudited, teacher-labeled)
+# evaluation that Section VII of the article re-examines. Those measurements
+# motivated the design; they are not results of the article:
+#   * the contrastive term appeared to carry most of the earlier LODO gain, so
+#     every component is isolated rather than shown only as a cumulative chain;
+#   * mid-layer and post-encoder injection are both first-class rows;
+#   * data strategy is its own axis, because teacher-generated silver labels
+#     cost 8.6 LODO points in that evaluation.
+# =============================================================================
+
+systems:
+  # --- fine-tuning baselines --------------------------------------------------
+  xlmr_ft:        {backbone: xlmr,      dapt: false, inject: none, supcon: false}
+  mbert_ft:       {backbone: mbert,     dapt: false, inject: none, supcon: false}
+  # The strongest plain backbone, also run with domain-adaptive pretraining.
+  mdeberta_dapt: {backbone: mdeberta, dapt: true, inject: none, supcon: false}
+  mdeberta_ft:    {backbone: mdeberta,  dapt: false, inject: none, supcon: false}
+  berturk_ft:     {backbone: berturk,   dapt: false, inject: none, supcon: false}
+  allma_ft:       {backbone: allma,     dapt: false, inject: none, supcon: false}
+
+  # --- adaptation baselines ---------------------------------------------------
+  xlmr_dapt:      {backbone: xlmr, dapt: true,  inject: none, supcon: false}
+  xlmr_dann:      {backbone: xlmr, dapt: false, inject: none, supcon: false, dann: true}
+
+  # --- single components, each isolated --------------------------------------
+  xlmr_add:            {backbone: xlmr, dapt: false, inject: additive, feats: all,   supcon: false}
+  xlmr_film:           {backbone: xlmr, dapt: false, inject: film,     feats: all,   supcon: false}
+  xlmr_film_pol:       {backbone: xlmr, dapt: false, inject: film,     feats: pol,   supcon: false}
+  xlmr_film_morph:     {backbone: xlmr, dapt: false, inject: film,     feats: morph, supcon: false}
+  xlmr_film_mid:       {backbone: xlmr, dapt: false, inject: film, feats: all, supcon: false,
+                        inject_point: mid, mid_layer: 6}
+  xlmr_supcon:         {backbone: xlmr, dapt: false, inject: none, supcon: true, sampler: stratified}
+
+  # --- cumulative chain -------------------------------------------------------
+  xlmr_dapt_film:      {backbone: xlmr, dapt: true, inject: film, feats: all, supcon: false}
+  xlmr_dapt_supcon:    {backbone: xlmr, dapt: true, inject: none, supcon: true, sampler: stratified}
+  xlmr_film_supcon:    {backbone: xlmr, dapt: false, inject: film, feats: all, supcon: true, sampler: stratified}
+  full:                {backbone: xlmr, dapt: true, inject: film, feats: all, supcon: true, sampler: stratified}
+  full_midinject:      {backbone: xlmr, dapt: true, inject: film, feats: all, supcon: true,
+                        sampler: stratified, inject_point: mid, mid_layer: 6}
+
+  # --- backbone generality: the complete method on two further encoders -------
+  full_mbert:          {backbone: mbert,    dapt: true, inject: film, feats: all, supcon: true, sampler: stratified}
+  full_mdeberta:       {backbone: mdeberta, dapt: true, inject: film, feats: all, supcon: true, sampler: stratified}
+
+  # --- SupCon sampler ablations ----------------------------------------------
+  full_sampler_random:   {backbone: xlmr, dapt: true, inject: film, feats: all, supcon: true, sampler: random}
+  full_sampler_indomain: {backbone: xlmr, dapt: true, inject: film, feats: all, supcon: true, sampler: indomain}
+
+tables:
+  indomain:
+    - xlmr_ft
+    - mdeberta_dapt
+    - mbert_ft
+    - mdeberta_ft
+    - berturk_ft
+    - allma_ft
+    - xlmr_dapt
+    - xlmr_add
+    - xlmr_film
+    - xlmr_supcon
+    - full
+    - full_midinject
+    - full_mbert
+    - full_mdeberta
+
+  # LODO is the paper's claim, so the component decomposition lives here in full
+  # rather than being trimmed to save compute.
+  lodo:
+    - xlmr_ft
+    - mdeberta_dapt
+    - mbert_ft
+    - mdeberta_ft
+    - allma_ft
+    - xlmr_dapt
+    - xlmr_dann
+    - xlmr_film
+    - xlmr_supcon
+    - xlmr_dapt_film
+    - xlmr_dapt_supcon
+    - xlmr_film_supcon
+    - full
+    - full_midinject
+    - full_mbert
+    - full_mdeberta
+
+  indomain_extra_ablation:
+    - xlmr_film_pol
+    - xlmr_film_morph
+    - xlmr_film_mid
+    - xlmr_dapt_film
+  lodo_extra_ablation:
+    - xlmr_film_pol
+    - xlmr_film_morph
+    - xlmr_film_mid
+
+  # Data strategy is defined for both regimes: the earlier evaluation varied it
+  # only in the pooled regime, which is why the LODO effect of teacher labels
+  # surfaced late (Section VII of the article examines it).
+  data_strategy:
+    systems: [full, xlmr_ft]
+    pool_modes: ["gold_only", "gold+bulk"]
+    silver_fracs: [0.0, 0.25, 0.5, 0.75, 1.0]
+    regimes: ["lodo", "pooled"]
+
+  sensitivity_lambda_tau:
+    lambdas: [0.1, 0.5]
+    taus: [0.05, 0.07, 0.20]
+
+    # Five seeds under LODO instead of three for these systems. xlmr_supcon is
+  # included because, in the earlier evaluation, the contrastive term appeared
+  # to carry most of the LODO gain; the full recipe is tested against it directly.
+  headline_lodo: [xlmr_ft, xlmr_supcon, full, full_midinject, full_mdeberta, full_mbert, mdeberta_dapt]
+  headline_indomain: [xlmr_ft, full, xlmr_supcon]
+  sampler_targets: [Public, Tech]

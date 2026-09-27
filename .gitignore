@@ -1,0 +1,19 @@
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+env/
+.DS_Store
+*.egg-info/
+.pytest_cache/
+
+# Level-3 artifacts: regenerated locally, never committed
+data/corpus_with_text.parquet
+data/corpus_with_text.csv
+data/lexicon/*.xlsx
+data/lexicon/*.csv
+runs/
+predictions*.tar.gz
+*.ckpt
+*.safetensors

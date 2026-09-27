@@ -1,0 +1,161 @@
+{
+  "counts": {
+    "gold_train": 5000,
+    "gold_dev": 2000,
+    "gold_test": 3000
+  },
+  "by_partition": {
+    "gold_dev": {
+      "n": 2000,
+      "negative": 696,
+      "neutral": 588,
+      "positive": 716
+    },
+    "gold_test": {
+      "n": 3000,
+      "negative": 1044,
+      "neutral": 882,
+      "positive": 1074
+    },
+    "gold_train": {
+      "n": 5000,
+      "negative": 1742,
+      "neutral": 1468,
+      "positive": 1790
+    }
+  },
+  "by_domain": {
+    "Finance": {
+      "n": 2151,
+      "negative": 731,
+      "neutral": 779,
+      "positive": 641
+    },
+    "Public": {
+      "n": 1268,
+      "negative": 560,
+      "neutral": 423,
+      "positive": 285
+    },
+    "Retail": {
+      "n": 1955,
+      "negative": 590,
+      "neutral": 734,
+      "positive": 631
+    },
+    "Social": {
+      "n": 2040,
+      "negative": 621,
+      "neutral": 426,
+      "positive": 993
+    },
+    "Tech": {
+      "n": 2586,
+      "negative": 980,
+      "neutral": 576,
+      "positive": 1030
+    }
+  },
+  "by_partition_domain": {
+    "gold_train": {
+      "Finance": {
+        "n": 1076,
+        "negative": 366,
+        "neutral": 389,
+        "positive": 321
+      },
+      "Public": {
+        "n": 633,
+        "negative": 280,
+        "neutral": 211,
+        "positive": 142
+      },
+      "Retail": {
+        "n": 978,
+        "negative": 295,
+        "neutral": 367,
+        "positive": 316
+      },
+      "Social": {
+        "n": 1020,
+        "negative": 311,
+        "neutral": 213,
+        "positive": 496
+      },
+      "Tech": {
+        "n": 1293,
+        "negative": 490,
+        "neutral": 288,
+        "positive": 515
+      }
+    },
+    "gold_dev": {
+      "Finance": {
+        "n": 430,
+        "negative": 146,
+        "neutral": 156,
+        "positive": 128
+      },
+      "Public": {
+        "n": 254,
+        "negative": 112,
+        "neutral": 85,
+        "positive": 57
+      },
+      "Retail": {
+        "n": 391,
+        "negative": 118,
+        "neutral": 147,
+        "positive": 126
+      },
+      "Social": {
+        "n": 408,
+        "negative": 124,
+        "neutral": 85,
+        "positive": 199
+      },
+      "Tech": {
+        "n": 517,
+        "negative": 196,
+        "neutral": 115,
+        "positive": 206
+      }
+    },
+    "gold_test": {
+      "Finance": {
+        "n": 645,
+        "negative": 219,
+        "neutral": 234,
+        "positive": 192
+      },
+      "Public": {
+        "n": 381,
+        "negative": 168,
+        "neutral": 127,
+        "positive": 86
+      },
+      "Retail": {
+        "n": 586,
+        "negative": 177,
+        "neutral": 220,
+        "positive": 189
+      },
+      "Social": {
+        "n": 612,
+        "negative": 186,
+        "neutral": 128,
+        "positive": 298
+      },
+      "Tech": {
+        "n": 776,
+        "negative": 294,
+        "neutral": 173,
+        "positive": 309
+      }
+    }
+  },
+  "agreement": {
+    "available": false,
+    "note": "annotator-level records were not supplied with this export"
+  }
+}

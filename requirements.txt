@@ -1,0 +1,8 @@
+# Levels 1 and 2 of docs/reproducibility.md (verification and re-analysis).
+# No GPU, no model downloads. For the full campaign also install
+# requirements-core.txt, requirements-llm.txt and requirements-transfer.txt.
+pandas>=2.2
+pyarrow>=16
+numpy>=2.0,<3
+scipy>=1.13
+scikit-learn>=1.5

@@ -1,0 +1,50 @@
+{
+ "description": "Test 2 of Section VII: the earlier split's own test sets, teacher-label (Stage 2) runs of full vs xlmr_ft, reweighted per class from the empirical test prior to the human-labelled training-pool prior of the earlier split (negative/neutral/positive = 34.2/21.8/43.9). Weighted macro-F1 is exact (no resampling).",
+ "target_prior": {
+  "negative": 0.342,
+  "neutral": 0.218,
+  "positive": 0.439
+ },
+ "rows": [
+  {
+   "target_domain": "Public",
+   "observed_gap_points": 9.559061608852387,
+   "reweighted_gap_points": 12.687360270867948,
+   "delta_points": 3.1282986620155606,
+   "max_item_weight": 3.3448594225293253,
+   "n_seeds": 3
+  },
+  {
+   "target_domain": "Finance",
+   "observed_gap_points": 1.68449807974681,
+   "reweighted_gap_points": 4.864068404752753,
+   "delta_points": 3.1795703250059426,
+   "max_item_weight": 4.534770881993104,
+   "n_seeds": 3
+  },
+  {
+   "target_domain": "Social",
+   "observed_gap_points": 1.5059083538606446,
+   "reweighted_gap_points": 3.8850807852409464,
+   "delta_points": 2.3791724313803018,
+   "max_item_weight": 2.3571112095702262,
+   "n_seeds": 3
+  },
+  {
+   "target_domain": "Tech",
+   "observed_gap_points": 0.995785545633073,
+   "reweighted_gap_points": 2.775768791740267,
+   "delta_points": 1.7799832461071938,
+   "max_item_weight": 3.2891376224709554,
+   "n_seeds": 3
+  },
+  {
+   "target_domain": "Retail",
+   "observed_gap_points": -1.4040351284891264,
+   "reweighted_gap_points": -0.42205405712398464,
+   "delta_points": 0.9819810713651418,
+   "max_item_weight": 3.573676617794265,
+   "n_seeds": 3
+  }
+ ]
+}

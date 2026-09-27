@@ -1,0 +1,86 @@
+{
+ "regime": "lodo",
+ "split": "earlier_v1",
+ "condition": "earlier (unaudited) split, training pool = gold-train + human-labelled bulk only (silver_frac = 0.0); three seeds (13, 42, 100)",
+ "system": "full",
+ "baseline": "xlmr_ft",
+ "seeds": [
+  13,
+  42,
+  100
+ ],
+ "lodo_average": {
+  "full": 0.6948094019492157,
+  "xlmr_ft": 0.6899354475645871
+ },
+ "comparisons": {
+  "full": {
+   "Tech": {
+    "diff_mean_over_seedpairs": 0.022008545260771267,
+    "ci95": [
+     -0.033432830298726304,
+     0.07831099237223274
+    ],
+    "p_onesided_A_gt_B": 0.2191,
+    "n_boot": 10000,
+    "n_seed_pairs": 9,
+    "hierarchical": true,
+    "full_mean_macro_f1": 0.6885404587447018,
+    "xlmr_ft_mean_macro_f1": 0.6665319134839306
+   },
+   "Finance": {
+    "diff_mean_over_seedpairs": 0.021534294766249684,
+    "ci95": [
+     -0.026620943741646422,
+     0.07643649466451277
+    ],
+    "p_onesided_A_gt_B": 0.2097,
+    "n_boot": 10000,
+    "n_seed_pairs": 9,
+    "hierarchical": true,
+    "full_mean_macro_f1": 0.7445169604844576,
+    "xlmr_ft_mean_macro_f1": 0.7229826657182078
+   },
+   "Social": {
+    "diff_mean_over_seedpairs": 0.0035532726628854094,
+    "ci95": [
+     -0.08782965896547372,
+     0.08216300241694524
+    ],
+    "p_onesided_A_gt_B": 0.4762,
+    "n_boot": 10000,
+    "n_seed_pairs": 9,
+    "hierarchical": true,
+    "full_mean_macro_f1": 0.6590915308765308,
+    "xlmr_ft_mean_macro_f1": 0.6555382582136454
+   },
+   "Retail": {
+    "diff_mean_over_seedpairs": -0.007511734277329245,
+    "ci95": [
+     -0.052307114722200614,
+     0.03002456360267446
+    ],
+    "p_onesided_A_gt_B": 0.6306,
+    "n_boot": 10000,
+    "n_seed_pairs": 9,
+    "hierarchical": true,
+    "full_mean_macro_f1": 0.662800267582902,
+    "xlmr_ft_mean_macro_f1": 0.6703120018602314
+   },
+   "Public": {
+    "diff_mean_over_seedpairs": -0.01521460648943392,
+    "ci95": [
+     -0.06116279634740079,
+     0.03109933413765471
+    ],
+    "p_onesided_A_gt_B": 0.7665,
+    "n_boot": 10000,
+    "n_seed_pairs": 9,
+    "hierarchical": true,
+    "full_mean_macro_f1": 0.7190977920574864,
+    "xlmr_ft_mean_macro_f1": 0.7343123985469203
+   }
+  }
+ },
+ "note": "Hierarchical cluster-aware paired bootstrap identical to azsent.stats_tests (seed pair drawn uniformly, then source groups resampled with replacement within the target domain); groups from the earlier split gold_test index."
+}

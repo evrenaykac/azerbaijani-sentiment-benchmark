@@ -1,0 +1,71 @@
+{
+  "lexicon_unigrams": 1714,
+  "lexicon_bigrams": 768,
+  "match_mode": "prefix",
+  "min_prefix_len": 4,
+  "gold_overall": {
+    "tokens": 163838,
+    "exact_hits": 6982,
+    "exact_pct": 4.26,
+    "prefix_extra_hits": 2777,
+    "prefix_extra_pct": 1.69,
+    "combined_pct": 5.96,
+    "comments_with_any_hit_pct": 53.12
+  },
+  "gold_by_domain": {
+    "Finance": {
+      "tokens": 35536,
+      "exact_hits": 1549,
+      "exact_pct": 4.36,
+      "prefix_extra_hits": 552,
+      "prefix_extra_pct": 1.55,
+      "combined_pct": 5.91,
+      "comments_with_any_hit_pct": 54.25
+    },
+    "Public": {
+      "tokens": 32381,
+      "exact_hits": 1123,
+      "exact_pct": 3.47,
+      "prefix_extra_hits": 653,
+      "prefix_extra_pct": 2.02,
+      "combined_pct": 5.48,
+      "comments_with_any_hit_pct": 60.09
+    },
+    "Retail": {
+      "tokens": 34060,
+      "exact_hits": 1503,
+      "exact_pct": 4.41,
+      "prefix_extra_hits": 515,
+      "prefix_extra_pct": 1.51,
+      "combined_pct": 5.92,
+      "comments_with_any_hit_pct": 54.42
+    },
+    "Social": {
+      "tokens": 27245,
+      "exact_hits": 1229,
+      "exact_pct": 4.51,
+      "prefix_extra_hits": 446,
+      "prefix_extra_pct": 1.64,
+      "combined_pct": 6.15,
+      "comments_with_any_hit_pct": 49.02
+    },
+    "Tech": {
+      "tokens": 34616,
+      "exact_hits": 1578,
+      "exact_pct": 4.56,
+      "prefix_extra_hits": 611,
+      "prefix_extra_pct": 1.77,
+      "combined_pct": 6.32,
+      "comments_with_any_hit_pct": 51.01
+    }
+  },
+  "bulk_overall": {
+    "tokens": 289976,
+    "exact_hits": 12022,
+    "exact_pct": 4.15,
+    "prefix_extra_hits": 4842,
+    "prefix_extra_pct": 1.67,
+    "combined_pct": 5.82,
+    "comments_with_any_hit_pct": 47.94
+  }
+}

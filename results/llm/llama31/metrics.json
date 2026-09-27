@@ -1,0 +1,225 @@
+{
+  "run_id": "llm.llama31",
+  "system": "qlora_llama31",
+  "model_id": "meta-llama/Llama-3.1-8B-Instruct",
+  "regime": "pooled",
+  "scope": "all",
+  "seed": 42,
+  "qlora": {
+    "r": 16,
+    "alpha": 32,
+    "dropout": 0.05,
+    "lr": 0.0001,
+    "batch_size": 4,
+    "grad_accum": 8,
+    "epochs": 1,
+    "max_len": 160
+  },
+  "composition": {
+    "bulk_human": 82589,
+    "bulk_silver": 0,
+    "gold_train": 5000,
+    "train_total": 87589,
+    "dev": 2000,
+    "test": 3000,
+    "train_by_domain_label": {
+      "Finance|negative": 6238,
+      "Finance|neutral": 5370,
+      "Finance|positive": 6982,
+      "Public|negative": 3293,
+      "Public|neutral": 2389,
+      "Public|positive": 2119,
+      "Retail|negative": 4610,
+      "Retail|neutral": 1830,
+      "Retail|positive": 6228,
+      "Social|negative": 5476,
+      "Social|neutral": 5050,
+      "Social|positive": 9374,
+      "Tech|negative": 9708,
+      "Tech|neutral": 6976,
+      "Tech|positive": 11946
+    }
+  },
+  "test": {
+    "macro_f1": 0.7742914906316237,
+    "per_class_f1": {
+      "negative": 0.802547770700637,
+      "neutral": 0.704191616766467,
+      "positive": 0.8161350844277674
+    },
+    "confusion_row_norm": [
+      [
+        0.8448,
+        0.092,
+        0.0632
+      ],
+      [
+        0.195,
+        0.6667,
+        0.1383
+      ],
+      [
+        0.0931,
+        0.0968,
+        0.8101
+      ]
+    ],
+    "confusion_counts": [
+      [
+        882,
+        96,
+        66
+      ],
+      [
+        172,
+        588,
+        122
+      ],
+      [
+        100,
+        104,
+        870
+      ]
+    ],
+    "n": 3000,
+    "by_domain": {
+      "Finance": {
+        "macro_f1": 0.833252992719793,
+        "per_class_f1": {
+          "negative": 0.8232662192393736,
+          "neutral": 0.8516949152542372,
+          "positive": 0.8247978436657682
+        },
+        "confusion_row_norm": [
+          [
+            0.8402,
+            0.0959,
+            0.0639
+          ],
+          [
+            0.0897,
+            0.859,
+            0.0513
+          ],
+          [
+            0.1198,
+            0.0833,
+            0.7969
+          ]
+        ],
+        "n": 645
+      },
+      "Public": {
+        "macro_f1": 0.7838976092672257,
+        "per_class_f1": {
+          "negative": 0.8579387186629527,
+          "neutral": 0.7008547008547008,
+          "positive": 0.7928994082840237
+        },
+        "confusion_row_norm": [
+          [
+            0.9167,
+            0.0655,
+            0.0179
+          ],
+          [
+            0.252,
+            0.6457,
+            0.1024
+          ],
+          [
+            0.0581,
+            0.1628,
+            0.7791
+          ]
+        ],
+        "n": 381
+      },
+      "Retail": {
+        "macro_f1": 0.7097024815109264,
+        "per_class_f1": {
+          "negative": 0.7161803713527851,
+          "neutral": 0.6548223350253807,
+          "positive": 0.7581047381546134
+        },
+        "confusion_row_norm": [
+          [
+            0.7627,
+            0.1356,
+            0.1017
+          ],
+          [
+            0.2227,
+            0.5864,
+            0.1909
+          ],
+          [
+            0.0847,
+            0.1111,
+            0.8042
+          ]
+        ],
+        "n": 586
+      },
+      "Social": {
+        "macro_f1": 0.7413676277167669,
+        "per_class_f1": {
+          "negative": 0.8083989501312336,
+          "neutral": 0.5665236051502146,
+          "positive": 0.8491803278688524
+        },
+        "confusion_row_norm": [
+          [
+            0.828,
+            0.0968,
+            0.0753
+          ],
+          [
+            0.1797,
+            0.5156,
+            0.3047
+          ],
+          [
+            0.0604,
+            0.0705,
+            0.8691
+          ]
+        ],
+        "n": 612
+      },
+      "Tech": {
+        "macro_f1": 0.759984948036295,
+        "per_class_f1": {
+          "negative": 0.804416403785489,
+          "neutral": 0.6528189910979229,
+          "positive": 0.8227194492254734
+        },
+        "confusion_row_norm": [
+          [
+            0.8673,
+            0.0748,
+            0.0578
+          ],
+          [
+            0.2717,
+            0.6358,
+            0.0925
+          ],
+          [
+            0.123,
+            0.1036,
+            0.7735
+          ]
+        ],
+        "n": 776
+      }
+    },
+    "macro_f1_domain_avg_unweighted": 0.7656411318502014
+  },
+  "wall_seconds": 9435.2,
+  "thermal": {
+    "thermal_pauses": 0,
+    "thermal_pause_seconds": 0.0,
+    "max_temp_c": 76
+  }
+}

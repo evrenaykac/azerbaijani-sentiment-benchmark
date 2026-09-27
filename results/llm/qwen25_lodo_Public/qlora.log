@@ -1,0 +1,25 @@
+17:37:29 | INFO | qwen25 step 100/2493 loss 0.8337
+17:42:28 | INFO | qwen25 step 200/2493 loss 0.2294
+17:47:27 | INFO | qwen25 step 300/2493 loss 0.4457
+17:52:26 | INFO | qwen25 step 400/2493 loss 0.4722
+17:57:29 | INFO | qwen25 step 500/2493 loss 0.5278
+18:02:28 | INFO | qwen25 step 600/2493 loss 0.7075
+18:07:28 | INFO | qwen25 step 700/2493 loss 1.5682
+18:12:26 | INFO | qwen25 step 800/2493 loss 0.5007
+18:17:25 | INFO | qwen25 step 900/2493 loss 0.2219
+18:22:25 | INFO | qwen25 step 1000/2493 loss 0.6725
+18:27:22 | INFO | qwen25 step 1100/2493 loss 0.4753
+18:32:21 | INFO | qwen25 step 1200/2493 loss 0.2079
+18:37:20 | INFO | qwen25 step 1300/2493 loss 0.5520
+18:42:18 | INFO | qwen25 step 1400/2493 loss 1.4992
+18:47:18 | INFO | qwen25 step 1500/2493 loss 1.1871
+18:52:17 | INFO | qwen25 step 1600/2493 loss 0.2528
+18:57:17 | INFO | qwen25 step 1700/2493 loss 0.8809
+19:02:15 | INFO | qwen25 step 1800/2493 loss 1.1232
+19:07:16 | INFO | qwen25 step 1900/2493 loss 0.1454
+19:12:17 | INFO | qwen25 step 2000/2493 loss 0.0762
+19:17:16 | INFO | qwen25 step 2100/2493 loss 0.6545
+19:22:16 | INFO | qwen25 step 2200/2493 loss 0.8955
+19:27:18 | INFO | qwen25 step 2300/2493 loss 0.6860
+19:32:19 | INFO | qwen25 step 2400/2493 loss 0.5482
+19:37:50 | INFO | QLoRA qwen25 (lodo/Public) done: macro-F1 0.7522

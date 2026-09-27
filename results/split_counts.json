@@ -1,0 +1,27 @@
+{
+  "gold": {
+    "gold_train": 5000,
+    "gold_dev": 2000,
+    "gold_test": 3000
+  },
+  "bulk": {
+    "bulk_train": 248140,
+    "bulk_dev": 13138
+  },
+  "bulk_by_domain": {
+    "bulk_dev": {
+      "Finance": 2691,
+      "Public": 1814,
+      "Retail": 2938,
+      "Social": 2395,
+      "Tech": 3300
+    },
+    "bulk_train": {
+      "Finance": 42631,
+      "Public": 44167,
+      "Retail": 29673,
+      "Social": 79771,
+      "Tech": 51898
+    }
+  }
+}

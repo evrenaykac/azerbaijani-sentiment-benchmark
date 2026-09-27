@@ -1,0 +1,5 @@
+# LLM block (QLoRA + OpenAI API)
+peft>=0.14
+bitsandbytes>=0.46
+accelerate>=1.2
+openai>=1.50

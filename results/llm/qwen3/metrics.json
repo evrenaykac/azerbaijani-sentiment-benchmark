@@ -1,0 +1,225 @@
+{
+  "run_id": "llm.qwen3",
+  "system": "qlora_qwen3",
+  "model_id": "Qwen/Qwen3-8B",
+  "regime": "pooled",
+  "scope": "all",
+  "seed": 42,
+  "qlora": {
+    "r": 16,
+    "alpha": 32,
+    "dropout": 0.05,
+    "lr": 0.0001,
+    "batch_size": 4,
+    "grad_accum": 8,
+    "epochs": 1,
+    "max_len": 160
+  },
+  "composition": {
+    "bulk_human": 82589,
+    "bulk_silver": 0,
+    "gold_train": 5000,
+    "train_total": 87589,
+    "dev": 2000,
+    "test": 3000,
+    "train_by_domain_label": {
+      "Finance|negative": 6238,
+      "Finance|neutral": 5370,
+      "Finance|positive": 6982,
+      "Public|negative": 3293,
+      "Public|neutral": 2389,
+      "Public|positive": 2119,
+      "Retail|negative": 4610,
+      "Retail|neutral": 1830,
+      "Retail|positive": 6228,
+      "Social|negative": 5476,
+      "Social|neutral": 5050,
+      "Social|positive": 9374,
+      "Tech|negative": 9708,
+      "Tech|neutral": 6976,
+      "Tech|positive": 11946
+    }
+  },
+  "test": {
+    "macro_f1": 0.7594647918024583,
+    "per_class_f1": {
+      "negative": 0.7792329279700655,
+      "neutral": 0.7004662004662005,
+      "positive": 0.798695246971109
+    },
+    "confusion_row_norm": [
+      [
+        0.7979,
+        0.1188,
+        0.0833
+      ],
+      [
+        0.1735,
+        0.6814,
+        0.1451
+      ],
+      [
+        0.1006,
+        0.1015,
+        0.798
+      ]
+    ],
+    "confusion_counts": [
+      [
+        833,
+        124,
+        87
+      ],
+      [
+        153,
+        601,
+        128
+      ],
+      [
+        108,
+        109,
+        857
+      ]
+    ],
+    "n": 3000,
+    "by_domain": {
+      "Finance": {
+        "macro_f1": 0.8129296201023699,
+        "per_class_f1": {
+          "negative": 0.7835990888382688,
+          "neutral": 0.8456659619450317,
+          "positive": 0.8095238095238095
+        },
+        "confusion_row_norm": [
+          [
+            0.7854,
+            0.1187,
+            0.0959
+          ],
+          [
+            0.094,
+            0.8547,
+            0.0513
+          ],
+          [
+            0.1354,
+            0.0677,
+            0.7969
+          ]
+        ],
+        "n": 645
+      },
+      "Public": {
+        "macro_f1": 0.7675807820204105,
+        "per_class_f1": {
+          "negative": 0.8538011695906432,
+          "neutral": 0.696,
+          "positive": 0.7529411764705882
+        },
+        "confusion_row_norm": [
+          [
+            0.869,
+            0.119,
+            0.0119
+          ],
+          [
+            0.1732,
+            0.685,
+            0.1417
+          ],
+          [
+            0.0698,
+            0.186,
+            0.7442
+          ]
+        ],
+        "n": 381
+      },
+      "Retail": {
+        "macro_f1": 0.7248054551968418,
+        "per_class_f1": {
+          "negative": 0.7272727272727273,
+          "neutral": 0.6940874035989717,
+          "positive": 0.7530562347188264
+        },
+        "confusion_row_norm": [
+          [
+            0.7684,
+            0.1017,
+            0.1299
+          ],
+          [
+            0.1909,
+            0.6136,
+            0.1955
+          ],
+          [
+            0.1005,
+            0.0847,
+            0.8148
+          ]
+        ],
+        "n": 586
+      },
+      "Social": {
+        "macro_f1": 0.722474326770079,
+        "per_class_f1": {
+          "negative": 0.7891891891891892,
+          "neutral": 0.5564516129032258,
+          "positive": 0.8217821782178217
+        },
+        "confusion_row_norm": [
+          [
+            0.7849,
+            0.1129,
+            0.1022
+          ],
+          [
+            0.1484,
+            0.5391,
+            0.3125
+          ],
+          [
+            0.0638,
+            0.1007,
+            0.8356
+          ]
+        ],
+        "n": 612
+      },
+      "Tech": {
+        "macro_f1": 0.7304031024125051,
+        "per_class_f1": {
+          "negative": 0.7601957585644372,
+          "neutral": 0.6179775280898876,
+          "positive": 0.8130360205831904
+        },
+        "confusion_row_norm": [
+          [
+            0.7925,
+            0.1327,
+            0.0748
+          ],
+          [
+            0.2775,
+            0.6358,
+            0.0867
+          ],
+          [
+            0.123,
+            0.11,
+            0.767
+          ]
+        ],
+        "n": 776
+      }
+    },
+    "macro_f1_domain_avg_unweighted": 0.7516386573004412
+  },
+  "wall_seconds": 10826.3,
+  "thermal": {
+    "thermal_pauses": 0,
+    "thermal_pause_seconds": 0.0,
+    "max_temp_c": 67
+  }
+}
