@@ -19,7 +19,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-from .config import load_config, prep_dir, runs_root
+from .config import _PKG_ROOT, load_config, prep_dir, runs_root
 from .evaluate import macro_f1
 from .utils import log, read_json, setup_logging, write_json
 
@@ -30,8 +30,23 @@ def _load_preds(run_dir: Path) -> pd.DataFrame:
 
 
 def _group_map(cfg) -> dict:
-    gold = pd.read_parquet(prep_dir(cfg) / "gold.parquet")
-    return dict(zip(gold["uid"], gold["group_id"]))
+    """uid -> source group for the cluster bootstrap.
+
+    The full pipeline reads the prepared gold file. A re-analysis from the
+    released files has no comment text and therefore no prepared file; the
+    groups then come from data/corpus_index.csv.gz, which carries the same
+    source-page hashes. The rule is the one azsent.ingest applies (the hash,
+    else "solo_<uid>"), so the partition, and with it every interval, is
+    identical.
+    """
+    p = prep_dir(cfg) / "gold.parquet"
+    if p.exists():
+        gold = pd.read_parquet(p)
+        return dict(zip(gold["uid"], gold["group_id"]))
+    idx = pd.read_csv(_PKG_ROOT / "data" / "corpus_index.csv.gz",
+                      usecols=["uid", "video_id_hash"], dtype=str)
+    grp = idx["video_id_hash"].where(idx["video_id_hash"].notna(), "solo_" + idx["uid"])
+    return dict(zip(idx["uid"], grp))
 
 
 def paired_bootstrap(dfA: pd.DataFrame, dfB: pd.DataFrame, group_map: dict, n_boot: int = 10000,

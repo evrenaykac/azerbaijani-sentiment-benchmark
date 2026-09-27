@@ -151,7 +151,7 @@ Three levels, in increasing order of cost:
 | level | what it does | cost |
 |---|---|---|
 | **Verify** | re-derive invariants and recompute every headline number from the released files | seconds, no GPU |
-| **Re-analyze** | recompute bootstrap intervals, calibration, probes and the Section VII reweighting from stored predictions | minutes, no GPU |
+| **Re-analyze** | recompute bootstrap intervals, calibration, probes and the Section VII reweighting from stored predictions | about two hours on a CPU, no GPU |
 | **Re-train** | run the full campaign from scratch | more than 60 GPU-hours (RTX 4090 class) |
 
 [`docs/reproducibility.md`](docs/reproducibility.md) gives the commands for each,

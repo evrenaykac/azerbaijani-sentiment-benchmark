@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "azsent"
 version = "2.0.0"
-description = "Domain-robust, polarity-injected sentence embeddings for Azerbaijani sentiment analysis - IEEE Access resubmission experiment suite"
+description = "AzSentBench: experimental pipeline and audit tooling for the multi-domain Azerbaijani sentiment benchmark"
 requires-python = ">=3.10"
 
 [tool.setuptools.packages.find]

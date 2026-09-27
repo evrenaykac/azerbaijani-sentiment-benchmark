@@ -72,26 +72,34 @@ alternative is computed by the script, not asserted.
 
 ---
 
-## Level 2 — Re-analyze (minutes, no GPU)
+## Level 2 — Re-analyze (about two hours on a CPU, no GPU)
 
 This level recomputes derived quantities from the stored per-item predictions:
 bootstrap intervals, calibration, embedding probes, and the prior-reweighting
-forensics of Section VII.
+forensics of Section VII. Probes, calibration and the reweighting take minutes;
+the bootstrap battery (190 per-domain comparisons, 10,000 replicates each) takes
+about two hours on a single CPU core.
 
 The predictions are approximately 1.5 GB and are therefore **not** in this Git
-repository. Obtain `predictions.tar.gz` from the repository's Releases page, then:
+repository. Obtain `predictions.tar.gz` from the repository's Releases page and
+unpack it into a working folder. It holds one folder per run under `runs/`, with
+the per-item test and development predictions, the test and development
+embeddings, and each run's metrics, calibration and probe results:
 
 ```bash
-tar xzf predictions.tar.gz -C runs/
-python -m azsent.postproc                     # rebuilds results/tables from stored runs
-python -m azsent.run_stats                    # bootstrap intervals + Holm adjustment
-python tools/prior_sweep.py --runs runs/ --out results/tables/prior_sweep_lodo.csv \
+pip install -e .                               # makes the azsent package importable
+mkdir -p work && tar xzf predictions.tar.gz -C work
+export AZSENT_RUNS=$PWD/work                    # PowerShell: $env:AZSENT_RUNS = "$PWD\work"
+python -m azsent.postproc --force               # probes and calibration, recomputed for every run
+python -m azsent.run_stats                      # bootstrap intervals + Holm adjustment -> work/stats/
+python tools/prior_sweep.py --runs work/runs --out work/prior_sweep_lodo.csv \
     --regime lodo --baseline xlmr_ft \
     --systems xlmr_ft full full_midinject xlmr_supcon xlmr_dapt mdeberta_ft mdeberta_dapt
 ```
 
-Paths are read from `configs/default.yaml`; point its `paths.runs_dir` at the
-directory that holds the run folders (one folder per run id).
+The recomputed files can be compared with `results/stats/` and
+`results/tables/prior_sweep_lodo.csv`. No comment text is needed at this level:
+the bootstrap takes each comment's source group from `data/corpus_index.csv.gz`.
 
 `prior_sweep.py` is the reweighting machinery of Section VII. It reweights
 stored predictions to a target label prior and recomputes macro-F1 exactly,
