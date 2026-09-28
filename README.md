@@ -13,7 +13,9 @@ Analysis for Azerbaijani* (IEEE Access, vol. 14, 2026,
 doi:10.1109/ACCESS.2026.3659042); the label layers, splits and audit released
 here are those of the present article. Every experimental result the article reports from its own runs can be
 re-derived from what is here without re-training (the Stage-1 figures of
-Section VII are quoted from the original submission); corpus-construction counts and per-batch annotation
+Section VII are quoted from the original submission, and the bootstrap
+intervals and p-values of its Stages 2 and 2b are recorded in
+`results/earlier_split/`); corpus-construction counts and per-batch annotation
 agreement are documented rather than re-derivable, because the raw text and
 the batch membership are not redistributed.
 

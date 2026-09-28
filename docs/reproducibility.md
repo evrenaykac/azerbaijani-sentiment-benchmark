@@ -115,9 +115,11 @@ bootstrap of the full recipe against XLM-R fine-tuning under both conditions,
 the earlier split's label composition (`gold_summary_earlier_split.json`) and
 the Table 11 reweighting (`prior_reweight_test2_earlier_split.json`). The
 per-item predictions of that campaign are attached to the same release as
-`predictions_earlier_split.tar.gz`; with them, every Section VII number except
-the Stage-1 figures quoted from the original submission is recomputable from
-stored predictions. The ledger lists 28 of the 30
+`predictions_earlier_split.tar.gz`, with its run folders under `runs/runs/`.
+From them, the point estimates of Stages 2 and 2b and the Table 11 reweighting
+are recomputable; the bootstrap intervals and p-values of those two stages need
+the earlier split's source groups and are recorded in the `stats_*` files of
+`results/earlier_split/`. The ledger lists 28 of the 30
 human-label LODO runs: `lodo.Social.xlmr_ft.s42.frac000` and
 `lodo.Social.xlmr_ft.s100.frac000` are missing from it, but their predictions
 are in that archive and enter the Section VII statistics, which use all nine
