@@ -1,9 +1,10 @@
-# AzSentBench: Azerbaijani Sentiment Benchmark
+# AzSentBench: A Multi-Domain Azerbaijani Sentiment Benchmark
 
 AzSentBench is a leakage-audited, multi-domain sentiment benchmark for
 Azerbaijani, released together with the full evaluation protocol, the audit
 tooling, and the recorded results of more than six hundred training runs —
-including a negative result that overturned our own earlier claim.
+including a negative result on domain-adaptation techniques and the diagnosis
+of why they had appeared to help.
 
 This repository accompanies the article *Domain-Robust Sentiment Analysis for
 Azerbaijani: A Multi-Domain Benchmark and Controlled Comparison* (Aykaç, Ozkan
@@ -13,9 +14,10 @@ Analysis for Azerbaijani* (IEEE Access, vol. 14, 2026,
 doi:10.1109/ACCESS.2026.3659042); the label layers, splits and audit released
 here are those of the present article. Every experimental result the article reports from its own runs can be
 re-derived from what is here without re-training (the Stage-1 figures of
-Section VII are quoted from the original submission, and the bootstrap
-intervals and p-values of its Stages 2 and 2b are recorded in
-`results/earlier_split/`); corpus-construction counts and per-batch annotation
+Section VII come from the preliminary evaluation that preceded the corpus
+audit and are documented rather than re-derivable; the bootstrap intervals
+and p-values of its Stages 2 and 2b are recorded in `results/earlier_split/`);
+corpus-construction counts and per-batch annotation
 agreement are documented rather than re-derivable, because the raw text and
 the batch membership are not redistributed.
 
@@ -36,15 +38,16 @@ match. Their expected output is shown in [`docs/reproducibility.md`](docs/reprod
 ## Why this benchmark exists
 
 Azerbaijani sentiment analysis had data but no multi-domain evaluation whose
-split could be checked for leakage. Working on our own earlier system, we found that its training-data
-strategy — not the method — was producing the improvement we had reported
-(+8.9 macro-F1 on the leave-one-domain-out average in the original submission).
-A controlled re-execution under the released code reproduces the effect (+9.6
-on Public Services against +8.8 originally, though only +2.5 on the LODO
-average), and it disappears as soon as the teacher-labeled bulk comments are left out of
-training:
+split could be checked for leakage. In a preliminary evaluation of our
+adaptation recipe, conducted before the corpus audit, the recipe appeared to
+improve on plain XLM-R fine-tuning by +8.9 macro-F1 on the leave-one-domain-out
+average. That improvement came from the training-data strategy, not from the
+method. A controlled re-execution under the released code reproduces the effect
+(+9.6 on Public Services against +8.8 in the preliminary evaluation, though
+only +2.5 on the LODO average), and it disappears as soon as the
+teacher-labeled bulk comments are left out of training:
 
-| full adaptation recipe vs. plain XLM-R fine-tuning | earlier split, teacher-labeled bulk | earlier split, human labels only | audited split, human labels only |
+| full adaptation recipe vs. plain XLM-R fine-tuning | pre-audit split, teacher-labeled bulk | pre-audit split, human labels only | audited split, human labels only |
 |---|---|---|---|
 | LODO average | **+2.5** | +0.5 | **−0.5** |
 | Public Services target | **+9.6** | −1.5 | **−1.6** |
@@ -66,7 +69,7 @@ comment sections.
 **Gold partition.** 10,000 comments split 5,000 / 2,000 / 3,000 into
 train / dev / test. The 3,000-item test partition is *fully* triple-annotated
 and adjudicated: three annotators labeled every item from a written
-guideline — blind for 1,743 items, with the earlier single-annotator label
+guideline — blind for 1,743 items, with the existing single-annotator label
 visible for the other 1,257 — and a fourth team member reviewed every item,
 not only the disagreements, and issued the final label. Fleiss' κ = 0.756 on the blind
 10,000-item batch.
@@ -100,7 +103,7 @@ data/
   annotations.csv        per-annotator records for the 11,250 triple-annotated
                          comments, including the adjudicator's decision
   splits/                the exact partition membership, one uid per line
-  lexicon/               placeholder — see data/lexicon/README.md
+  lexicon/               not vendored (published separately) — see data/lexicon/README.md
 results/
   runs_master.csv        one row per training run (616 runs, 20 systems), with
                          macro-F1, per-class F1, the training-pool composition
@@ -116,10 +119,10 @@ results/
   lexicon_coverage.json  how much of the corpus the polarity lexicon reaches,
                          exact and prefix-backoff, per domain
   earlier_split/         the Section VII evidence: the run ledger of the
-                         earlier (unaudited) evaluation, bootstrap statistics
-                         for the full recipe vs. XLM-R with teacher-generated
-                         and with human-only bulk labels, the earlier split's
-                         label composition, and the prior-reweighting test
+                         pre-audit evaluation, bootstrap statistics for the
+                         full recipe vs. XLM-R with teacher-generated and with
+                         human-only bulk labels, the pre-audit split's label
+                         composition, and the prior-reweighting test
   ingest_report.json     the audit as it was recorded at corpus build time
 src/azsent/              the experimental pipeline
 scripts/                 verification and regeneration tools
@@ -158,8 +161,8 @@ Three levels, in increasing order of cost:
 
 [`docs/reproducibility.md`](docs/reproducibility.md) gives the commands for each,
 including which artifacts you need beyond this repository (the stored
-per-item predictions, about 1.5 GB, are attached to the repository's release
-rather than committed; see that document).
+per-item predictions, two archives of about 1.5 GB each, are attached to the
+repository's release rather than committed; see that document).
 
 ## Principal results
 
