@@ -1,42 +1,50 @@
 cff-version: 1.2.0
-title: 'AzSentBench: Azerbaijani Sentiment Benchmark'
+title: 'AzSentBench: A Multi-Domain Azerbaijani Sentiment Benchmark'
 message: >-
-  If you use this benchmark, please cite the article below.
+  If you use this benchmark, please cite the article below. If you use the
+  labels, splits or stored predictions, please also cite this release.
 type: dataset
+version: 1.0.0
+date-released: '2026-09-27'
 authors:
   - given-names: Yusuf Evren
     family-names: Aykaç
     orcid: https://orcid.org/0009-0005-3122-7165
-    affiliation: Ankara Yıldırım Beyazıt University
+    affiliation: Department of Computer Engineering, Ankara Yıldırım Beyazıt University, Ankara, Türkiye
   - given-names: Merve
     family-names: Ozkan
     orcid: https://orcid.org/0000-0002-1071-2541
-    affiliation: Ankara University
+    affiliation: Department of Computer Engineering, Ankara University, Ankara, Türkiye
   - given-names: Refik
     family-names: Samet
     orcid: https://orcid.org/0000-0001-8720-6834
-    affiliation: Ankara University
+    affiliation: Department of Computer Engineering, Ankara University, Ankara, Türkiye
 abstract: >-
-  AzSentBench, a leakage-audited, multi-domain sentiment benchmark for
-  Azerbaijani: 271,278 user comments across five domains, with a 10,000-item
-  gold
-  partition whose 3,000-item test set is fully triple-annotated and
-  adjudicated. The release provides identifiers, labels, per-annotator
-  records, the full split, regeneration tooling, the experimental
-  pipeline, the leakage-audit code, and the recorded results of more
-  than six hundred training runs.
+  AzSentBench is a multi-domain sentiment benchmark for Azerbaijani with a
+  leakage-audited, verifiable evaluation split: 271,278 user comments from
+  five domains and a 10,000-item gold partition whose 3,000-item test set is
+  triple-annotated and adjudicated. The release provides comment identifiers,
+  labels, per-annotator records, the fixed split, the regeneration tooling,
+  the experimental pipeline, the leakage-audit code and the stored results of
+  more than six hundred training runs. The comment text is not redistributed.
 keywords:
   - sentiment analysis
   - Azerbaijani
   - low-resource NLP
   - benchmark
+  - domain robustness
   - data leakage
   - evaluation methodology
   - reproducibility
-license: CC-BY-4.0
-license-url: https://creativecommons.org/licenses/by/4.0/
+license:
+  - CC-BY-4.0
+  - MIT
 repository-code: https://github.com/evrenaykac/azerbaijani-sentiment-benchmark
 url: https://github.com/evrenaykac/azerbaijani-sentiment-benchmark
+identifiers:
+  - type: url
+    value: https://github.com/evrenaykac/azerbaijani-sentiment-benchmark/releases/tag/v1.0.0
+    description: Release v1.0.0 with the stored per-item predictions of the reported runs
 preferred-citation:
   type: article
   title: >-
@@ -54,4 +62,4 @@ preferred-citation:
       orcid: https://orcid.org/0000-0001-8720-6834
   journal: IEEE Access
   year: 2026
-  notes: Under review.
+  status: submitted
