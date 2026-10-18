@@ -30,7 +30,11 @@ Five seeds (13, 21, 42, 87, 100) for the full recipe, its primary baseline
 classical baselines in-domain; for the mid-injection and backbone variants of
 the full recipe and mDeBERTa with domain-adaptive pretraining under LODO; and for the pooled encoders. Three seeds for the
 remaining systems (13, 21, 42 in-domain; 13, 42, 100 under LODO). The bootstrap draws seed pairs from whatever runs exist,
-and the number of pairs is recorded per comparison in `results/stats/`.
+and the number of pairs is recorded per comparison in `results/stats/`. That
+design describes the difference between two randomly drawn training runs and is
+the pre-specified criterion; `results/stats/seed_mean/` reports every comparison
+under a two-level bootstrap of the seed-mean difference as a sensitivity analysis
+(narrower intervals; the article states both wherever a verdict differs).
 
 Seed budgets are declared per system in `configs/systems.yaml` **before** runs,
 not chosen after seeing results. Standard deviations across seeds are reported
@@ -91,6 +95,21 @@ macro-F1 at ρ = 0.79 — but along the in-domain ablation chain, adding FiLM in
 *falls*. Cleaner-looking geometry is not better classification, which is why the
 article's claims rest on the metric and the probes are reported as evidence
 about mechanism rather than as a proxy for quality.
+
+## Label controls on the audited split
+
+The Section VII ladder removes the teacher-labeled comments in one step, which
+changes the labels of the pool together with its size and composition.
+Two conditions on the audited split separate these factors, each run with the
+released pipeline, three seeds and a teacher trained on gold-train as in
+Stage 2, and each compared with human-label runs repeated in the same
+environment: the same bulk comments with the teacher's labels (pool mode
+`gold+bulk_relabeled`; the teacher disagrees with the human label on about a
+third of them), and the
+human-labeled pool plus the unlabeled comments with teacher labels (pool mode
+`gold+bulk` with `silver_frac` 1.0, the Stage-2 strategy). Differences are
+reported under both bootstrap designs. Results and ledger:
+`results/label_controls/`; recomputation: `scripts/label_controls.py`.
 
 ## Composition matching
 

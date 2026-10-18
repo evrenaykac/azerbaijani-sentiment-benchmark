@@ -355,7 +355,8 @@ def build_argparser() -> argparse.ArgumentParser:
     ap.add_argument("--run-id", default=None)
     ap.add_argument("--silver-frac", type=float, default=None,
                     help="default: config train.default_silver_frac")
-    ap.add_argument("--pool-mode", default="gold+bulk", choices=["gold+bulk", "gold_only", "bulk_only"])
+    ap.add_argument("--pool-mode", default="gold+bulk",
+                    choices=["gold+bulk", "gold_only", "bulk_only", "gold+bulk_relabeled"])
     ap.add_argument("--strict-lodo", action="store_true")
     ap.add_argument("--supcon-lambda", type=float, default=None)
     ap.add_argument("--supcon-tau", type=float, default=None)

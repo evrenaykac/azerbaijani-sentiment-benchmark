@@ -1,7 +1,7 @@
 {
  "regime": "lodo",
  "split": "earlier_v1",
- "condition": "earlier (unaudited) split, training pool = gold-train + human bulk + teacher-generated silver labels for unlabelled bulk (silver_frac = 1.0), as in the original submission; three seeds (13, 42, 100)",
+ "condition": "earlier (unaudited) split, training pool = gold-train + human bulk + teacher-generated silver labels for unlabelled bulk (silver_frac = 1.0), as in the preliminary evaluation; three seeds (13, 42, 100)",
  "system": "full",
  "baseline": "xlmr_ft",
  "seeds": [

@@ -104,6 +104,53 @@ def main() -> int:
                         f"{'joint Holm over all per-domain comparisons':<52} "
                         f"m={m}, smallest adjusted p={holm[0]:.3f}"))
 
+    # ---- seed-mean design: every interval and p-value quoted in the text (Sections I, IV-C, VI-A, VI-D)
+    print()
+    sm = RES / "stats" / "seed_mean"
+    fams = {f.name: json.loads(f.read_text())["comparisons"] for f in sorted(sm.glob("stats_*_seed_mean.json"))}
+    lx, ix = fams["stats_lodo_vs_xlmr_seed_mean.json"], fams["stats_indomain_vs_xlmr_seed_mean.json"]
+    for label, v, want in [
+        ("mDeBERTa vs XLM-R, LODO Tech", lx["mdeberta_ft"]["Tech"], (0.037, 0.013, 0.059)),
+        ("DAPT vs XLM-R, LODO Tech", lx["xlmr_dapt"]["Tech"], (0.021, 0.005, 0.039)),
+        ("DAPT+FiLM vs XLM-R, LODO Retail", lx["xlmr_dapt_film"]["Retail"], (0.026, 0.004, 0.051)),
+        ("mDeBERTa+DAPT vs XLM-R, LODO Tech", lx["mdeberta_dapt"]["Tech"], (0.021, 0.002, 0.040)),
+        ("Full (mDeBERTa) vs XLM-R, in-domain Social", ix["full_mdeberta"]["Social"], (0.035, 0.0002, 0.071)),
+        ("DAPT vs SupCon, LODO Tech", fams["stats_lodo_vs_supcon_seed_mean.json"]["xlmr_dapt"]["Tech"], (0.030, 0.011, 0.051)),
+        ("Full (XLM-R) vs mDeBERTa FT, LODO Tech", fams["stats_lodo_full_vs_mdeberta_seed_mean.json"]["full"]["Tech"], (-0.028, -0.053, -0.002)),
+        ("Full (XLM-R) vs mDeBERTa FT, LODO Finance", fams["stats_lodo_full_vs_mdeberta_seed_mean.json"]["full"]["Finance"], (-0.032, -0.072, -0.001)),
+    ]:
+        check(f"seed-mean: {label}, diff", v["diff_mean_over_seeds"], want[0], tol=0.0006)
+        check(f"seed-mean: {label}, lower CI", v["ci95"][0], want[1], tol=0.0006 if abs(want[1]) >= 0.001 else 0.00005)
+        check(f"seed-mean: {label}, upper CI", v["ci95"][1], want[2], tol=0.0006)
+    check("seed-mean: mDeBERTa vs XLM-R, LODO Tech, p", lx["mdeberta_ft"]["Tech"]["p_onesided_A_gt_B"], 0.0013, tol=0.00005)
+    check("seed-mean: mDeBERTa vs XLM-R, LODO Tech, Holm p", lx["mdeberta_ft"]["Tech"]["holm_adjusted_p_within_family"], 0.097, tol=0.0006)
+    check("seed-mean: DAPT vs XLM-R, LODO Tech, p", lx["xlmr_dapt"]["Tech"]["p_onesided_A_gt_B"], 0.008, tol=0.0005)
+    check("seed-mean: DAPT vs XLM-R, LODO Tech, Holm p", lx["xlmr_dapt"]["Tech"]["holm_adjusted_p_within_family"], 0.62, tol=0.005)
+    check("seed-mean: DAPT+FiLM vs XLM-R, LODO Retail, p", lx["xlmr_dapt_film"]["Retail"]["p_onesided_A_gt_B"], 0.010, tol=0.0005)
+    check("seed-mean: DAPT+FiLM vs XLM-R, LODO Retail, Holm p", lx["xlmr_dapt_film"]["Retail"]["holm_adjusted_p_within_family"], 0.76, tol=0.005)
+    ds = fams["stats_lodo_vs_supcon_seed_mean.json"]["xlmr_dapt"]["Tech"]
+    check("seed-mean: DAPT vs SupCon, LODO Tech, p", ds["p_onesided_A_gt_B"], 0.0017, tol=0.00005)
+    check("seed-mean: DAPT vs SupCon, LODO Tech, Holm p", ds["holm_adjusted_p_within_family"], 0.034, tol=0.0005)
+    # effects supported before adjustment against plain XLM-R: exactly the five named in Section I
+    supported = sorted(f"{reg}.{s}.{d}" for reg, fam in (("lodo", lx), ("indomain", ix))
+                       for s, doms in fam.items() for d, v in doms.items() if v["ci95"][0] > 0)
+    want_set = sorted(["lodo.mdeberta_ft.Tech", "lodo.xlmr_dapt.Tech", "lodo.xlmr_dapt_film.Retail",
+                       "lodo.mdeberta_dapt.Tech", "indomain.full_mdeberta.Social"])
+    ok = supported == want_set and all(fam[s][d]["holm_adjusted_p_within_family"] > 0.05
+                                       for fam, s, d in [(lx if k.startswith("lodo") else ix, k.split(".")[1], k.split(".")[2]) for k in supported])
+    results.append((ok, f"[{'PASS' if ok else 'FAIL'}] {'seed-mean: five effects vs XLM-R before adjustment':<52} {len(supported)} found, none after Holm"))
+    ok = all(v["ci95"][0] <= 0 <= v["ci95"][1] for fam in (lx, ix) for v in fam["full"].values())
+    results.append((ok, f"[{'PASS' if ok else 'FAIL'}] {'seed-mean: full recipe CI includes zero everywhere':<52} both regimes"))
+    for reg, fam in (("LODO", lx), ("in-domain", ix)):
+        n = sum(1 for v in fam["mbert_ft"].values() if v["ci95"][1] < 0 and v["seed_pair_design_ci95"][1] < 0)
+        results.append((n == 2, f"[{'PASS' if n == 2 else 'FAIL'}] {'mBERT deficits excluding zero (both designs), ' + reg:<52} {n} targets"))
+    ps = sorted(v["p_onesided_A_gt_B"] for fam in fams.values() for doms in fam.values() for v in doms.values())
+    m = len(ps)
+    holm = [min(1.0, (m - i) * p) for i, p in enumerate(ps)]
+    for i in range(1, m):
+        holm[i] = max(holm[i], holm[i - 1])
+    check("seed-mean: joint Holm, smallest adjusted p", holm[0], 0.25, tol=0.005)
+
     # ---- Section VII: the earlier (unaudited) split, with and without teacher labels
     print()
     es = RES / "earlier_split"
@@ -124,11 +171,46 @@ def main() -> int:
     check("Stage 2b (human labels): Public gap", hp["diff_mean_over_seedpairs"], -0.015, tol=0.0005)
     check("Stage 2b (human labels): LODO-average gap", h["lodo_average"]["full"] - h["lodo_average"]["xlmr_ft"], 0.005, tol=0.0005)
     check("Stage 2b (human labels): XLM-R FT on Public", hp["xlmr_ft_mean_macro_f1"], 0.734, tol=0.0005)
+    # pooled regime of the pre-audit split: silver fraction and the lambda/tau sweep (Sections VII and VI-D)
+    el = pd.read_csv(es / "runs_master_earlier_split.csv")
+    pf = el[(el["regime"] == "pooled") & (el["system"] == "full")]
+    by_tag = pf.groupby(pf["tag"].fillna("default"))["macro_f1"].mean()
+    check("pre-audit pooled: full recipe, human labels only", by_tag["frac000"], 0.740, tol=0.0005)
+    fracs = [by_tag["frac025"], by_tag["frac050"], by_tag["frac075"], by_tag["default"]]
+    check("pre-audit pooled: full recipe, teacher fractions, min", min(fracs), 0.696, tol=0.0005)
+    check("pre-audit pooled: full recipe, teacher fractions, max", max(fracs), 0.715, tol=0.0005)
+    check("pre-audit pooled: full recipe at lambda=0.1, tau=0.07", by_tag["default"], 0.700, tol=0.0005)
+    sweep = [by_tag[k] for k in ("lam0.1_tau0.05", "lam0.1_tau0.2", "lam0.5_tau0.05", "lam0.5_tau0.07", "lam0.5_tau0.2")]
+    check("pre-audit pooled: lambda/tau sweep, min", min(sweep), 0.703, tol=0.0005)
+    check("pre-audit pooled: lambda/tau sweep, max", max(sweep), 0.717, tol=0.0005)
+    ok = all(int(n) == 3 for n in pf.groupby(pf["tag"].fillna("default"))["seed"].count()[[k for k in by_tag.index if k != "trstage"]])
+    results.append((ok, f"[{'PASS' if ok else 'FAIL'}] {'pre-audit pooled: three seeds per setting':<52} {len(sweep) + 5} settings"))
     rw = {r["target_domain"]: r for r in json.loads((es / "prior_reweight_test2_earlier_split.json").read_text())["rows"]}
     check("Test 2 reweighting: Public gap, observed (points)", rw["Public"]["observed_gap_points"], 9.56, tol=0.005)
     check("Test 2 reweighting: Public gap, reweighted (points)", rw["Public"]["reweighted_gap_points"], 12.69, tol=0.005)
     ok = all(r["delta_points"] > 0 for r in rw.values())
     results.append((ok, f"[{'PASS' if ok else 'FAIL'}] {'Test 2 reweighting: gap grows on every domain':<52} {len(rw)} domains"))
+
+    # ---- Section VII, Table 11: label and data-strategy controls on the audited split
+    print()
+    lc = json.loads((RES / "label_controls" / "label_controls.json").read_text())
+    table11 = {("pooled.all", "H"): (0.745, 0.745), ("pooled.all", "T"): (0.722, 0.717), ("pooled.all", "S"): (0.726, 0.727),
+               ("lodo.Public", "H"): (0.756, 0.745), ("lodo.Public", "T"): (0.689, 0.681), ("lodo.Public", "S"): (0.697, 0.720)}
+    for (cell, cond), (ft, full) in table11.items():
+        c = lc[cell][cond]
+        check(f"Table 11 {cell} {cond}: XLM-R FT", c["xlmr_ft"]["macro_f1_mean"], ft)
+        check(f"Table 11 {cell} {cond}: full recipe", c["full"]["macro_f1_mean"], full)
+    check("Table 11 pooled: T-H drop, XLM-R FT", lc["pooled.all"]["T_minus_H"]["xlmr_ft"]["diff_mean_over_seeds"], -0.023, tol=0.0006)
+    check("Table 11 Public: T-H drop, XLM-R FT", lc["lodo.Public"]["T_minus_H"]["xlmr_ft"]["diff_mean_over_seeds"], -0.067, tol=0.0006)
+    check("Table 11 Public: S-H drop, XLM-R FT", lc["lodo.Public"]["S_minus_H"]["xlmr_ft"]["diff_mean_over_seeds"], -0.059, tol=0.0006)
+    sg = lc["lodo.Public"]["S"]["full_minus_xlmr_ft"]
+    check("Table 11 Public: recipe gap under S", sg["diff_mean_over_seeds"], 0.023, tol=0.0006)
+    ok = not sg["seed_pair"]["excludes_zero"] and not sg["seed_mean"]["excludes_zero"]
+    results.append((ok, f"[{'PASS' if ok else 'FAIL'}] {'Table 11 Public: S gap intervals include zero':<52} "
+                        f"seed-pair {sg['seed_pair']['ci95']}, seed-mean {sg['seed_mean']['ci95']}"))
+    tv = json.loads((RES / "label_controls" / "teacher_vs_human.json").read_text())
+    check("teacher-human label disagreement, pooled pool", tv["pooled.all"]["human_vs_teacher_on_training_rows"]["teacher_human_disagreement"], 0.313, tol=0.0006)
+    check("teacher-human label disagreement, Public fold", tv["lodo.Public"]["human_vs_teacher_on_training_rows"]["teacher_human_disagreement"], 0.320, tol=0.0006)
 
     # ---- prompted LLMs
     print()
@@ -150,6 +232,28 @@ def main() -> int:
     check("Turkish-trained XLM-R, zero-shot", tr["t1_tr_only_to_az"]["macro_f1"], 0.379, tol=0.0005)
     check("LaBSE frozen, Turkish only", tr["t2_labse"]["tr_only"]["macro_f1"], 0.414, tol=0.0005)
     check("LaBSE frozen, Turkish + Az", tr["t2_labse"]["tr_plus_az_goldtrain"]["macro_f1"], 0.538, tol=0.0005)
+    # per-class and per-domain breakdown of the zero-shot run (Section VI-C)
+    t1 = tr["t1_tr_only_to_az"]
+    cc = t1["confusion_counts"]  # rows: gold neg/neu/pos; columns: predicted neg/neu/pos
+    n_test = sum(sum(r) for r in cc)
+    check("zero-shot Turkish: predicted-neutral share (%)", 100 * sum(r[1] for r in cc) / n_test, 2.0, tol=0.5)
+    check("zero-shot Turkish: gold-neutral share (%)", 100 * sum(cc[1]) / n_test, 29.0, tol=0.5)
+    check("zero-shot Turkish: neutral routed to positive (%)", 100 * t1["confusion_row_norm"][1][2], 82.0, tol=0.5)
+    check("zero-shot Turkish: negative F1", t1["per_class_f1"]["negative"], 0.54, tol=0.005)
+    check("zero-shot Turkish: positive F1", t1["per_class_f1"]["positive"], 0.57, tol=0.005)
+    check("zero-shot Turkish: neutral F1", t1["per_class_f1"]["neutral"], 0.03, tol=0.005)
+    dom_f1 = {d: v["macro_f1"] for d, v in t1["by_domain"].items()}
+    check("zero-shot Turkish: lowest per-domain macro-F1 (Retail)", dom_f1["Retail"], 0.35, tol=0.005)
+    check("zero-shot Turkish: per-domain macro-F1, Finance", dom_f1["Finance"], 0.35, tol=0.005)
+    check("zero-shot Turkish: highest per-domain macro-F1 (Social)", max(dom_f1.values()), 0.42, tol=0.005)
+    ok = max(dom_f1, key=dom_f1.get) == "Social" and min(dom_f1, key=dom_f1.get) == "Retail"
+    results.append((ok, f"[{'PASS' if ok else 'FAIL'}] {'zero-shot Turkish: Retail lowest, Social highest':<52} {min(dom_f1, key=dom_f1.get)}, {max(dom_f1, key=dom_f1.get)}"))
+    neu_dom = {d: v["per_class_f1"]["neutral"] for d, v in t1["by_domain"].items()}
+    ok = max(neu_dom.values()) <= 0.06
+    results.append((ok, f"[{'PASS' if ok else 'FAIL'}] {'zero-shot Turkish: neutral F1 <= 0.06 on every domain':<52} max {max(neu_dom.values()):.3f}"))
+    check("zero-shot Turkish: neutral F1 on Public", neu_dom["Public"], 0.00, tol=0.005)
+    check("LaBSE frozen, Turkish + Az: neutral F1", tr["t2_labse"]["tr_plus_az_goldtrain"]["per_class_f1"]["neutral"], 0.35, tol=0.005)
+    check("LaBSE frozen, Turkish only: neutral F1", tr["t2_labse"]["tr_only"]["per_class_f1"]["neutral"], 0.10, tol=0.005)
 
     # ---- corpus accounting (Section III-B)
     print()

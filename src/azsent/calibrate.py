@@ -1,6 +1,6 @@
 """Calibration: ECE (15 equal-mass bins), MCE, Brier, temperature scaling
 (fit on gold-dev, applied to gold-test), class-wise and per-domain views
-(Reviewer 2: neutral-class calibration / uncertainty analysis)."""
+(neutral-class calibration and uncertainty views)."""
 from __future__ import annotations
 
 import argparse

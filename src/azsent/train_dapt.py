@@ -1,7 +1,7 @@
 """Domain-adaptive pretraining (continued MLM) on source-domain bulk text.
 
 Scopes: 'all' (in-domain & pooled regimes) or 'lodo_<Target>' (LODO folds -
-held-out target text fully excluded, Reviewer 1 leakage protocol).
+held-out target text fully excluded by the leakage protocol).
 
 Output: <runs>/dapt/<backbone>_<scope>/model  (HF save_pretrained directory)
 """

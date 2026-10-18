@@ -104,8 +104,8 @@ tables:
     - xlmr_film_morph
     - xlmr_film_mid
 
-  # Data strategy is defined for both regimes: the earlier evaluation varied it
-  # only in the pooled regime, which is why the LODO effect of teacher labels
+  # Data strategy is defined for both regimes: the preliminary evaluation varied
+  # it only in the pooled regime, which is why the LODO effect of teacher labels
   # surfaced late (Section VII of the article examines it).
   data_strategy:
     systems: [full, xlmr_ft]
@@ -118,7 +118,7 @@ tables:
     taus: [0.05, 0.07, 0.20]
 
     # Five seeds under LODO instead of three for these systems. xlmr_supcon is
-  # included because, in the earlier evaluation, the contrastive term appeared
+  # included because, in the preliminary evaluation, the contrastive term appeared
   # to carry most of the LODO gain; the full recipe is tested against it directly.
   headline_lodo: [xlmr_ft, xlmr_supcon, full, full_midinject, full_mdeberta, full_mbert, mdeberta_dapt]
   headline_indomain: [xlmr_ft, full, xlmr_supcon]

@@ -10,9 +10,9 @@ names are auto-detected; expected roles:
   video/group (video_id | video_id_hash | group)  [optional]
   uid         (uid)                                [optional]
 
-Reviewer coverage:
-  * R1-2: gold split is grouped by source id (no video/thread spans partitions)
-  * R1-4: agreement metrics recomputed from raw annotator columns when present
+Properties:
+  * the gold split is grouped by source id (no video/thread spans partitions)
+  * agreement metrics are recomputed from raw annotator columns when present
 """
 from __future__ import annotations
 

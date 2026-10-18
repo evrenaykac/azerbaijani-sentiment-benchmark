@@ -1,0 +1,182 @@
+{
+ "source": "written on the machine that trained the teachers (scripts/relabel_control.py of the control package, 9 Oct 2026); the aggregate statistics are superseded by label_controls.json, which recomputes them from the released predictions; this file is kept for the exact human-vs-teacher confusion on the training rows and the teacher quality reports, which need the prepared pools rather than the predictions",
+ "pooled.all": {
+  "human_vs_teacher_on_training_rows": {
+   "teacher_scope": "all",
+   "n_bulk_train_human_rows": 82589,
+   "n_with_teacher_label": 82589,
+   "n_bulk_train_human_rows_in_pool_domains": 82589,
+   "agreement": 0.6873,
+   "confusion_human_rows_teacher_cols": {
+    "negative": {
+     "negative": 21161,
+     "neutral": 2175,
+     "positive": 4247
+    },
+    "neutral": {
+     "negative": 5782,
+     "neutral": 9321,
+     "positive": 5044
+    },
+    "positive": {
+     "negative": 6184,
+     "neutral": 2397,
+     "positive": 26278
+    }
+   },
+   "human_label_pct": {
+    "negative": 33.4,
+    "neutral": 24.39,
+    "positive": 42.21
+   },
+   "teacher_label_pct": {
+    "negative": 40.11,
+    "neutral": 16.82,
+    "positive": 43.07
+   },
+   "by_domain": {
+    "Finance": {
+     "n": 17514,
+     "agreement": 0.6877
+    },
+    "Public": {
+     "n": 7168,
+     "agreement": 0.7259
+    },
+    "Retail": {
+     "n": 11690,
+     "agreement": 0.7701
+    },
+    "Social": {
+     "n": 18880,
+     "agreement": 0.6712
+    },
+    "Tech": {
+     "n": 27337,
+     "agreement": 0.6525
+    }
+   },
+   "teacher_human_disagreement": 0.3127
+  },
+  "teacher_quality": {
+   "scope": "all",
+   "source_domains": [
+    "Tech",
+    "Finance",
+    "Social",
+    "Retail",
+    "Public"
+   ],
+   "backbone": "xlm-roberta-base",
+   "gold_dev_macro_f1": 0.7361517747858017,
+   "gold_dev_per_class": {
+    "negative": 0.724,
+    "neutral": 0.718139534883721,
+    "positive": 0.7663157894736842
+   },
+   "vs_human_layer_n": 87069,
+   "vs_human_layer_agreement": 0.6861684411214095,
+   "vs_human_layer_macro_f1": 0.6626082432774498,
+   "vs_human_layer_per_class": {
+    "negative": 0.6964235602257491,
+    "neutral": 0.5465443697900694,
+    "positive": 0.7448567998165311
+   },
+   "silver_label_dist": {
+    "positive": 113217,
+    "negative": 85226,
+    "neutral": 62835
+   },
+   "mean_confidence": 0.7835714221000671,
+   "n_labeled": 261278
+  },
+  "teacher_human_disagreement_all_human_rows": 0.3138
+ },
+ "lodo.Public": {
+  "human_vs_teacher_on_training_rows": {
+   "teacher_scope": "lodo_Public",
+   "n_bulk_train_human_rows": 75421,
+   "n_with_teacher_label": 75421,
+   "n_bulk_train_human_rows_in_pool_domains": 75421,
+   "agreement": 0.6796,
+   "confusion_human_rows_teacher_cols": {
+    "negative": {
+     "negative": 15765,
+     "neutral": 5201,
+     "positive": 3604
+    },
+    "neutral": {
+     "negative": 3039,
+     "neutral": 12029,
+     "positive": 2901
+    },
+    "positive": {
+     "negative": 4488,
+     "neutral": 4929,
+     "positive": 23465
+    }
+   },
+   "human_label_pct": {
+    "negative": 32.58,
+    "neutral": 23.82,
+    "positive": 43.6
+   },
+   "teacher_label_pct": {
+    "negative": 30.88,
+    "neutral": 29.38,
+    "positive": 39.74
+   },
+   "by_domain": {
+    "Finance": {
+     "n": 17514,
+     "agreement": 0.6935
+    },
+    "Retail": {
+     "n": 11690,
+     "agreement": 0.7382
+    },
+    "Social": {
+     "n": 18880,
+     "agreement": 0.6809
+    },
+    "Tech": {
+     "n": 27337,
+     "agreement": 0.6448
+    }
+   },
+   "teacher_human_disagreement": 0.3204
+  },
+  "teacher_quality": {
+   "scope": "lodo_Public",
+   "source_domains": [
+    "Tech",
+    "Finance",
+    "Social",
+    "Retail"
+   ],
+   "backbone": "xlm-roberta-base",
+   "gold_dev_macro_f1": 0.7174788531173512,
+   "gold_dev_per_class": {
+    "negative": 0.6861313868613139,
+    "neutral": 0.7130584192439863,
+    "positive": 0.7532467532467533
+   },
+   "vs_human_layer_n": 79597,
+   "vs_human_layer_agreement": 0.6790205661017376,
+   "vs_human_layer_macro_f1": 0.6678801191762437,
+   "vs_human_layer_per_class": {
+    "negative": 0.6584836405257134,
+    "neutral": 0.5993299358248395,
+    "positive": 0.7458267811781782
+   },
+   "silver_label_dist": {
+    "positive": 83106,
+    "neutral": 79612,
+    "negative": 52579
+   },
+   "mean_confidence": 0.812231183052063,
+   "n_labeled": 215297
+  },
+  "teacher_human_disagreement_all_human_rows": 0.321
+ }
+}

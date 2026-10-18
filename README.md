@@ -54,8 +54,17 @@ teacher-labeled bulk comments are left out of training:
 | baseline macro-F1 on that target | 0.416 | 0.734 | 0.754 |
 
 On the same split, training on human labels only removes the gain and restores
-the collapsed baseline; moving to the audited split then changes nothing of consequence.
-Section VII of the article traces the mechanism. The warning sign was the
+the collapsed baseline; moving to the audited split then changes nothing of
+consequence under human labels. Two further controls on the audited split
+(`results/label_controls/`, Table 11 of the article) separate the components of
+the data strategy: relabeling the same bulk comments with the teacher, which
+changes about a third of their labels, lowers plain fine-tuning and the recipe
+alike and leaves their difference where it was, and adding the unlabeled
+comments with teacher labels, the Stage-2 strategy, reproduces the direction
+of the effect at about a quarter of its size, without statistical support and
+without a collapsed baseline. In the conditions tested, the full-size gain therefore appeared only with
+teacher-labeled comments on the pre-audit split. Section VII of the article
+traces the mechanism. The warning sign was the
 baseline itself — a competent multilingual encoder at 0.416 macro-F1 on a
 three-class task — and the competing label-prior explanation can be ruled out
 in seconds from stored predictions (`tools/prior_sweep.py`).
@@ -110,7 +119,10 @@ results/
                          (gold / human-labeled bulk / silver = 0) and every
                          embedding probe
   tables/                Tables 6 and 7 of the article and supporting tables, as CSV
-  stats/                 bootstrap intervals and adjusted p-values
+  stats/                 bootstrap intervals and adjusted p-values under the
+                         pre-specified seed-pair design; stats/seed_mean/ holds
+                         the same 190 comparisons under a two-level bootstrap of
+                         the seed-mean difference (scripts/bootstrap_designs.py)
   transfer_report.json   cross-lingual transfer arm
   llm/                   QLoRA runs (metrics, per-item test predictions, training
                          log) and, under llm/openai/, every prompted-model
@@ -123,6 +135,10 @@ results/
                          full recipe vs. XLM-R with teacher-generated and with
                          human-only bulk labels, the pre-audit split's label
                          composition, and the prior-reweighting test
+  label_controls/        the Table 11 controls on the audited split: the same
+                         bulk comments relabeled by the teacher, and the Stage-2
+                         strategy re-run on the audited split (36 runs, their
+                         ledger, both bootstrap designs; scripts/label_controls.py)
   ingest_report.json     the audit as it was recorded at corpus build time
 src/azsent/              the experimental pipeline
 scripts/                 verification and regeneration tools

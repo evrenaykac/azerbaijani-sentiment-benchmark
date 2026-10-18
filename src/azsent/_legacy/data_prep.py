@@ -1,8 +1,8 @@
 """Step 1: Excel -> parquet with normalization, deduplication and group ids.
 
-Reviewer coverage:
-  * R1-3: exact + near-duplicate detection, fully reported (dedup_report.json)
-  * R1-2: source group ids (video_id where available) for grouped splitting
+Properties:
+  * exact + near-duplicate detection, fully reported (dedup_report.json)
+  * source group ids (video_id where available) for grouped splitting
   * Cross-domain duplicate texts are collapsed to a single representative so
     the same surface form can never sit on both sides of a domain split.
 

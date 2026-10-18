@@ -1,0 +1,356 @@
+{
+ "regime": "indomain",
+ "baseline": "xlmr_supcon",
+ "design": "seed-mean two-level bootstrap",
+ "description": "Each of 10,000 replicates draws seeds with replacement for both systems (as many as each has), resamples source groups with replacement within the domain once, and takes mean_A(macro-F1) - mean_B(macro-F1) over the drawn seeds on the resampled items. Reported alongside the pre-specified seed-pair design of stats/ (one seed pair per replicate), whose intervals are wider. Holm adjustment is over the one-sided p-values of this file (one family per baseline and regime). Computed from the released per-item predictions by scripts/bootstrap_designs.py (RNG seed 1235).",
+ "comparisons": {
+  "full": {
+   "Tech": {
+    "diff_mean_over_seeds": 0.035,
+    "ci95": [
+     -0.0005,
+     0.0626
+    ],
+    "p_onesided_A_gt_B": 0.0262,
+    "n_boot": 10000,
+    "n_seeds_A": 5,
+    "n_seeds_B": 5,
+    "seed_pair_design_ci95": [
+     -0.028396651256560816,
+     0.07949643019338692
+    ],
+    "seed_pair_design_p": 0.1537,
+    "holm_adjusted_p_within_family": 0.4128
+   },
+   "Finance": {
+    "diff_mean_over_seeds": 0.0106,
+    "ci95": [
+     -0.0177,
+     0.0355
+    ],
+    "p_onesided_A_gt_B": 0.2138,
+    "n_boot": 10000,
+    "n_seeds_A": 5,
+    "n_seeds_B": 5,
+    "seed_pair_design_ci95": [
+     -0.04512344220394216,
+     0.05425366508605378
+    ],
+    "seed_pair_design_p": 0.3115,
+    "holm_adjusted_p_within_family": 0.945
+   },
+   "Social": {
+    "diff_mean_over_seeds": 0.0214,
+    "ci95": [
+     -0.0022,
+     0.0454
+    ],
+    "p_onesided_A_gt_B": 0.0353,
+    "n_boot": 10000,
+    "n_seeds_A": 5,
+    "n_seeds_B": 5,
+    "seed_pair_design_ci95": [
+     -0.025500297238501963,
+     0.0628315561916017
+    ],
+    "seed_pair_design_p": 0.1598,
+    "holm_adjusted_p_within_family": 0.4589
+   },
+   "Retail": {
+    "diff_mean_over_seeds": 0.0138,
+    "ci95": [
+     -0.0183,
+     0.0444
+    ],
+    "p_onesided_A_gt_B": 0.1871,
+    "n_boot": 10000,
+    "n_seeds_A": 5,
+    "n_seeds_B": 5,
+    "seed_pair_design_ci95": [
+     -0.05007077739978215,
+     0.06843700696623171
+    ],
+    "seed_pair_design_p": 0.3064,
+    "holm_adjusted_p_within_family": 0.945
+   },
+   "Public": {
+    "diff_mean_over_seeds": 0.0388,
+    "ci95": [
+     0.002,
+     0.0853
+    ],
+    "p_onesided_A_gt_B": 0.0181,
+    "n_boot": 10000,
+    "n_seeds_A": 5,
+    "n_seeds_B": 5,
+    "seed_pair_design_ci95": [
+     -0.01242491885343872,
+     0.10371818730701496
+    ],
+    "seed_pair_design_p": 0.0776,
+    "holm_adjusted_p_within_family": 0.3258
+   }
+  },
+  "full_midinject": {
+   "Tech": {
+    "diff_mean_over_seeds": 0.0313,
+    "ci95": [
+     -0.0018,
+     0.0575
+    ],
+    "p_onesided_A_gt_B": 0.0321,
+    "n_boot": 10000,
+    "n_seeds_A": 3,
+    "n_seeds_B": 5,
+    "seed_pair_design_ci95": [
+     -0.015323912936297092,
+     0.06856312414151393
+    ],
+    "seed_pair_design_p": 0.0812,
+    "holm_adjusted_p_within_family": 0.4494
+   },
+   "Finance": {
+    "diff_mean_over_seeds": 0.0142,
+    "ci95": [
+     -0.0154,
+     0.0422
+    ],
+    "p_onesided_A_gt_B": 0.1575,
+    "n_boot": 10000,
+    "n_seeds_A": 3,
+    "n_seeds_B": 5,
+    "seed_pair_design_ci95": [
+     -0.04205488628482862,
+     0.05778949162765568
+    ],
+    "seed_pair_design_p": 0.2803,
+    "holm_adjusted_p_within_family": 0.945
+   },
+   "Social": {
+    "diff_mean_over_seeds": 0.0283,
+    "ci95": [
+     0.0004,
+     0.0558
+    ],
+    "p_onesided_A_gt_B": 0.0233,
+    "n_boot": 10000,
+    "n_seeds_A": 3,
+    "n_seeds_B": 5,
+    "seed_pair_design_ci95": [
+     -0.019763981387017324,
+     0.07348341563044491
+    ],
+    "seed_pair_design_p": 0.127,
+    "holm_adjusted_p_within_family": 0.3961
+   },
+   "Retail": {
+    "diff_mean_over_seeds": 0.0209,
+    "ci95": [
+     -0.0097,
+     0.0514
+    ],
+    "p_onesided_A_gt_B": 0.0895,
+    "n_boot": 10000,
+    "n_seeds_A": 3,
+    "n_seeds_B": 5,
+    "seed_pair_design_ci95": [
+     -0.031215693137190983,
+     0.06847983551911385
+    ],
+    "seed_pair_design_p": 0.2122,
+    "holm_adjusted_p_within_family": 0.716
+   },
+   "Public": {
+    "diff_mean_over_seeds": 0.0294,
+    "ci95": [
+     -0.0027,
+     0.076
+    ],
+    "p_onesided_A_gt_B": 0.0368,
+    "n_boot": 10000,
+    "n_seeds_A": 3,
+    "n_seeds_B": 5,
+    "seed_pair_design_ci95": [
+     -0.015441379134156554,
+     0.08611638109782262
+    ],
+    "seed_pair_design_p": 0.1215,
+    "holm_adjusted_p_within_family": 0.4589
+   }
+  },
+  "xlmr_film": {
+   "Tech": {
+    "diff_mean_over_seeds": 0.0017,
+    "ci95": [
+     -0.0212,
+     0.0224
+    ],
+    "p_onesided_A_gt_B": 0.4783,
+    "n_boot": 10000,
+    "n_seeds_A": 3,
+    "n_seeds_B": 5,
+    "seed_pair_design_ci95": [
+     -0.03308320225775962,
+     0.03493944884175317
+    ],
+    "seed_pair_design_p": 0.4877,
+    "holm_adjusted_p_within_family": 0.945
+   },
+   "Finance": {
+    "diff_mean_over_seeds": 0.0135,
+    "ci95": [
+     -0.0152,
+     0.0488
+    ],
+    "p_onesided_A_gt_B": 0.1618,
+    "n_boot": 10000,
+    "n_seeds_A": 3,
+    "n_seeds_B": 5,
+    "seed_pair_design_ci95": [
+     -0.03934928159081492,
+     0.06415530657564994
+    ],
+    "seed_pair_design_p": 0.2938,
+    "holm_adjusted_p_within_family": 0.945
+   },
+   "Social": {
+    "diff_mean_over_seeds": 0.0148,
+    "ci95": [
+     -0.0083,
+     0.0401
+    ],
+    "p_onesided_A_gt_B": 0.0985,
+    "n_boot": 10000,
+    "n_seeds_A": 3,
+    "n_seeds_B": 5,
+    "seed_pair_design_ci95": [
+     -0.026588153972766128,
+     0.05645466313101048
+    ],
+    "seed_pair_design_p": 0.2427,
+    "holm_adjusted_p_within_family": 0.716
+   },
+   "Retail": {
+    "diff_mean_over_seeds": 0.0222,
+    "ci95": [
+     -0.0083,
+     0.0506
+    ],
+    "p_onesided_A_gt_B": 0.0684,
+    "n_boot": 10000,
+    "n_seeds_A": 3,
+    "n_seeds_B": 5,
+    "seed_pair_design_ci95": [
+     -0.032582581416196306,
+     0.07224504106787721
+    ],
+    "seed_pair_design_p": 0.1976,
+    "holm_adjusted_p_within_family": 0.6156
+   },
+   "Public": {
+    "diff_mean_over_seeds": 0.0161,
+    "ci95": [
+     -0.0203,
+     0.0449
+    ],
+    "p_onesided_A_gt_B": 0.1759,
+    "n_boot": 10000,
+    "n_seeds_A": 3,
+    "n_seeds_B": 5,
+    "seed_pair_design_ci95": [
+     -0.03471405332400448,
+     0.05979331662663801
+    ],
+    "seed_pair_design_p": 0.2575,
+    "holm_adjusted_p_within_family": 0.945
+   }
+  },
+  "xlmr_dapt": {
+   "Tech": {
+    "diff_mean_over_seeds": 0.0349,
+    "ci95": [
+     0.0043,
+     0.0646
+    ],
+    "p_onesided_A_gt_B": 0.0121,
+    "n_boot": 10000,
+    "n_seeds_A": 3,
+    "n_seeds_B": 5,
+    "seed_pair_design_ci95": [
+     -0.011293121609554587,
+     0.07863674670159415
+    ],
+    "seed_pair_design_p": 0.0843,
+    "holm_adjusted_p_within_family": 0.242
+   },
+   "Finance": {
+    "diff_mean_over_seeds": 0.0238,
+    "ci95": [
+     -0.006,
+     0.0542
+    ],
+    "p_onesided_A_gt_B": 0.0567,
+    "n_boot": 10000,
+    "n_seeds_A": 3,
+    "n_seeds_B": 5,
+    "seed_pair_design_ci95": [
+     -0.030961657472063687,
+     0.07064543334478447
+    ],
+    "seed_pair_design_p": 0.2078,
+    "holm_adjusted_p_within_family": 0.567
+   },
+   "Social": {
+    "diff_mean_over_seeds": 0.0278,
+    "ci95": [
+     -0.0003,
+     0.055
+    ],
+    "p_onesided_A_gt_B": 0.0258,
+    "n_boot": 10000,
+    "n_seeds_A": 3,
+    "n_seeds_B": 5,
+    "seed_pair_design_ci95": [
+     -0.019838371829903213,
+     0.07174877927791562
+    ],
+    "seed_pair_design_p": 0.1217,
+    "holm_adjusted_p_within_family": 0.4128
+   },
+   "Retail": {
+    "diff_mean_over_seeds": 0.0312,
+    "ci95": [
+     0.0026,
+     0.0624
+    ],
+    "p_onesided_A_gt_B": 0.0159,
+    "n_boot": 10000,
+    "n_seeds_A": 3,
+    "n_seeds_B": 5,
+    "seed_pair_design_ci95": [
+     -0.017692465027054127,
+     0.07999175894425836
+    ],
+    "seed_pair_design_p": 0.1137,
+    "holm_adjusted_p_within_family": 0.3021
+   },
+   "Public": {
+    "diff_mean_over_seeds": 0.0359,
+    "ci95": [
+     -0.0043,
+     0.0841
+    ],
+    "p_onesided_A_gt_B": 0.0447,
+    "n_boot": 10000,
+    "n_seeds_A": 3,
+    "n_seeds_B": 5,
+    "seed_pair_design_ci95": [
+     -0.017534946294107127,
+     0.09152546529165057
+    ],
+    "seed_pair_design_p": 0.1016,
+    "holm_adjusted_p_within_family": 0.4917
+   }
+  }
+ }
+}

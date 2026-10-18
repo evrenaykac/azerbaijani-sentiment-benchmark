@@ -4,7 +4,7 @@ The annotation effort and the evaluation split were decided independently, so
 the 10,000 triple-annotated items landed mostly in gold_train and in the bulk
 layer: only 4.5% of gold_test had three independent annotations plus
 adjudication. A benchmark whose agreement statistics describe a pool that
-barely overlaps its own test set is not a benchmark a reviewer will accept.
+barely overlaps its own test set does not support its own evaluation.
 
 This re-assigns gold_role WITHIN the existing gold pool so that triple-annotated
 items fill gold_test first, then gold_dev, then gold_train. Two things are held

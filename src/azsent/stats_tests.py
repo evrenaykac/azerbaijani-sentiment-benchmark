@@ -1,4 +1,4 @@
-"""Statistical testing (Reviewer 1, item 7).
+"""Statistical testing.
 
 * Paired bootstrap over gold-test predictions (pooled and per-domain).
 * Cluster-aware bootstrap: resampling units are source groups (video ids;

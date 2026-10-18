@@ -70,7 +70,7 @@ train:
   seeds_indomain: [13, 21, 42, 87, 100]
   seeds_lodo: [13, 42, 100]              # context rows
   seeds_lodo_headline: [13, 21, 42, 87, 100]
-  # v1 ran all LODO cells on 3 seeds; the hierarchical bootstrap then returned
+  # The preliminary run used 3 seeds per LODO cell; the hierarchical bootstrap then returned
   # 95% CIs ~13 points wide and only the single largest effect cleared zero.
   # The systems the paper's claims rest on (tables.headline_lodo) get 5.
   supcon_lambda: 0.1
@@ -146,7 +146,7 @@ llm:
     grad_accum: 8
     epochs: 1
     max_len: 160
-  run_lodo: true          # v1 only had pooled LLM numbers, which is not the claim
+  run_lodo: true          # the preliminary run had only pooled LLM numbers, which is not the claim
   lodo_models: ["qwen25"] # one model over the folds settles "does a 7B LLM also
   lodo_targets: ["Public", "Tech"]   # collapse under domain shift" without a 3x5 grid
   openai_models:

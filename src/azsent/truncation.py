@@ -1,4 +1,4 @@
-"""Truncation report (Reviewer 1, minor item 3): per-domain share of comments
+"""Truncation report: per-domain share of comments
 truncated at max_len subword tokens, plus token-mass lost, per tokenizer."""
 from __future__ import annotations
 

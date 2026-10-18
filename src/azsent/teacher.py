@@ -1,4 +1,4 @@
-"""Fold-safe teachers + silver-label generation (Reviewer 1, item 1).
+"""Fold-safe teachers + silver-label generation.
 
 For scope 'all': teacher trained on the full gold-train, silver labels for all
 bulk-train rows -> silver_all.parquet (used by in-domain / pooled regimes).

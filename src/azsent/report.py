@@ -2,8 +2,7 @@
 
 Reads runs/<run_id>/metrics.json (+probes.json, calibration.json) and writes
 <runs>/report/: one CSV per table plus a master runs.csv. Both unweighted
-domain averages and pooled example-level metrics are reported (Reviewer 1,
-minor item 4).
+domain averages and pooled example-level metrics are reported.
 """
 from __future__ import annotations
 
@@ -179,7 +178,7 @@ def table_calibration(df: pd.DataFrame, out_dir: Path) -> None:
 
 def geometry_correlation(df: pd.DataFrame, out_dir: Path) -> None:
     """Run-level Spearman correlation between geometry probes and LODO F1
-    (Reviewer 2: geometry <-> robustness link, correlational framing)."""
+    (the geometry <-> robustness link, correlational framing)."""
     from scipy.stats import spearmanr
 
     d = df[(df["regime"] == "lodo") & df["nn_at_10"].notna()]

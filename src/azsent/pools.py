@@ -12,14 +12,19 @@ Regimes
 
 Silver labels
   * human-labeled bulk rows keep their labels (human-verified layer), except in
-    strict mode where the fold teacher re-labels everything (Reviewer 1 item 1,
-    strictest reading - reported as a robustness check).
+    strict mode where the fold teacher re-labels everything (the strictest
+    reading of fold safety - reported as a robustness check).
   * unlabeled bulk rows take the scope-matched teacher's silver labels:
       indomain/pooled -> silver_all.parquet
       lodo target t   -> silver_lodo_<t>.parquet   (teacher never saw t)
   * silver_frac subsamples the silver portion (sensitivity grid).
 
-pool_mode: gold+bulk (default) | gold_only | bulk_only
+pool_mode: gold+bulk (default) | gold_only | bulk_only | gold+bulk_relabeled
+  * gold+bulk_relabeled is the teacher-label control of Section VII: the same
+    human-labeled bulk comments as gold+bulk, but carrying the scope teacher's
+    labels instead of the human ones, and no unlabeled rows. Pool size and
+    composition therefore equal those of the gold+bulk pool; only the labels of
+    the bulk part differ.
 """
 from __future__ import annotations
 
@@ -86,6 +91,22 @@ def make_pools(
 
     parts = []
     comp = {}
+    if pool_mode == "gold+bulk_relabeled":
+        if silver is None:
+            raise FileNotFoundError(f"relabeled mode needs {sp}")
+        n_human = int(b["has_human_label"].sum())
+        hb = b[b["has_human_label"]].drop(columns=["label"]).merge(
+            silver[["uid", "silver_label"]].rename(columns={"silver_label": "label"}),
+            on="uid", how="inner",
+        )
+        if len(hb) != n_human:
+            raise ValueError(f"relabeled mode: teacher labels cover {len(hb)} of {n_human} "
+                             f"human-labeled bulk rows in {sp}; the pool would not match gold+bulk")
+        hb["is_gold"] = False
+        parts.append(hb[["uid", "text", "label", "domain", "group_id", "is_gold"]])
+        comp["bulk_human_relabeled"] = len(hb)
+        comp["bulk_human"] = 0
+        comp["bulk_silver"] = 0
     if pool_mode in ("gold+bulk", "bulk_only"):
         if strict_lodo:
             if silver is None:
@@ -116,7 +137,7 @@ def make_pools(
                 comp["bulk_silver"] = len(ub)
             elif silver is None:
                 log.warning("No silver file %s - training without silver rows", sp)
-    if pool_mode in ("gold+bulk", "gold_only"):
+    if pool_mode in ("gold+bulk", "gold_only", "gold+bulk_relabeled"):
         gt = _gold_part(gold, "gold_train", train_doms)
         parts.append(gt)
         comp["gold_train"] = len(gt)

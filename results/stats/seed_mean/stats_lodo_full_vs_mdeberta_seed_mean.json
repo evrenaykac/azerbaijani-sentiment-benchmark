@@ -1,0 +1,95 @@
+{
+ "regime": "lodo",
+ "baseline": "mdeberta_ft",
+ "design": "seed-mean two-level bootstrap",
+ "description": "Each of 10,000 replicates draws seeds with replacement for both systems (as many as each has), resamples source groups with replacement within the domain once, and takes mean_A(macro-F1) - mean_B(macro-F1) over the drawn seeds on the resampled items. Reported alongside the pre-specified seed-pair design of stats/ (one seed pair per replicate), whose intervals are wider. Holm adjustment is over the one-sided p-values of this file (one family per baseline and regime). Computed from the released per-item predictions by scripts/bootstrap_designs.py (RNG seed 1235).",
+ "comparisons": {
+  "full": {
+   "Tech": {
+    "diff_mean_over_seeds": -0.0281,
+    "ci95": [
+     -0.0532,
+     -0.0018
+    ],
+    "p_onesided_A_gt_B": 0.981,
+    "n_boot": 10000,
+    "n_seeds_A": 5,
+    "n_seeds_B": 3,
+    "seed_pair_design_ci95": [
+     -0.06181943160058268,
+     0.007406045794575549
+    ],
+    "seed_pair_design_p": 0.9418,
+    "holm_adjusted_p_within_family": 1.0
+   },
+   "Finance": {
+    "diff_mean_over_seeds": -0.032,
+    "ci95": [
+     -0.072,
+     -0.0005
+    ],
+    "p_onesided_A_gt_B": 0.9762,
+    "n_boot": 10000,
+    "n_seeds_A": 5,
+    "n_seeds_B": 3,
+    "seed_pair_design_ci95": [
+     -0.08491259000319051,
+     0.018565801034839038
+    ],
+    "seed_pair_design_p": 0.9044,
+    "holm_adjusted_p_within_family": 1.0
+   },
+   "Social": {
+    "diff_mean_over_seeds": -0.0125,
+    "ci95": [
+     -0.0405,
+     0.0194
+    ],
+    "p_onesided_A_gt_B": 0.8045,
+    "n_boot": 10000,
+    "n_seeds_A": 5,
+    "n_seeds_B": 3,
+    "seed_pair_design_ci95": [
+     -0.05441044335517173,
+     0.03030668798797952
+    ],
+    "seed_pair_design_p": 0.7275,
+    "holm_adjusted_p_within_family": 1.0
+   },
+   "Retail": {
+    "diff_mean_over_seeds": -0.0009,
+    "ci95": [
+     -0.0468,
+     0.0498
+    ],
+    "p_onesided_A_gt_B": 0.5395,
+    "n_boot": 10000,
+    "n_seeds_A": 5,
+    "n_seeds_B": 3,
+    "seed_pair_design_ci95": [
+     -0.06989158131705518,
+     0.08734987637779312
+    ],
+    "seed_pair_design_p": 0.5506,
+    "holm_adjusted_p_within_family": 1.0
+   },
+   "Public": {
+    "diff_mean_over_seeds": -0.0269,
+    "ci95": [
+     -0.0809,
+     0.0195
+    ],
+    "p_onesided_A_gt_B": 0.8991,
+    "n_boot": 10000,
+    "n_seeds_A": 5,
+    "n_seeds_B": 3,
+    "seed_pair_design_ci95": [
+     -0.10330875679057384,
+     0.035163922038285104
+    ],
+    "seed_pair_design_p": 0.8412,
+    "holm_adjusted_p_within_family": 1.0
+   }
+  }
+ }
+}

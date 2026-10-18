@@ -1,12 +1,12 @@
 """Model: encoder + polarity/morphology injection + pooling + heads.
 
-Injection points (Reviewer 1, item 5):
+Injection points:
   post : conditioning is applied to the *final* contextual token
-         representations, before mean pooling (the configuration reported in
-         the original submission - i.e. AFTER the transformer stack).
+         representations, before mean pooling (the primary placement - i.e.
+         AFTER the transformer stack).
   mid  : conditioning is applied to the hidden states entering encoder layer
          `mid_layer` via a forward pre-hook (i.e. WITHIN the encoder). Reported
-         as an additional ablation in the resubmission.
+         as a distinct variant.
 """
 from __future__ import annotations
 

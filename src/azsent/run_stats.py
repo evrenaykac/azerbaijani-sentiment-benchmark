@@ -45,11 +45,9 @@ def main() -> None:
             log.warning("%s full-vs-mdeberta stats failed: %s", rgm, e)
 
     # Does anything beyond the contrastive objective earn its place?
-    # In v1 the LODO ablation put xlmr_supcon at +2.28 over xlmr_ft and the full
-    # recipe at +2.47 - i.e. SupCon alone carried almost all of it, and on the
-    # one domain where the method won, SupCon alone was actually ahead. That
-    # comparison was never tested, so a reviewer would have been the first to
-    # run it. It is a standing part of the battery now.
+    # In the preliminary evaluation SupCon alone carried almost all of the LODO
+    # gain of the full recipe, so the recipe is tested against the SupCon-only
+    # arm directly. The comparison is a standing part of the battery.
     supcon_arms = ["full", "full_midinject", "xlmr_film", "xlmr_dapt"]
     for rgm, seeds, table in (("indomain", seeds_in, systems.tables.indomain),
                               ("lodo", seeds_lodo, systems.tables.lodo)):

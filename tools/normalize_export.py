@@ -4,8 +4,8 @@ An export can be perfectly deduplicated by its author's normalizer and still be
 rejected by `azsent.ingest`, because the pipeline strips emoji and punctuation
 before hashing: "Afərin", "Afərin!" and "Afərin 🙏🏻" are one key here and three
 rows there. That mismatch is not cosmetic - if one copy sits in train and
-another in gold-test, it is evaluation leakage of exactly the kind Reviewer 1
-objected to.
+another in gold-test, it is evaluation leakage of exactly the kind the audit
+exists to catch.
 
 This tool does the minimum needed and nothing else:
   * collapses rows sharing the pipeline's dedup key, preferring a gold

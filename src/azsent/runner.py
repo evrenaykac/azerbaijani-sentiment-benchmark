@@ -70,7 +70,7 @@ def build_jobs(cfg, systems, blocks: set[str], smoke: bool = False) -> list[Job]
     # Headline systems get the full seed budget; context rows use 3 seeds.
     seeds_ctx = seeds_in[:3] if len(seeds_in) > 3 else seeds_in
     headline_sys = set(systems.tables.get("headline_indomain", ["xlmr_ft", "full", "mdeberta_ft"]))
-    # Same idea under LODO. v1 ran every LODO cell on 3 seeds, and the two
+    # Same idea under LODO. The preliminary run used 3 seeds per LODO cell, and the two
     # comparisons that mattered came back with 95% CIs about 13 points wide -
     # wide enough that only the largest effect cleared zero. The systems the
     # claims rest on get the full seed budget here; context rows stay at 3.
@@ -150,7 +150,7 @@ def build_jobs(cfg, systems, blocks: set[str], smoke: bool = False) -> list[Job]
                               extra=(["--save-model"] if system == "full" and seed == seeds_in[0] else None))
         # The paper's main claim is a LODO claim, so the fast-track carries the
         # full seed budget for the arms it rests on - a 3-seed core_fast would
-        # reproduce exactly the wide intervals that made v1's result fragile.
+        # reproduce exactly the wide intervals that made the preliminary result fragile.
         # xlmr_supcon is in the fast-track because "does the recipe beat the
         # contrastive objective alone?" is now a headline question.
         for system in ("xlmr_ft", "full", "xlmr_supcon"):
@@ -215,7 +215,7 @@ def build_jobs(cfg, systems, blocks: set[str], smoke: bool = False) -> list[Job]
         def strategy_jobs(system, modes, fracs, est):
             """(pool_mode x silver_frac) under every requested regime.
 
-            v1 varied this pooled only, so an 8.6-point LODO effect stayed
+            The preliminary run varied this pooled only, so an 8.6-point LODO effect stayed
             invisible until the run was over. Both regimes are measured here.
             """
             for seed in sens_seeds:
@@ -267,7 +267,7 @@ def build_jobs(cfg, systems, blocks: set[str], smoke: bool = False) -> list[Job]
         for key in ("qwen25", "llama31", "qwen3"):
             out = Path(cfg.paths.runs_dir) / "llm" / key
             jobs.append(Job(f"llm.qlora.{key}", "azsent.llm_qlora", ["--model-key", key], "llm", 300, out))
-        # The paper's claim is robustness under domain shift, but v1 only had
+        # The paper's claim is robustness under domain shift, but the preliminary run only had
         # pooled LLM numbers, so "a 7B model beats the method" could not be
         # answered where it mattered. One model over the folds settles it
         # without paying for the full 3x5 grid.
