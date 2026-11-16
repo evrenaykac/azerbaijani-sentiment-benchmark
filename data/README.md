@@ -31,6 +31,7 @@ Per-annotator records for every triple-annotated comment.
 | `adjudicator` | the fourth team member's decision |
 | `final_label` | the label used in all experiments (equal to `adjudicator`) |
 | `gold_role` | which gold partition the comment belongs to |
+| `batch` | annotation batch: `blind` (no prior label visible) or `verification` (an earlier single-annotator label visible) |
 
 The adjudicator reviewed **every** item, not only the disagreements, and
 departed from the annotator majority on 1.02% of the blind batch. Agreement

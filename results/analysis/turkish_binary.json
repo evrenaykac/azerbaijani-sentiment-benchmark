@@ -1,0 +1,89 @@
+{
+ "turkish_training_data": {
+  "TRSAv1": {
+   "id": "maydogan/Turkish_SentimentAnalysis_TRSAv1",
+   "n": 139467,
+   "share": {
+    "negative": 0.3308,
+    "neutral": 0.3241,
+    "positive": 0.3451
+   }
+  },
+  "winvoker": {
+   "id": "winvoker/turkish-sentiment-analysis-dataset",
+   "n": 487327,
+   "share": {
+    "negative": 0.1152,
+    "neutral": 0.3502,
+    "positive": 0.5347
+   }
+  },
+  "combined": {
+   "n": 626794,
+   "share": {
+    "negative": 0.1631,
+    "neutral": 0.3444,
+    "positive": 0.4925
+   }
+  }
+ },
+ "xlmr_turkish_only": {
+  "n_items": 2118,
+  "neg_recall": 0.4713,
+  "pos_recall": 0.8603,
+  "neg_called_positive": 0.5086,
+  "pos_called_negative": 0.1145,
+  "accuracy_lower": 0.6686,
+  "accuracy_upper": 0.6912,
+  "balanced_accuracy_lower": 0.6658,
+  "three_way_macro_f1": 0.3794,
+  "pred_share": [
+   0.2553,
+   0.02,
+   0.7247
+  ]
+ },
+ "labse_turkish_only": {
+  "n_items": 2118,
+  "neg_recall": 0.5057,
+  "pos_recall": 0.7709,
+  "neg_called_positive": 0.3343,
+  "pos_called_negative": 0.095,
+  "accuracy_lower": 0.6402,
+  "accuracy_upper": 0.7871,
+  "balanced_accuracy_lower": 0.6383,
+  "three_way_macro_f1": 0.4139,
+  "pred_share": [
+   0.2857,
+   0.1253,
+   0.589
+  ]
+ },
+ "labse_turkish_plus_az_gold": {
+  "n_items": 2118,
+  "neg_recall": 0.6236,
+  "pos_recall": 0.7132,
+  "neg_called_positive": 0.1887,
+  "pos_called_negative": 0.1369,
+  "accuracy_lower": 0.669,
+  "accuracy_upper": 0.8376,
+  "balanced_accuracy_lower": 0.6684,
+  "three_way_macro_f1": 0.5381,
+  "pred_share": [
+   0.342,
+   0.2077,
+   0.4503
+  ]
+ },
+ "xlmr_in_language_pooled_5seeds": {
+  "n_items": 2118,
+  "neg_recall": 0.737,
+  "pos_recall": 0.7652,
+  "neg_called_positive": 0.0837,
+  "pos_called_negative": 0.105,
+  "accuracy_lower": 0.7513,
+  "accuracy_upper": 0.9055,
+  "balanced_accuracy_lower": 0.7511,
+  "forced_binary_accuracy": 0.8686
+ }
+}

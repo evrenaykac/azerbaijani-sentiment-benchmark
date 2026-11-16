@@ -1,0 +1,146 @@
+{
+ "regime": "lodo",
+ "baseline": "mdeberta_ft",
+ "family": "lodo_full_vs_mdeberta",
+ "subset": "blind_uids.txt",
+ "n_boot": 10000,
+ "comparisons": {
+  "full": {
+   "Tech": {
+    "n_items": 300,
+    "n_units": 19,
+    "mean_A": 0.6572,
+    "mean_B": 0.674,
+    "diff_mean_over_seeds": -0.0169,
+    "n_seeds_A": 5,
+    "n_seeds_B": 3,
+    "seed_pair": {
+     "ci95": [
+      -0.0781,
+      0.0544
+     ],
+     "p_onesided_A_gt_B": 0.6805,
+     "p_two_sided": 0.639,
+     "holm_two_sided_within_family": 1.0
+    },
+    "seed_mean": {
+     "ci95": [
+      -0.0621,
+      0.0419
+     ],
+     "p_onesided_A_gt_B": 0.7374,
+     "p_two_sided": 0.5252,
+     "holm_two_sided_within_family": 1.0
+    }
+   },
+   "Finance": {
+    "n_items": 342,
+    "n_units": 19,
+    "mean_A": 0.7049,
+    "mean_B": 0.716,
+    "diff_mean_over_seeds": -0.0111,
+    "n_seeds_A": 5,
+    "n_seeds_B": 3,
+    "seed_pair": {
+     "ci95": [
+      -0.099,
+      0.093
+     ],
+     "p_onesided_A_gt_B": 0.6183,
+     "p_two_sided": 0.7634,
+     "holm_two_sided_within_family": 1.0
+    },
+    "seed_mean": {
+     "ci95": [
+      -0.0686,
+      0.0464
+     ],
+     "p_onesided_A_gt_B": 0.7007,
+     "p_two_sided": 0.5986,
+     "holm_two_sided_within_family": 1.0
+    }
+   },
+   "Social": {
+    "n_items": 342,
+    "n_units": 6,
+    "mean_A": 0.6766,
+    "mean_B": 0.6921,
+    "diff_mean_over_seeds": -0.0155,
+    "n_seeds_A": 5,
+    "n_seeds_B": 3,
+    "seed_pair": {
+     "ci95": [
+      -0.0891,
+      0.0559
+     ],
+     "p_onesided_A_gt_B": 0.7116,
+     "p_two_sided": 0.5768,
+     "holm_two_sided_within_family": 1.0
+    },
+    "seed_mean": {
+     "ci95": [
+      -0.0648,
+      0.0301
+     ],
+     "p_onesided_A_gt_B": 0.7856,
+     "p_two_sided": 0.4288,
+     "holm_two_sided_within_family": 1.0
+    }
+   },
+   "Retail": {
+    "n_items": 417,
+    "n_units": 51,
+    "mean_A": 0.6608,
+    "mean_B": 0.6501,
+    "diff_mean_over_seeds": 0.0107,
+    "n_seeds_A": 5,
+    "n_seeds_B": 3,
+    "seed_pair": {
+     "ci95": [
+      -0.0598,
+      0.101
+     ],
+     "p_onesided_A_gt_B": 0.4809,
+     "p_two_sided": 0.9618,
+     "holm_two_sided_within_family": 1.0
+    },
+    "seed_mean": {
+     "ci95": [
+      -0.0365,
+      0.0662
+     ],
+     "p_onesided_A_gt_B": 0.3478,
+     "p_two_sided": 0.6956,
+     "holm_two_sided_within_family": 1.0
+    }
+   },
+   "Public": {
+    "n_items": 342,
+    "n_units": 21,
+    "mean_A": 0.7488,
+    "mean_B": 0.7728,
+    "diff_mean_over_seeds": -0.024,
+    "n_seeds_A": 5,
+    "n_seeds_B": 3,
+    "seed_pair": {
+     "ci95": [
+      -0.1067,
+      0.0495
+     ],
+     "p_onesided_A_gt_B": 0.7833,
+     "p_two_sided": 0.4334,
+     "holm_two_sided_within_family": 1.0
+    },
+    "seed_mean": {
+     "ci95": [
+      -0.0845,
+      0.0236
+     ],
+     "p_onesided_A_gt_B": 0.8756,
+     "p_two_sided": 0.2488,
+     "holm_two_sided_within_family": 1.0
+    }
+   }
+  }
+ }
+}

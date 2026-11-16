@@ -1,4 +1,4 @@
-# Label and data-strategy controls (Section VII, Table 11)
+# Label and data-strategy controls (Section VII, Table 15)
 
 Thirty-six training runs on the audited split that separate the two things
 the Stage 2 → 2b step of the article changes at once: the labels of the
@@ -42,7 +42,7 @@ The archive holds, per run, `metrics.json`, `preds_test.csv`, `preds_dev.csv`
 and `DONE.json` (no embeddings: the controls use no probe), plus the teachers'
 quality reports, the DAPT metrics and the teacher-label files.
 
-Reproducing the numbers of Table 11 and the surrounding text:
+Reproducing the numbers of Table 15 and the surrounding text:
 
 ```bash
 mkdir -p work_lc && tar xzf predictions_label_controls.tar.gz -C work_lc

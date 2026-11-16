@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Label and data-strategy controls on the audited split (Section VII,
-Table 11 of the article).
+Table 15 of the article).
 
     python scripts/label_controls.py --runs <dir with <run_id>/preds_test.csv> \
         [--conditions human:H,relabel:T,silver:S] [--regime pooled --scope all] \

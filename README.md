@@ -6,8 +6,8 @@ tooling, and the recorded results of more than six hundred training runs —
 including a negative result on domain-adaptation techniques and the diagnosis
 of why they had appeared to help.
 
-This repository accompanies the article *Domain-Robust Sentiment Analysis for
-Azerbaijani: A Multi-Domain Benchmark and Controlled Comparison* (Aykaç, Ozkan
+This repository accompanies the article *Azerbaijani Sentiment Analysis Under Domain Shift: A Multi-Domain
+Benchmark and Controlled Comparison* (Aykaç, Ozkan
 and Samet, IEEE Access, under review). The corpus extends the collection
 introduced with our published article *Morpheme-Aware Hybrid Sentiment
 Analysis for Azerbaijani* (IEEE Access, vol. 14, 2026,
@@ -17,9 +17,12 @@ re-derived from what is here without re-training (the Stage-1 figures of
 Section VII come from the preliminary evaluation that preceded the corpus
 audit and are documented rather than re-derivable; the bootstrap intervals
 and p-values of its Stages 2 and 2b are recorded in `results/earlier_split/`);
-corpus-construction counts and per-batch annotation
-agreement are documented rather than re-derivable, because the raw text and
-the batch membership are not redistributed.
+corpus-construction counts are documented rather than re-derivable, because the
+raw text is not redistributed; per-batch and per-cohort annotation agreement can be
+recomputed from `data/annotations.csv`, which carries the annotation batch.
+
+Release v1.1.0, which corresponds to the article, is archived together with
+the stored predictions of all reported runs at https://doi.org/10.5281/zenodo.24275188.
 
 ```bash
 git clone https://github.com/evrenaykac/azerbaijani-sentiment-benchmark.git
@@ -56,7 +59,7 @@ teacher-labeled bulk comments are left out of training:
 On the same split, training on human labels only removes the gain and restores
 the collapsed baseline; moving to the audited split then changes nothing of
 consequence under human labels. Two further controls on the audited split
-(`results/label_controls/`, Table 11 of the article) separate the components of
+(`results/label_controls/`, Table 15 of the article) separate the components of
 the data strategy: relabeling the same bulk comments with the teacher, which
 changes about a third of their labels, lowers plain fine-tuning and the recipe
 alike and leaves their difference where it was, and adding the unlabeled
@@ -111,6 +114,7 @@ data/
                          and a hash of the deduplication key (see "Text" below)
   annotations.csv        per-annotator records for the 11,250 triple-annotated
                          comments, including the adjudicator's decision
+                         and the annotation batch (blind or verification)
   splits/                the exact partition membership, one uid per line
   lexicon/               not vendored (published separately) — see data/lexicon/README.md
 results/
@@ -118,7 +122,7 @@ results/
                          macro-F1, per-class F1, the training-pool composition
                          (gold / human-labeled bulk / silver = 0) and every
                          embedding probe
-  tables/                Tables 6 and 7 of the article and supporting tables, as CSV
+  tables/                Tables 8 and 9 of the article and supporting tables, as CSV
   stats/                 bootstrap intervals and adjusted p-values under the
                          pre-specified seed-pair design; stats/seed_mean/ holds
                          the same 190 comparisons under a two-level bootstrap of
@@ -135,14 +139,25 @@ results/
                          full recipe vs. XLM-R with teacher-generated and with
                          human-only bulk labels, the pre-audit split's label
                          composition, and the prior-reweighting test
-  label_controls/        the Table 11 controls on the audited split: the same
+  label_controls/        the Table 15 controls on the audited split: the same
                          bulk comments relabeled by the teacher, and the Stage-2
                          strategy re-run on the audited split (36 runs, their
                          ledger, both bootstrap designs; scripts/label_controls.py)
-  ingest_report.json     the audit as it was recorded at corpus build time
+    ingest_report.json     the audit as it was recorded at corpus build time
+  near_duplicates/       character 5-gram similarity between every development
+                         or test comment and the training comments: per-comment
+                         best matches and counts at four thresholds
+                         (tools/near_duplicates.py)
+  analysis/              analyses computed from the stored predictions and the
+                         annotation records: agreement with bootstrap intervals,
+                         results on the blind cohort of the test partition and
+                         without near-duplicate comments, two-sided p-values
+                         for all 190 comparisons, the Stage-2 baseline evidence
+                         and the Turkish binary reading (scripts/analysis/)
 src/azsent/              the experimental pipeline
 scripts/                 verification and regeneration tools
-docs/                    reproducibility guide, protocol, dataset card
+docs/                    reproducibility guide, protocol, dataset card, annotation
+                         guideline, access to the comment text
 ```
 
 ### Text
@@ -165,6 +180,11 @@ The join is on the normalized text itself, not on an opaque identifier, so a
 third party who re-collects the comments can rebuild the corpus without trusting
 our id scheme.
 
+The text is also available on request for non-commercial research, under a
+data-use agreement that carries the same restrictions (no redistribution, no
+attempt to identify the writers). With it, new systems can be trained and
+evaluated on the fixed split; see [`docs/data_access.md`](docs/data_access.md).
+
 ## Reproducing the article
 
 Three levels, in increasing order of cost:
@@ -182,31 +202,30 @@ repository's release rather than committed; see that document).
 
 ## Principal results
 
-Pooled over all domains, a 278M-parameter fine-tuned encoder (mDeBERTa-v3,
-five-seed mean 0.760) is close to single runs of QLoRA-adapted Qwen2.5-7B and
-Qwen3-8B (0.761 and 0.759); the single Llama-3.1-8B run is about 1.5 points
-higher (0.774). Under domain shift the encoder is above the adapted Qwen2.5-7B
-on both held-out targets tested. Prompted GPT-4o reaches 0.677 — below every
-fine-tuned system under the same pooled protocol, and below the in-domain
-average of a classical tf-idf baseline (0.685, a different protocol).
-Zero-shot transfer from Turkish reaches 0.379 against 0.746 for in-language
-training, though a single run with Turkish intermediate training lies 1.8
-points above the five-seed mean of the same recipe without it.
+Pooled over all domains, the single QLoRA-adapted Llama-3.1-8B run has the
+highest score (0.774 macro-F1), fine-tuned encoders reach 0.746 to 0.760
+(five-seed means of XLM-R and mDeBERTa-v3), the single Qwen2.5-7B and Qwen3-8B
+runs score 0.761 and 0.759, and prompted GPT-4o reaches 0.677 with the one
+prompt tested. The adapted language models are single runs of one
+configuration, so the two families are at one level and are not ranked.
+Zero-shot transfer from the available Turkish corpora reaches 0.379 against
+0.746 for in-language training.
 
-The negative result: on the audited split, none of the domain-adaptation
-techniques evaluated — domain-adaptive pretraining, FiLM-based polarity
-injection, supervised contrastive regularization, domain-adversarial training,
-or their combinations — outperforms plain XLM-R fine-tuning with a
-domain-specific 95% interval excluding zero. Every comparison whose interval
-against plain XLM-R fine-tuning excludes zero on any target involves a change
-of backbone (mDeBERTa-v3 above it on the leave-one-domain-out Tech target;
-mBERT below it on two targets in each regime, as is the full recipe on an
-mBERT backbone on in-domain Finance), and none of these comparisons survives
-Holm adjustment.
+Plain fine-tuning of a strong multilingual encoder is the configuration the
+evidence supports. Across 190 per-domain comparisons, no adaptation technique
+(domain-adaptive pretraining, FiLM-based polarity injection, supervised
+contrastive regularization, domain-adversarial training, or their
+combinations) improves on plain XLM-R fine-tuning after Holm adjustment,
+whereas multilingual BERT falls four to six points below it. The same picture
+holds on the blind cohort of the test partition (1,743 comments annotated
+without a visible label, all with a source identifier) and with the 159 test
+comments that have a near-duplicate in the labeled training pool removed
+(`results/analysis/`).
 
 ## Citation
 
-See [`CITATION.cff`](CITATION.cff). The article is under review at IEEE Access.
+See [`CITATION.cff`](CITATION.cff). The archived release v1.1.0 has the DOI
+[10.5281/zenodo.24275188](https://doi.org/10.5281/zenodo.24275188). The article is under review at IEEE Access.
 
 ## License
 

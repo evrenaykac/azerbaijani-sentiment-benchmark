@@ -1,4 +1,4 @@
-"""Token-level polarity + surface-morphology features (paper Table 5, d_f = 8).
+"""Token-level polarity + surface-morphology features (paper Table 6, d_f = 8).
 
 Feature order (fixed):
   0 lex_polarity   scalar in [-1,1]

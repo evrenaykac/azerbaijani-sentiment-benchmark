@@ -117,10 +117,10 @@ that campaign (`runs_master_earlier_split.csv`, 600 runs, `silver_frac` = 1.0 wi
 marking the same systems trained on human labels only), the hierarchical
 bootstrap of the full recipe against XLM-R fine-tuning under both conditions,
 the earlier split's label composition (`gold_summary_earlier_split.json`) and
-the Table 12 reweighting (`prior_reweight_test2_earlier_split.json`). The
+the Table 16 reweighting (`prior_reweight_test2_earlier_split.json`). The
 per-item predictions of that campaign are attached to the same release as
 `predictions_earlier_split.tar.gz`, with its run folders under `runs/runs/`.
-From them, the point estimates of Stages 2 and 2b and the Table 12 reweighting
+From them, the point estimates of Stages 2 and 2b and the Table 16 reweighting
 are recomputable; the bootstrap intervals and p-values of those two stages need
 the earlier split's source groups and are recorded in the `stats_*` files of
 `results/earlier_split/`. The ledger lists 28 of the 30
@@ -129,7 +129,7 @@ human-label LODO runs: `lodo.Social.xlmr_ft.s42.frac000` and
 are in that archive and enter the Section VII statistics, which use all nine
 seed pairs on every domain.
 
-The two controls on the audited split (Table 11) are released the same way:
+The two controls on the audited split (Table 15) are released the same way:
 `predictions_label_controls.tar.gz` holds the per-item predictions and metrics
 of the 36 control runs (run tags `human`, `relabel` and `silver`), together
 with the teachers' quality reports, the DAPT metrics and the teacher-label

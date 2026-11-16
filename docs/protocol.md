@@ -119,3 +119,14 @@ article shows that the mismatch masked rather than created that split's
 apparent gain, which came from the teacher-generated bulk labels of the earlier
 protocol. See `results/tables/prior_sweep_lodo.csv` and
 `results/earlier_split/`.
+
+## Conventions used in the article
+
+The article reports 95% percentile intervals with two-sided p-values, defined as
+twice the smaller tail fraction of the bootstrap replicates, and applies the
+Holm adjustment within each comparison family. The files in `results/stats/`
+store the one-sided value; `results/analysis/two_sided_statistics.csv` gives
+the two-sided value and its adjusted form for all 190 comparisons under both
+designs (`scripts/analysis/two_sided_statistics.py`). The seed-pair design was
+fixed before the main training campaign. The seed-mean design was added after
+the main results were known and is treated as a post hoc analysis.

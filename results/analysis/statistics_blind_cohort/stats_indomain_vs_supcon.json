@@ -1,0 +1,557 @@
+{
+ "regime": "indomain",
+ "baseline": "xlmr_supcon",
+ "family": "indomain_vs_supcon",
+ "subset": "blind_uids.txt",
+ "n_boot": 10000,
+ "comparisons": {
+  "full": {
+   "Tech": {
+    "n_items": 300,
+    "n_units": 19,
+    "mean_A": 0.6148,
+    "mean_B": 0.5586,
+    "diff_mean_over_seeds": 0.0562,
+    "n_seeds_A": 5,
+    "n_seeds_B": 5,
+    "seed_pair": {
+     "ci95": [
+      -0.0413,
+      0.1414
+     ],
+     "p_onesided_A_gt_B": 0.134,
+     "p_two_sided": 0.268,
+     "holm_two_sided_within_family": 1.0
+    },
+    "seed_mean": {
+     "ci95": [
+      -0.0027,
+      0.1024
+     ],
+     "p_onesided_A_gt_B": 0.0295,
+     "p_two_sided": 0.059,
+     "holm_two_sided_within_family": 1.0
+    }
+   },
+   "Finance": {
+    "n_items": 342,
+    "n_units": 19,
+    "mean_A": 0.7614,
+    "mean_B": 0.757,
+    "diff_mean_over_seeds": 0.0044,
+    "n_seeds_A": 5,
+    "n_seeds_B": 5,
+    "seed_pair": {
+     "ci95": [
+      -0.0779,
+      0.09
+     ],
+     "p_onesided_A_gt_B": 0.4923,
+     "p_two_sided": 0.9846,
+     "holm_two_sided_within_family": 1.0
+    },
+    "seed_mean": {
+     "ci95": [
+      -0.0422,
+      0.0453
+     ],
+     "p_onesided_A_gt_B": 0.4472,
+     "p_two_sided": 0.8944,
+     "holm_two_sided_within_family": 1.0
+    }
+   },
+   "Social": {
+    "n_items": 342,
+    "n_units": 6,
+    "mean_A": 0.7227,
+    "mean_B": 0.6966,
+    "diff_mean_over_seeds": 0.0261,
+    "n_seeds_A": 5,
+    "n_seeds_B": 5,
+    "seed_pair": {
+     "ci95": [
+      -0.0503,
+      0.1039
+     ],
+     "p_onesided_A_gt_B": 0.1988,
+     "p_two_sided": 0.3976,
+     "holm_two_sided_within_family": 1.0
+    },
+    "seed_mean": {
+     "ci95": [
+      -0.0085,
+      0.0763
+     ],
+     "p_onesided_A_gt_B": 0.0604,
+     "p_two_sided": 0.1208,
+     "holm_two_sided_within_family": 1.0
+    }
+   },
+   "Retail": {
+    "n_items": 417,
+    "n_units": 51,
+    "mean_A": 0.6782,
+    "mean_B": 0.6786,
+    "diff_mean_over_seeds": -0.0004,
+    "n_seeds_A": 5,
+    "n_seeds_B": 5,
+    "seed_pair": {
+     "ci95": [
+      -0.0662,
+      0.0564
+     ],
+     "p_onesided_A_gt_B": 0.4962,
+     "p_two_sided": 0.9924,
+     "holm_two_sided_within_family": 1.0
+    },
+    "seed_mean": {
+     "ci95": [
+      -0.0377,
+      0.0321
+     ],
+     "p_onesided_A_gt_B": 0.5081,
+     "p_two_sided": 0.9838,
+     "holm_two_sided_within_family": 1.0
+    }
+   },
+   "Public": {
+    "n_items": 342,
+    "n_units": 21,
+    "mean_A": 0.7745,
+    "mean_B": 0.743,
+    "diff_mean_over_seeds": 0.0315,
+    "n_seeds_A": 5,
+    "n_seeds_B": 5,
+    "seed_pair": {
+     "ci95": [
+      -0.0282,
+      0.1023
+     ],
+     "p_onesided_A_gt_B": 0.1925,
+     "p_two_sided": 0.385,
+     "holm_two_sided_within_family": 1.0
+    },
+    "seed_mean": {
+     "ci95": [
+      -0.0112,
+      0.0824
+     ],
+     "p_onesided_A_gt_B": 0.0941,
+     "p_two_sided": 0.1882,
+     "holm_two_sided_within_family": 1.0
+    }
+   }
+  },
+  "full_midinject": {
+   "Tech": {
+    "n_items": 300,
+    "n_units": 19,
+    "mean_A": 0.6037,
+    "mean_B": 0.5586,
+    "diff_mean_over_seeds": 0.045,
+    "n_seeds_A": 3,
+    "n_seeds_B": 5,
+    "seed_pair": {
+     "ci95": [
+      -0.042,
+      0.1223
+     ],
+     "p_onesided_A_gt_B": 0.1654,
+     "p_two_sided": 0.3308,
+     "holm_two_sided_within_family": 1.0
+    },
+    "seed_mean": {
+     "ci95": [
+      -0.0165,
+      0.0876
+     ],
+     "p_onesided_A_gt_B": 0.0674,
+     "p_two_sided": 0.1348,
+     "holm_two_sided_within_family": 1.0
+    }
+   },
+   "Finance": {
+    "n_items": 342,
+    "n_units": 19,
+    "mean_A": 0.7657,
+    "mean_B": 0.757,
+    "diff_mean_over_seeds": 0.0088,
+    "n_seeds_A": 3,
+    "n_seeds_B": 5,
+    "seed_pair": {
+     "ci95": [
+      -0.0642,
+      0.0687
+     ],
+     "p_onesided_A_gt_B": 0.3746,
+     "p_two_sided": 0.7492,
+     "holm_two_sided_within_family": 1.0
+    },
+    "seed_mean": {
+     "ci95": [
+      -0.0406,
+      0.0435
+     ],
+     "p_onesided_A_gt_B": 0.3274,
+     "p_two_sided": 0.6548,
+     "holm_two_sided_within_family": 1.0
+    }
+   },
+   "Social": {
+    "n_items": 342,
+    "n_units": 6,
+    "mean_A": 0.731,
+    "mean_B": 0.6966,
+    "diff_mean_over_seeds": 0.0345,
+    "n_seeds_A": 3,
+    "n_seeds_B": 5,
+    "seed_pair": {
+     "ci95": [
+      -0.0252,
+      0.1057
+     ],
+     "p_onesided_A_gt_B": 0.1132,
+     "p_two_sided": 0.2264,
+     "holm_two_sided_within_family": 1.0
+    },
+    "seed_mean": {
+     "ci95": [
+      0.0021,
+      0.0828
+     ],
+     "p_onesided_A_gt_B": 0.0212,
+     "p_two_sided": 0.0424,
+     "holm_two_sided_within_family": 0.8056
+    }
+   },
+   "Retail": {
+    "n_items": 417,
+    "n_units": 51,
+    "mean_A": 0.6937,
+    "mean_B": 0.6786,
+    "diff_mean_over_seeds": 0.0151,
+    "n_seeds_A": 3,
+    "n_seeds_B": 5,
+    "seed_pair": {
+     "ci95": [
+      -0.0392,
+      0.0679
+     ],
+     "p_onesided_A_gt_B": 0.2877,
+     "p_two_sided": 0.5754,
+     "holm_two_sided_within_family": 1.0
+    },
+    "seed_mean": {
+     "ci95": [
+      -0.0195,
+      0.0495
+     ],
+     "p_onesided_A_gt_B": 0.1973,
+     "p_two_sided": 0.3946,
+     "holm_two_sided_within_family": 1.0
+    }
+   },
+   "Public": {
+    "n_items": 342,
+    "n_units": 21,
+    "mean_A": 0.7697,
+    "mean_B": 0.743,
+    "diff_mean_over_seeds": 0.0268,
+    "n_seeds_A": 3,
+    "n_seeds_B": 5,
+    "seed_pair": {
+     "ci95": [
+      -0.0264,
+      0.0978
+     ],
+     "p_onesided_A_gt_B": 0.1969,
+     "p_two_sided": 0.3938,
+     "holm_two_sided_within_family": 1.0
+    },
+    "seed_mean": {
+     "ci95": [
+      -0.0105,
+      0.0833
+     ],
+     "p_onesided_A_gt_B": 0.0874,
+     "p_two_sided": 0.1748,
+     "holm_two_sided_within_family": 1.0
+    }
+   }
+  },
+  "xlmr_film": {
+   "Tech": {
+    "n_items": 300,
+    "n_units": 19,
+    "mean_A": 0.5444,
+    "mean_B": 0.5586,
+    "diff_mean_over_seeds": -0.0142,
+    "n_seeds_A": 3,
+    "n_seeds_B": 5,
+    "seed_pair": {
+     "ci95": [
+      -0.1285,
+      0.0831
+     ],
+     "p_onesided_A_gt_B": 0.6191,
+     "p_two_sided": 0.7618,
+     "holm_two_sided_within_family": 1.0
+    },
+    "seed_mean": {
+     "ci95": [
+      -0.0827,
+      0.0384
+     ],
+     "p_onesided_A_gt_B": 0.6954,
+     "p_two_sided": 0.6092,
+     "holm_two_sided_within_family": 1.0
+    }
+   },
+   "Finance": {
+    "n_items": 342,
+    "n_units": 19,
+    "mean_A": 0.7576,
+    "mean_B": 0.757,
+    "diff_mean_over_seeds": 0.0007,
+    "n_seeds_A": 3,
+    "n_seeds_B": 5,
+    "seed_pair": {
+     "ci95": [
+      -0.0829,
+      0.0742
+     ],
+     "p_onesided_A_gt_B": 0.4884,
+     "p_two_sided": 0.9768,
+     "holm_two_sided_within_family": 1.0
+    },
+    "seed_mean": {
+     "ci95": [
+      -0.0499,
+      0.0483
+     ],
+     "p_onesided_A_gt_B": 0.4823,
+     "p_two_sided": 0.9646,
+     "holm_two_sided_within_family": 1.0
+    }
+   },
+   "Social": {
+    "n_items": 342,
+    "n_units": 6,
+    "mean_A": 0.7119,
+    "mean_B": 0.6966,
+    "diff_mean_over_seeds": 0.0153,
+    "n_seeds_A": 3,
+    "n_seeds_B": 5,
+    "seed_pair": {
+     "ci95": [
+      -0.0504,
+      0.0892
+     ],
+     "p_onesided_A_gt_B": 0.3109,
+     "p_two_sided": 0.6218,
+     "holm_two_sided_within_family": 1.0
+    },
+    "seed_mean": {
+     "ci95": [
+      -0.0262,
+      0.0641
+     ],
+     "p_onesided_A_gt_B": 0.186,
+     "p_two_sided": 0.372,
+     "holm_two_sided_within_family": 1.0
+    }
+   },
+   "Retail": {
+    "n_items": 417,
+    "n_units": 51,
+    "mean_A": 0.6963,
+    "mean_B": 0.6786,
+    "diff_mean_over_seeds": 0.0177,
+    "n_seeds_A": 3,
+    "n_seeds_B": 5,
+    "seed_pair": {
+     "ci95": [
+      -0.0381,
+      0.0675
+     ],
+     "p_onesided_A_gt_B": 0.2419,
+     "p_two_sided": 0.4838,
+     "holm_two_sided_within_family": 1.0
+    },
+    "seed_mean": {
+     "ci95": [
+      -0.0169,
+      0.0476
+     ],
+     "p_onesided_A_gt_B": 0.1379,
+     "p_two_sided": 0.2758,
+     "holm_two_sided_within_family": 1.0
+    }
+   },
+   "Public": {
+    "n_items": 342,
+    "n_units": 21,
+    "mean_A": 0.7653,
+    "mean_B": 0.743,
+    "diff_mean_over_seeds": 0.0224,
+    "n_seeds_A": 3,
+    "n_seeds_B": 5,
+    "seed_pair": {
+     "ci95": [
+      -0.0314,
+      0.0823
+     ],
+     "p_onesided_A_gt_B": 0.218,
+     "p_two_sided": 0.436,
+     "holm_two_sided_within_family": 1.0
+    },
+    "seed_mean": {
+     "ci95": [
+      -0.0166,
+      0.0598
+     ],
+     "p_onesided_A_gt_B": 0.1172,
+     "p_two_sided": 0.2344,
+     "holm_two_sided_within_family": 1.0
+    }
+   }
+  },
+  "xlmr_dapt": {
+   "Tech": {
+    "n_items": 300,
+    "n_units": 19,
+    "mean_A": 0.5811,
+    "mean_B": 0.5586,
+    "diff_mean_over_seeds": 0.0225,
+    "n_seeds_A": 3,
+    "n_seeds_B": 5,
+    "seed_pair": {
+     "ci95": [
+      -0.0952,
+      0.1249
+     ],
+     "p_onesided_A_gt_B": 0.3608,
+     "p_two_sided": 0.7216,
+     "holm_two_sided_within_family": 1.0
+    },
+    "seed_mean": {
+     "ci95": [
+      -0.0515,
+      0.0827
+     ],
+     "p_onesided_A_gt_B": 0.2761,
+     "p_two_sided": 0.5522,
+     "holm_two_sided_within_family": 1.0
+    }
+   },
+   "Finance": {
+    "n_items": 342,
+    "n_units": 19,
+    "mean_A": 0.7587,
+    "mean_B": 0.757,
+    "diff_mean_over_seeds": 0.0017,
+    "n_seeds_A": 3,
+    "n_seeds_B": 5,
+    "seed_pair": {
+     "ci95": [
+      -0.0661,
+      0.0713
+     ],
+     "p_onesided_A_gt_B": 0.4883,
+     "p_two_sided": 0.9766,
+     "holm_two_sided_within_family": 1.0
+    },
+    "seed_mean": {
+     "ci95": [
+      -0.0387,
+      0.0387
+     ],
+     "p_onesided_A_gt_B": 0.4694,
+     "p_two_sided": 0.9388,
+     "holm_two_sided_within_family": 1.0
+    }
+   },
+   "Social": {
+    "n_items": 342,
+    "n_units": 6,
+    "mean_A": 0.7366,
+    "mean_B": 0.6966,
+    "diff_mean_over_seeds": 0.04,
+    "n_seeds_A": 3,
+    "n_seeds_B": 5,
+    "seed_pair": {
+     "ci95": [
+      -0.0239,
+      0.1257
+     ],
+     "p_onesided_A_gt_B": 0.0731,
+     "p_two_sided": 0.1462,
+     "holm_two_sided_within_family": 1.0
+    },
+    "seed_mean": {
+     "ci95": [
+      0.0079,
+      0.1039
+     ],
+     "p_onesided_A_gt_B": 0.0115,
+     "p_two_sided": 0.023,
+     "holm_two_sided_within_family": 0.46
+    }
+   },
+   "Retail": {
+    "n_items": 417,
+    "n_units": 51,
+    "mean_A": 0.7005,
+    "mean_B": 0.6786,
+    "diff_mean_over_seeds": 0.0219,
+    "n_seeds_A": 3,
+    "n_seeds_B": 5,
+    "seed_pair": {
+     "ci95": [
+      -0.028,
+      0.0719
+     ],
+     "p_onesided_A_gt_B": 0.1821,
+     "p_two_sided": 0.3642,
+     "holm_two_sided_within_family": 1.0
+    },
+    "seed_mean": {
+     "ci95": [
+      -0.0082,
+      0.0564
+     ],
+     "p_onesided_A_gt_B": 0.0817,
+     "p_two_sided": 0.1634,
+     "holm_two_sided_within_family": 1.0
+    }
+   },
+   "Public": {
+    "n_items": 342,
+    "n_units": 21,
+    "mean_A": 0.776,
+    "mean_B": 0.743,
+    "diff_mean_over_seeds": 0.033,
+    "n_seeds_A": 3,
+    "n_seeds_B": 5,
+    "seed_pair": {
+     "ci95": [
+      -0.0305,
+      0.1012
+     ],
+     "p_onesided_A_gt_B": 0.168,
+     "p_two_sided": 0.336,
+     "holm_two_sided_within_family": 1.0
+    },
+    "seed_mean": {
+     "ci95": [
+      -0.0138,
+      0.0921
+     ],
+     "p_onesided_A_gt_B": 0.1023,
+     "p_two_sided": 0.2046,
+     "holm_two_sided_within_family": 1.0
+    }
+   }
+  }
+ }
+}

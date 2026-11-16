@@ -1,0 +1,672 @@
+{
+ "xlmr_ft": {
+  "n_runs": 5,
+  "all": {
+   "n": 3000,
+   "gold_share": [
+    0.348,
+    0.294,
+    0.358
+   ],
+   "pred_share": [
+    0.3351,
+    0.3263,
+    0.3387
+   ],
+   "accuracy": 0.7478,
+   "macro_f1": 0.746,
+   "per_class_f1": [
+    0.7509,
+    0.7007,
+    0.7865
+   ]
+  },
+  "blind": {
+   "n": 1743,
+   "gold_share": [
+    0.2937,
+    0.5049,
+    0.2014
+   ],
+   "pred_share": [
+    0.2936,
+    0.4741,
+    0.2322
+   ],
+   "accuracy": 0.7479,
+   "macro_f1": 0.7439,
+   "per_class_f1": [
+    0.7322,
+    0.7616,
+    0.7378
+   ],
+   "negpos_called_neutral": 0.2042,
+   "negpos_polarity_flipped": 0.0387
+  },
+  "verification": {
+   "n": 1257,
+   "gold_share": [
+    0.4232,
+    0.0016,
+    0.5752
+   ],
+   "pred_share": [
+    0.3925,
+    0.1212,
+    0.4862
+   ],
+   "accuracy": 0.7477,
+   "macro_f1": 0.5368,
+   "per_class_f1": [
+    0.7696,
+    0.0264,
+    0.8143
+   ],
+   "negpos_called_neutral": 0.1198,
+   "negpos_polarity_flipped": 0.1329
+  }
+ },
+ "mdeberta_ft": {
+  "n_runs": 5,
+  "all": {
+   "n": 3000,
+   "gold_share": [
+    0.348,
+    0.294,
+    0.358
+   ],
+   "pred_share": [
+    0.3478,
+    0.3104,
+    0.3418
+   ],
+   "accuracy": 0.7625,
+   "macro_f1": 0.7598,
+   "per_class_f1": [
+    0.7713,
+    0.707,
+    0.801
+   ]
+  },
+  "blind": {
+   "n": 1743,
+   "gold_share": [
+    0.2937,
+    0.5049,
+    0.2014
+   ],
+   "pred_share": [
+    0.3111,
+    0.4669,
+    0.222
+   ],
+   "accuracy": 0.7455,
+   "macro_f1": 0.7409,
+   "per_class_f1": [
+    0.7436,
+    0.7545,
+    0.7247
+   ],
+   "negpos_called_neutral": 0.2016,
+   "negpos_polarity_flipped": 0.0341
+  },
+  "verification": {
+   "n": 1257,
+   "gold_share": [
+    0.4232,
+    0.0016,
+    0.5752
+   ],
+   "pred_share": [
+    0.3987,
+    0.0934,
+    0.5079
+   ],
+   "accuracy": 0.7862,
+   "macro_f1": 0.5563,
+   "per_class_f1": [
+    0.7996,
+    0.027,
+    0.8423
+   ],
+   "negpos_called_neutral": 0.0923,
+   "negpos_polarity_flipped": 0.1216
+  }
+ },
+ "full": {
+  "n_runs": 5,
+  "all": {
+   "n": 3000,
+   "gold_share": [
+    0.348,
+    0.294,
+    0.358
+   ],
+   "pred_share": [
+    0.3333,
+    0.3505,
+    0.3163
+   ],
+   "accuracy": 0.743,
+   "macro_f1": 0.7422,
+   "per_class_f1": [
+    0.7463,
+    0.7012,
+    0.7792
+   ]
+  },
+  "blind": {
+   "n": 1743,
+   "gold_share": [
+    0.2937,
+    0.5049,
+    0.2014
+   ],
+   "pred_share": [
+    0.282,
+    0.5075,
+    0.2104
+   ],
+   "accuracy": 0.7474,
+   "macro_f1": 0.7417,
+   "per_class_f1": [
+    0.7169,
+    0.7664,
+    0.7418
+   ],
+   "negpos_called_neutral": 0.2413,
+   "negpos_polarity_flipped": 0.0329
+  },
+  "verification": {
+   "n": 1257,
+   "gold_share": [
+    0.4232,
+    0.0016,
+    0.5752
+   ],
+   "pred_share": [
+    0.4043,
+    0.1327,
+    0.463
+   ],
+   "accuracy": 0.7368,
+   "macro_f1": 0.5302,
+   "per_class_f1": [
+    0.7743,
+    0.0165,
+    0.7997
+   ],
+   "negpos_called_neutral": 0.1318,
+   "negpos_polarity_flipped": 0.1313
+  }
+ },
+ "qlora_llama31": {
+  "n_runs": 1,
+  "all": {
+   "n": 3000,
+   "gold_share": [
+    0.348,
+    0.294,
+    0.358
+   ],
+   "pred_share": [
+    0.3847,
+    0.2627,
+    0.3527
+   ],
+   "accuracy": 0.78,
+   "macro_f1": 0.7743,
+   "per_class_f1": [
+    0.8025,
+    0.7042,
+    0.8161
+   ]
+  },
+  "blind": {
+   "n": 1743,
+   "gold_share": [
+    0.2937,
+    0.5049,
+    0.2014
+   ],
+   "pred_share": [
+    0.3528,
+    0.3987,
+    0.2484
+   ],
+   "accuracy": 0.7516,
+   "macro_f1": 0.7519,
+   "per_class_f1": [
+    0.7666,
+    0.7441,
+    0.7449
+   ],
+   "negpos_called_neutral": 0.1263,
+   "negpos_polarity_flipped": 0.0348
+  },
+  "verification": {
+   "n": 1257,
+   "gold_share": [
+    0.4232,
+    0.0016,
+    0.5752
+   ],
+   "pred_share": [
+    0.4288,
+    0.074,
+    0.4972
+   ],
+   "accuracy": 0.8194,
+   "macro_f1": 0.58,
+   "per_class_f1": [
+    0.8403,
+    0.0421,
+    0.8576
+   ],
+   "negpos_called_neutral": 0.0725,
+   "negpos_polarity_flipped": 0.1084
+  }
+ },
+ "qlora_qwen25": {
+  "n_runs": 1,
+  "all": {
+   "n": 3000,
+   "gold_share": [
+    0.348,
+    0.294,
+    0.358
+   ],
+   "pred_share": [
+    0.3657,
+    0.288,
+    0.3463
+   ],
+   "accuracy": 0.7647,
+   "macro_f1": 0.7607,
+   "per_class_f1": [
+    0.7772,
+    0.6964,
+    0.8083
+   ]
+  },
+  "blind": {
+   "n": 1743,
+   "gold_share": [
+    0.2937,
+    0.5049,
+    0.2014
+   ],
+   "pred_share": [
+    0.327,
+    0.4389,
+    0.2341
+   ],
+   "accuracy": 0.7321,
+   "macro_f1": 0.7305,
+   "per_class_f1": [
+    0.7301,
+    0.7368,
+    0.7246
+   ],
+   "negpos_called_neutral": 0.1842,
+   "negpos_polarity_flipped": 0.0394
+  },
+  "verification": {
+   "n": 1257,
+   "gold_share": [
+    0.4232,
+    0.0016,
+    0.5752
+   ],
+   "pred_share": [
+    0.4193,
+    0.0788,
+    0.502
+   ],
+   "accuracy": 0.8099,
+   "macro_f1": 0.5734,
+   "per_class_f1": [
+    0.8253,
+    0.0396,
+    0.8552
+   ],
+   "negpos_called_neutral": 0.0773,
+   "negpos_polarity_flipped": 0.1131
+  }
+ },
+ "qlora_qwen3": {
+  "n_runs": 1,
+  "all": {
+   "n": 3000,
+   "gold_share": [
+    0.348,
+    0.294,
+    0.358
+   ],
+   "pred_share": [
+    0.3647,
+    0.278,
+    0.3573
+   ],
+   "accuracy": 0.7637,
+   "macro_f1": 0.7595,
+   "per_class_f1": [
+    0.7792,
+    0.7005,
+    0.7987
+   ]
+  },
+  "blind": {
+   "n": 1743,
+   "gold_share": [
+    0.2937,
+    0.5049,
+    0.2014
+   ],
+   "pred_share": [
+    0.3287,
+    0.4205,
+    0.2507
+   ],
+   "accuracy": 0.7413,
+   "macro_f1": 0.7398,
+   "per_class_f1": [
+    0.7484,
+    0.7427,
+    0.7284
+   ],
+   "negpos_called_neutral": 0.1553,
+   "negpos_polarity_flipped": 0.0417
+  },
+  "verification": {
+   "n": 1257,
+   "gold_share": [
+    0.4232,
+    0.0016,
+    0.5752
+   ],
+   "pred_share": [
+    0.4145,
+    0.0804,
+    0.5052
+   ],
+   "accuracy": 0.7947,
+   "macro_f1": 0.5631,
+   "per_class_f1": [
+    0.811,
+    0.0388,
+    0.8395
+   ],
+   "negpos_called_neutral": 0.0789,
+   "negpos_polarity_flipped": 0.1267
+  }
+ },
+ "gpt4o_3shot": {
+  "n_runs": 1,
+  "all": {
+   "n": 3000,
+   "gold_share": [
+    0.348,
+    0.294,
+    0.358
+   ],
+   "pred_share": [
+    0.3713,
+    0.2897,
+    0.339
+   ],
+   "accuracy": 0.686,
+   "macro_f1": 0.6769,
+   "per_class_f1": [
+    0.7683,
+    0.5334,
+    0.7288
+   ]
+  },
+  "blind": {
+   "n": 1743,
+   "gold_share": [
+    0.2937,
+    0.5049,
+    0.2014
+   ],
+   "pred_share": [
+    0.3637,
+    0.3121,
+    0.3242
+   ],
+   "accuracy": 0.7011,
+   "macro_f1": 0.7052,
+   "per_class_f1": [
+    0.7574,
+    0.6531,
+    0.7052
+   ],
+   "negpos_called_neutral": 0.0915,
+   "negpos_polarity_flipped": 0.0313
+  },
+  "verification": {
+   "n": 1257,
+   "gold_share": [
+    0.4232,
+    0.0016,
+    0.5752
+   ],
+   "pred_share": [
+    0.3819,
+    0.2586,
+    0.3596
+   ],
+   "accuracy": 0.6651,
+   "macro_f1": 0.5134,
+   "per_class_f1": [
+    0.7806,
+    0.0122,
+    0.7472
+   ],
+   "negpos_called_neutral": 0.2574,
+   "negpos_polarity_flipped": 0.0781
+  }
+ },
+ "gpt4o_0shot": {
+  "n_runs": 1,
+  "all": {
+   "n": 3000,
+   "gold_share": [
+    0.348,
+    0.294,
+    0.358
+   ],
+   "pred_share": [
+    0.3853,
+    0.2797,
+    0.335
+   ],
+   "accuracy": 0.684,
+   "macro_f1": 0.6731,
+   "per_class_f1": [
+    0.7709,
+    0.5241,
+    0.7244
+   ]
+  },
+  "blind": {
+   "n": 1743,
+   "gold_share": [
+    0.2937,
+    0.5049,
+    0.2014
+   ],
+   "pred_share": [
+    0.3798,
+    0.2983,
+    0.3219
+   ],
+   "accuracy": 0.6948,
+   "macro_f1": 0.699,
+   "per_class_f1": [
+    0.7496,
+    0.6414,
+    0.7061
+   ],
+   "negpos_called_neutral": 0.0823,
+   "negpos_polarity_flipped": 0.0348
+  },
+  "verification": {
+   "n": 1257,
+   "gold_share": [
+    0.4232,
+    0.0016,
+    0.5752
+   ],
+   "pred_share": [
+    0.393,
+    0.2538,
+    0.3532
+   ],
+   "accuracy": 0.6691,
+   "macro_f1": 0.5155,
+   "per_class_f1": [
+    0.7953,
+    0.0125,
+    0.7386
+   ],
+   "negpos_called_neutral": 0.2526,
+   "negpos_polarity_flipped": 0.0789
+  }
+ },
+ "gpt4o_mini_3shot": {
+  "n_runs": 1,
+  "all": {
+   "n": 3000,
+   "gold_share": [
+    0.348,
+    0.294,
+    0.358
+   ],
+   "pred_share": [
+    0.3403,
+    0.3223,
+    0.3373
+   ],
+   "accuracy": 0.6753,
+   "macro_f1": 0.6707,
+   "per_class_f1": [
+    0.7584,
+    0.5452,
+    0.7085
+   ]
+  },
+  "blind": {
+   "n": 1743,
+   "gold_share": [
+    0.2937,
+    0.5049,
+    0.2014
+   ],
+   "pred_share": [
+    0.3207,
+    0.3528,
+    0.3264
+   ],
+   "accuracy": 0.6982,
+   "macro_f1": 0.7001,
+   "per_class_f1": [
+    0.76,
+    0.6729,
+    0.6674
+   ],
+   "negpos_called_neutral": 0.1298,
+   "negpos_polarity_flipped": 0.0429
+  },
+  "verification": {
+   "n": 1257,
+   "gold_share": [
+    0.4232,
+    0.0016,
+    0.5752
+   ],
+   "pred_share": [
+    0.3675,
+    0.28,
+    0.3524
+   ],
+   "accuracy": 0.6436,
+   "macro_f1": 0.5011,
+   "per_class_f1": [
+    0.7565,
+    0.0056,
+    0.741
+   ],
+   "negpos_called_neutral": 0.2797,
+   "negpos_polarity_flipped": 0.0765
+  }
+ },
+ "gpt4o_mini_0shot": {
+  "n_runs": 1,
+  "all": {
+   "n": 3000,
+   "gold_share": [
+    0.348,
+    0.294,
+    0.358
+   ],
+   "pred_share": [
+    0.3327,
+    0.33,
+    0.3373
+   ],
+   "accuracy": 0.6687,
+   "macro_f1": 0.6648,
+   "per_class_f1": [
+    0.7493,
+    0.5385,
+    0.7066
+   ]
+  },
+  "blind": {
+   "n": 1743,
+   "gold_share": [
+    0.2937,
+    0.5049,
+    0.2014
+   ],
+   "pred_share": [
+    0.3173,
+    0.3569,
+    0.3259
+   ],
+   "accuracy": 0.6954,
+   "macro_f1": 0.6975,
+   "per_class_f1": [
+    0.7568,
+    0.6698,
+    0.6659
+   ],
+   "negpos_called_neutral": 0.1379,
+   "negpos_polarity_flipped": 0.0406
+  },
+  "verification": {
+   "n": 1257,
+   "gold_share": [
+    0.4232,
+    0.0016,
+    0.5752
+   ],
+   "pred_share": [
+    0.354,
+    0.2928,
+    0.3532
+   ],
+   "accuracy": 0.6317,
+   "macro_f1": 0.495,
+   "per_class_f1": [
+    0.741,
+    0.0054,
+    0.7386
+   ],
+   "negpos_called_neutral": 0.2924,
+   "negpos_polarity_flipped": 0.0757
+  }
+ }
+}

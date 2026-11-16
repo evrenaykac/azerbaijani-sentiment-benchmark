@@ -58,13 +58,13 @@ def main() -> int:
     print(f"run ledger: {len(runs):,} runs, {runs['system'].nunique()} distinct systems\n")
 
     # ---- main-table averages: mean over seeds, then unweighted mean over domains
-    print("Tables 6 and 7 — average macro-F1")
+    print("Tables 8 and 9 — average macro-F1")
     for regime, system, want in EXPECTED_AVG:
         sub = runs[(runs["regime"] == regime) & (runs["system"] == system)]
         per_domain = sub.groupby("scope")["macro_f1"].mean()
         check(f"{regime:<8} {system}", float(per_domain.mean()), want)
 
-    # ---- pooled regime: five-seed encoder means of Table 8 (Section VI-B)
+    # ---- pooled regime: five-seed encoder means of Table 10 (Section VI-B)
     print()
     pooled = runs[(runs["regime"] == "pooled") & (runs["tag"].fillna("") != "trstage")]
     for system, want_mean, want_std in [("mdeberta_ft", 0.760, 0.009), ("xlmr_ft", 0.746, 0.007), ("full", 0.742, 0.006)]:
@@ -191,22 +191,22 @@ def main() -> int:
     ok = all(r["delta_points"] > 0 for r in rw.values())
     results.append((ok, f"[{'PASS' if ok else 'FAIL'}] {'Test 2 reweighting: gap grows on every domain':<52} {len(rw)} domains"))
 
-    # ---- Section VII, Table 11: label and data-strategy controls on the audited split
+    # ---- Section VII, Table 15: label and data-strategy controls on the audited split
     print()
     lc = json.loads((RES / "label_controls" / "label_controls.json").read_text())
     table11 = {("pooled.all", "H"): (0.745, 0.745), ("pooled.all", "T"): (0.722, 0.717), ("pooled.all", "S"): (0.726, 0.727),
                ("lodo.Public", "H"): (0.756, 0.745), ("lodo.Public", "T"): (0.689, 0.681), ("lodo.Public", "S"): (0.697, 0.720)}
     for (cell, cond), (ft, full) in table11.items():
         c = lc[cell][cond]
-        check(f"Table 11 {cell} {cond}: XLM-R FT", c["xlmr_ft"]["macro_f1_mean"], ft)
-        check(f"Table 11 {cell} {cond}: full recipe", c["full"]["macro_f1_mean"], full)
-    check("Table 11 pooled: T-H drop, XLM-R FT", lc["pooled.all"]["T_minus_H"]["xlmr_ft"]["diff_mean_over_seeds"], -0.023, tol=0.0006)
-    check("Table 11 Public: T-H drop, XLM-R FT", lc["lodo.Public"]["T_minus_H"]["xlmr_ft"]["diff_mean_over_seeds"], -0.067, tol=0.0006)
-    check("Table 11 Public: S-H drop, XLM-R FT", lc["lodo.Public"]["S_minus_H"]["xlmr_ft"]["diff_mean_over_seeds"], -0.059, tol=0.0006)
+        check(f"Table 15 {cell} {cond}: XLM-R FT", c["xlmr_ft"]["macro_f1_mean"], ft)
+        check(f"Table 15 {cell} {cond}: full recipe", c["full"]["macro_f1_mean"], full)
+    check("Table 15 pooled: T-H drop, XLM-R FT", lc["pooled.all"]["T_minus_H"]["xlmr_ft"]["diff_mean_over_seeds"], -0.023, tol=0.0006)
+    check("Table 15 Public: T-H drop, XLM-R FT", lc["lodo.Public"]["T_minus_H"]["xlmr_ft"]["diff_mean_over_seeds"], -0.067, tol=0.0006)
+    check("Table 15 Public: S-H drop, XLM-R FT", lc["lodo.Public"]["S_minus_H"]["xlmr_ft"]["diff_mean_over_seeds"], -0.059, tol=0.0006)
     sg = lc["lodo.Public"]["S"]["full_minus_xlmr_ft"]
-    check("Table 11 Public: recipe gap under S", sg["diff_mean_over_seeds"], 0.023, tol=0.0006)
+    check("Table 15 Public: recipe gap under S", sg["diff_mean_over_seeds"], 0.023, tol=0.0006)
     ok = not sg["seed_pair"]["excludes_zero"] and not sg["seed_mean"]["excludes_zero"]
-    results.append((ok, f"[{'PASS' if ok else 'FAIL'}] {'Table 11 Public: S gap intervals include zero':<52} "
+    results.append((ok, f"[{'PASS' if ok else 'FAIL'}] {'Table 15 Public: S gap intervals include zero':<52} "
                         f"seed-pair {sg['seed_pair']['ci95']}, seed-mean {sg['seed_mean']['ci95']}"))
     tv = json.loads((RES / "label_controls" / "teacher_vs_human.json").read_text())
     check("teacher-human label disagreement, pooled pool", tv["pooled.all"]["human_vs_teacher_on_training_rows"]["teacher_human_disagreement"], 0.313, tol=0.0006)
@@ -220,7 +220,7 @@ def main() -> int:
     check("GPT-4o-mini, 3-shot", llm["gpt4o_mini_3shot"]["test"]["macro_f1"], 0.671, tol=0.0005)
     check("GPT-4o-mini, 0-shot", llm["gpt4o_mini_0shot"]["test"]["macro_f1"], 0.665, tol=0.0005)
 
-    # ---- QLoRA-adapted LLMs (single runs), Table 8
+    # ---- QLoRA-adapted LLMs (single runs), Table 10
     for name, want in [("qwen25", 0.761), ("qwen3", 0.759), ("llama31", 0.774),
                        ("qwen25_lodo_Public", 0.752), ("qwen25_lodo_Tech", 0.736)]:
         f = RES / "llm" / name / "metrics.json"

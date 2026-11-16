@@ -1,0 +1,2052 @@
+{
+ "pre-audit split, teacher-labeled pool (Stage 2) | xlmr_ft": {
+  "summary": {
+   "n_seeds": 3,
+   "macro_f1_by_seed": [
+    0.4407,
+    0.3822,
+    0.4247
+   ],
+   "mean_macro_f1": 0.4159,
+   "mean_f1": [
+    0.333,
+    0.612,
+    0.302
+   ],
+   "mean_pred_share": [
+    0.118,
+    0.848,
+    0.034
+   ],
+   "gold_share": [
+    0.463,
+    0.406,
+    0.131
+   ],
+   "train_share": [
+    0.207,
+    0.521,
+    0.273
+   ],
+   "train_total": 189210,
+   "teacher_labeled": 111317,
+   "dev_best_macro_f1_by_seed": [
+    0.7092,
+    0.709,
+    0.6901
+   ],
+   "n_test": 784,
+   "smallest_predicted_class_share_any_seed": 0.027,
+   "dev_mean_f1": [
+    0.651,
+    0.811,
+    0.646
+   ],
+   "dev_mean_pred_share": [
+    0.279,
+    0.548,
+    0.173
+   ],
+   "dev_gold_share": [
+    0.217,
+    0.605,
+    0.177
+   ],
+   "dev_n": 1477
+  },
+  "seeds": [
+   {
+    "seed": 13,
+    "macro_f1": 0.4407,
+    "f1": [
+     0.36,
+     0.619,
+     0.343
+    ],
+    "pred_share": [
+     0.125,
+     0.835,
+     0.04
+    ],
+    "gold_share": [
+     0.463,
+     0.406,
+     0.131
+    ],
+    "train_share": [
+     0.207,
+     0.521,
+     0.273
+    ],
+    "train_total": 189210,
+    "teacher_labeled": 111317,
+    "dev_best_macro_f1": 0.7092,
+    "steps_run": 6000,
+    "n_test": 784,
+    "smallest_predicted_class_share": 0.04,
+    "dev": {
+     "n": 1477,
+     "macro_f1": 0.7092,
+     "f1": [
+      0.672,
+      0.806,
+      0.649
+     ],
+     "pred_share": [
+      0.29,
+      0.52,
+      0.19
+     ],
+     "gold_share": [
+      0.217,
+      0.605,
+      0.177
+     ]
+    }
+   },
+   {
+    "seed": 42,
+    "macro_f1": 0.3822,
+    "f1": [
+     0.312,
+     0.608,
+     0.226
+    ],
+    "pred_share": [
+     0.108,
+     0.865,
+     0.027
+    ],
+    "gold_share": [
+     0.463,
+     0.406,
+     0.131
+    ],
+    "train_share": [
+     0.207,
+     0.521,
+     0.273
+    ],
+    "train_total": 189210,
+    "teacher_labeled": 111317,
+    "dev_best_macro_f1": 0.709,
+    "steps_run": 4500,
+    "n_test": 784,
+    "smallest_predicted_class_share": 0.027,
+    "dev": {
+     "n": 1477,
+     "macro_f1": 0.709,
+     "f1": [
+      0.645,
+      0.825,
+      0.657
+     ],
+     "pred_share": [
+      0.257,
+      0.592,
+      0.15
+     ],
+     "gold_share": [
+      0.217,
+      0.605,
+      0.177
+     ]
+    }
+   },
+   {
+    "seed": 100,
+    "macro_f1": 0.4247,
+    "f1": [
+     0.328,
+     0.608,
+     0.338
+    ],
+    "pred_share": [
+     0.121,
+     0.844,
+     0.034
+    ],
+    "gold_share": [
+     0.463,
+     0.406,
+     0.131
+    ],
+    "train_share": [
+     0.207,
+     0.521,
+     0.273
+    ],
+    "train_total": 189210,
+    "teacher_labeled": 111317,
+    "dev_best_macro_f1": 0.6901,
+    "steps_run": 3750,
+    "n_test": 784,
+    "smallest_predicted_class_share": 0.034,
+    "dev": {
+     "n": 1477,
+     "macro_f1": 0.6901,
+     "f1": [
+      0.636,
+      0.802,
+      0.632
+     ],
+     "pred_share": [
+      0.29,
+      0.532,
+      0.178
+     ],
+     "gold_share": [
+      0.217,
+      0.605,
+      0.177
+     ]
+    }
+   }
+  ]
+ },
+ "pre-audit split, teacher-labeled pool (Stage 2) | full": {
+  "summary": {
+   "n_seeds": 3,
+   "macro_f1_by_seed": [
+    0.511,
+    0.5202,
+    0.5032
+   ],
+   "mean_macro_f1": 0.5115,
+   "mean_f1": [
+    0.395,
+    0.626,
+    0.514
+   ],
+   "mean_pred_share": [
+    0.145,
+    0.76,
+    0.095
+   ],
+   "gold_share": [
+    0.463,
+    0.406,
+    0.131
+   ],
+   "train_share": [
+    0.207,
+    0.521,
+    0.273
+   ],
+   "train_total": 189210,
+   "teacher_labeled": 111317,
+   "dev_best_macro_f1_by_seed": [
+    0.62,
+    0.6205,
+    0.6638
+   ],
+   "n_test": 784,
+   "smallest_predicted_class_share_any_seed": 0.087,
+   "dev_mean_f1": [
+    0.633,
+    0.695,
+    0.576
+   ],
+   "dev_mean_pred_share": [
+    0.332,
+    0.386,
+    0.283
+   ],
+   "dev_gold_share": [
+    0.217,
+    0.605,
+    0.177
+   ],
+   "dev_n": 1477
+  },
+  "seeds": [
+   {
+    "seed": 13,
+    "macro_f1": 0.511,
+    "f1": [
+     0.361,
+     0.622,
+     0.55
+    ],
+    "pred_share": [
+     0.131,
+     0.759,
+     0.11
+    ],
+    "gold_share": [
+     0.463,
+     0.406,
+     0.131
+    ],
+    "train_share": [
+     0.207,
+     0.521,
+     0.273
+    ],
+    "train_total": 189210,
+    "teacher_labeled": 111317,
+    "dev_best_macro_f1": 0.62,
+    "steps_run": 2250,
+    "n_test": 784,
+    "smallest_predicted_class_share": 0.11,
+    "dev": {
+     "n": 1477,
+     "macro_f1": 0.62,
+     "f1": [
+      0.63,
+      0.67,
+      0.561
+     ],
+     "pred_share": [
+      0.342,
+      0.355,
+      0.303
+     ],
+     "gold_share": [
+      0.217,
+      0.605,
+      0.177
+     ]
+    }
+   },
+   {
+    "seed": 42,
+    "macro_f1": 0.5202,
+    "f1": [
+     0.443,
+     0.63,
+     0.488
+    ],
+    "pred_share": [
+     0.171,
+     0.741,
+     0.088
+    ],
+    "gold_share": [
+     0.463,
+     0.406,
+     0.131
+    ],
+    "train_share": [
+     0.207,
+     0.521,
+     0.273
+    ],
+    "train_total": 189210,
+    "teacher_labeled": 111317,
+    "dev_best_macro_f1": 0.6205,
+    "steps_run": 3000,
+    "n_test": 784,
+    "smallest_predicted_class_share": 0.088,
+    "dev": {
+     "n": 1477,
+     "macro_f1": 0.6205,
+     "f1": [
+      0.621,
+      0.68,
+      0.56
+     ],
+     "pred_share": [
+      0.332,
+      0.374,
+      0.295
+     ],
+     "gold_share": [
+      0.217,
+      0.605,
+      0.177
+     ]
+    }
+   },
+   {
+    "seed": 100,
+    "macro_f1": 0.5032,
+    "f1": [
+     0.38,
+     0.626,
+     0.503
+    ],
+    "pred_share": [
+     0.134,
+     0.779,
+     0.087
+    ],
+    "gold_share": [
+     0.463,
+     0.406,
+     0.131
+    ],
+    "train_share": [
+     0.207,
+     0.521,
+     0.273
+    ],
+    "train_total": 189210,
+    "teacher_labeled": 111317,
+    "dev_best_macro_f1": 0.6638,
+    "steps_run": 3750,
+    "n_test": 784,
+    "smallest_predicted_class_share": 0.087,
+    "dev": {
+     "n": 1477,
+     "macro_f1": 0.6638,
+     "f1": [
+      0.649,
+      0.735,
+      0.608
+     ],
+     "pred_share": [
+      0.321,
+      0.429,
+      0.251
+     ],
+     "gold_share": [
+      0.217,
+      0.605,
+      0.177
+     ]
+    }
+   }
+  ]
+ },
+ "pre-audit split, human labels (Stage 2b) | xlmr_ft": {
+  "summary": {
+   "n_seeds": 3,
+   "macro_f1_by_seed": [
+    0.7382,
+    0.7187,
+    0.746
+   ],
+   "mean_macro_f1": 0.7343,
+   "mean_f1": [
+    0.782,
+    0.739,
+    0.682
+   ],
+   "mean_pred_share": [
+    0.4,
+    0.466,
+    0.134
+   ],
+   "gold_share": [
+    0.463,
+    0.406,
+    0.131
+   ],
+   "train_share": [
+    0.335,
+    0.212,
+    0.453
+   ],
+   "train_total": 77893,
+   "teacher_labeled": 0,
+   "dev_best_macro_f1_by_seed": [
+    0.6976,
+    0.6939,
+    0.6874
+   ],
+   "n_test": 784,
+   "smallest_predicted_class_share_any_seed": 0.11,
+   "dev_mean_f1": [
+    0.673,
+    0.771,
+    0.634
+   ],
+   "dev_mean_pred_share": [
+    0.292,
+    0.452,
+    0.256
+   ],
+   "dev_gold_share": [
+    0.217,
+    0.605,
+    0.177
+   ],
+   "dev_n": 1477
+  },
+  "seeds": [
+   {
+    "seed": 13,
+    "macro_f1": 0.7382,
+    "f1": [
+     0.785,
+     0.744,
+     0.685
+    ],
+    "pred_share": [
+     0.398,
+     0.462,
+     0.14
+    ],
+    "gold_share": [
+     0.463,
+     0.406,
+     0.131
+    ],
+    "train_share": [
+     0.335,
+     0.212,
+     0.453
+    ],
+    "train_total": 77893,
+    "teacher_labeled": 0,
+    "dev_best_macro_f1": 0.6976,
+    "steps_run": 6000,
+    "n_test": 784,
+    "smallest_predicted_class_share": 0.14,
+    "dev": {
+     "n": 1477,
+     "macro_f1": 0.6976,
+     "f1": [
+      0.663,
+      0.786,
+      0.643
+     ],
+     "pred_share": [
+      0.299,
+      0.476,
+      0.225
+     ],
+     "gold_share": [
+      0.217,
+      0.605,
+      0.177
+     ]
+    }
+   },
+   {
+    "seed": 42,
+    "macro_f1": 0.7187,
+    "f1": [
+     0.755,
+     0.735,
+     0.667
+    ],
+    "pred_share": [
+     0.358,
+     0.532,
+     0.11
+    ],
+    "gold_share": [
+     0.463,
+     0.406,
+     0.131
+    ],
+    "train_share": [
+     0.335,
+     0.212,
+     0.453
+    ],
+    "train_total": 77893,
+    "teacher_labeled": 0,
+    "dev_best_macro_f1": 0.6939,
+    "steps_run": 6000,
+    "n_test": 784,
+    "smallest_predicted_class_share": 0.11,
+    "dev": {
+     "n": 1477,
+     "macro_f1": 0.6939,
+     "f1": [
+      0.685,
+      0.773,
+      0.623
+     ],
+     "pred_share": [
+      0.281,
+      0.447,
+      0.272
+     ],
+     "gold_share": [
+      0.217,
+      0.605,
+      0.177
+     ]
+    }
+   },
+   {
+    "seed": 100,
+    "macro_f1": 0.746,
+    "f1": [
+     0.806,
+     0.738,
+     0.694
+    ],
+    "pred_share": [
+     0.445,
+     0.403,
+     0.152
+    ],
+    "gold_share": [
+     0.463,
+     0.406,
+     0.131
+    ],
+    "train_share": [
+     0.335,
+     0.212,
+     0.453
+    ],
+    "train_total": 77893,
+    "teacher_labeled": 0,
+    "dev_best_macro_f1": 0.6874,
+    "steps_run": 6000,
+    "n_test": 784,
+    "smallest_predicted_class_share": 0.152,
+    "dev": {
+     "n": 1477,
+     "macro_f1": 0.6874,
+     "f1": [
+      0.672,
+      0.755,
+      0.635
+     ],
+     "pred_share": [
+      0.297,
+      0.433,
+      0.27
+     ],
+     "gold_share": [
+      0.217,
+      0.605,
+      0.177
+     ]
+    }
+   }
+  ]
+ },
+ "pre-audit split, human labels (Stage 2b) | full": {
+  "summary": {
+   "n_seeds": 3,
+   "macro_f1_by_seed": [
+    0.7159,
+    0.7347,
+    0.7067
+   ],
+   "mean_macro_f1": 0.7191,
+   "mean_f1": [
+    0.749,
+    0.725,
+    0.683
+   ],
+   "mean_pred_share": [
+    0.35,
+    0.498,
+    0.151
+   ],
+   "gold_share": [
+    0.463,
+    0.406,
+    0.131
+   ],
+   "train_share": [
+    0.335,
+    0.212,
+    0.453
+   ],
+   "train_total": 77893,
+   "teacher_labeled": 0,
+   "dev_best_macro_f1_by_seed": [
+    0.7125,
+    0.7205,
+    0.7341
+   ],
+   "n_test": 784,
+   "smallest_predicted_class_share_any_seed": 0.145,
+   "dev_mean_f1": [
+    0.679,
+    0.816,
+    0.672
+   ],
+   "dev_mean_pred_share": [
+    0.262,
+    0.51,
+    0.228
+   ],
+   "dev_gold_share": [
+    0.217,
+    0.605,
+    0.177
+   ],
+   "dev_n": 1477
+  },
+  "seeds": [
+   {
+    "seed": 13,
+    "macro_f1": 0.7159,
+    "f1": [
+     0.757,
+     0.722,
+     0.67
+    ],
+    "pred_share": [
+     0.36,
+     0.478,
+     0.162
+    ],
+    "gold_share": [
+     0.463,
+     0.406,
+     0.131
+    ],
+    "train_share": [
+     0.335,
+     0.212,
+     0.453
+    ],
+    "train_total": 77893,
+    "teacher_labeled": 0,
+    "dev_best_macro_f1": 0.7125,
+    "steps_run": 3750,
+    "n_test": 784,
+    "smallest_predicted_class_share": 0.162,
+    "dev": {
+     "n": 1477,
+     "macro_f1": 0.7125,
+     "f1": [
+      0.669,
+      0.804,
+      0.664
+     ],
+     "pred_share": [
+      0.273,
+      0.489,
+      0.238
+     ],
+     "gold_share": [
+      0.217,
+      0.605,
+      0.177
+     ]
+    }
+   },
+   {
+    "seed": 42,
+    "macro_f1": 0.7347,
+    "f1": [
+     0.789,
+     0.733,
+     0.682
+    ],
+    "pred_share": [
+     0.394,
+     0.46,
+     0.145
+    ],
+    "gold_share": [
+     0.463,
+     0.406,
+     0.131
+    ],
+    "train_share": [
+     0.335,
+     0.212,
+     0.453
+    ],
+    "train_total": 77893,
+    "teacher_labeled": 0,
+    "dev_best_macro_f1": 0.7205,
+    "steps_run": 4500,
+    "n_test": 784,
+    "smallest_predicted_class_share": 0.145,
+    "dev": {
+     "n": 1477,
+     "macro_f1": 0.7205,
+     "f1": [
+      0.68,
+      0.816,
+      0.666
+     ],
+     "pred_share": [
+      0.274,
+      0.492,
+      0.234
+     ],
+     "gold_share": [
+      0.217,
+      0.605,
+      0.177
+     ]
+    }
+   },
+   {
+    "seed": 100,
+    "macro_f1": 0.7067,
+    "f1": [
+     0.701,
+     0.721,
+     0.697
+    ],
+    "pred_share": [
+     0.297,
+     0.556,
+     0.147
+    ],
+    "gold_share": [
+     0.463,
+     0.406,
+     0.131
+    ],
+    "train_share": [
+     0.335,
+     0.212,
+     0.453
+    ],
+    "train_total": 77893,
+    "teacher_labeled": 0,
+    "dev_best_macro_f1": 0.7341,
+    "steps_run": 4500,
+    "n_test": 784,
+    "smallest_predicted_class_share": 0.147,
+    "dev": {
+     "n": 1477,
+     "macro_f1": 0.7341,
+     "f1": [
+      0.689,
+      0.828,
+      0.685
+     ],
+     "pred_share": [
+      0.238,
+      0.55,
+      0.212
+     ],
+     "gold_share": [
+      0.217,
+      0.605,
+      0.177
+     ]
+    }
+   }
+  ]
+ },
+ "audited split, H | xlmr_ft": {
+  "summary": {
+   "n_seeds": 3,
+   "macro_f1_by_seed": [
+    0.7691,
+    0.7622,
+    0.7376
+   ],
+   "mean_macro_f1": 0.7563,
+   "mean_f1": [
+    0.82,
+    0.722,
+    0.727
+   ],
+   "mean_pred_share": [
+    0.44,
+    0.379,
+    0.18
+   ],
+   "gold_share": [
+    0.441,
+    0.333,
+    0.226
+   ],
+   "train_share": [
+    0.326,
+    0.241,
+    0.433
+   ],
+   "train_total": 79788,
+   "teacher_labeled": 0,
+   "dev_best_macro_f1_by_seed": [
+    0.7573,
+    0.7576,
+    0.7555
+   ],
+   "n_test": 381,
+   "smallest_predicted_class_share_any_seed": 0.155,
+   "dev_mean_f1": [
+    0.746,
+    0.741,
+    0.784
+   ],
+   "dev_mean_pred_share": [
+    0.344,
+    0.309,
+    0.347
+   ],
+   "dev_gold_share": [
+    0.334,
+    0.288,
+    0.377
+   ],
+   "dev_n": 1746
+  },
+  "seeds": [
+   {
+    "seed": 13,
+    "macro_f1": 0.7691,
+    "f1": [
+     0.821,
+     0.726,
+     0.761
+    ],
+    "pred_share": [
+     0.423,
+     0.375,
+     0.202
+    ],
+    "gold_share": [
+     0.441,
+     0.333,
+     0.226
+    ],
+    "train_share": [
+     0.326,
+     0.241,
+     0.433
+    ],
+    "train_total": 79788,
+    "teacher_labeled": 0,
+    "dev_best_macro_f1": 0.7573,
+    "steps_run": 4500,
+    "n_test": 381,
+    "smallest_predicted_class_share": 0.202,
+    "dev": {
+     "n": 1746,
+     "macro_f1": 0.7573,
+     "f1": [
+      0.749,
+      0.738,
+      0.785
+     ],
+     "pred_share": [
+      0.344,
+      0.302,
+      0.354
+     ],
+     "gold_share": [
+      0.334,
+      0.288,
+      0.377
+     ]
+    }
+   },
+   {
+    "seed": 42,
+    "macro_f1": 0.7622,
+    "f1": [
+     0.829,
+     0.727,
+     0.731
+    ],
+    "pred_share": [
+     0.42,
+     0.396,
+     0.184
+    ],
+    "gold_share": [
+     0.441,
+     0.333,
+     0.226
+    ],
+    "train_share": [
+     0.326,
+     0.241,
+     0.433
+    ],
+    "train_total": 79788,
+    "teacher_labeled": 0,
+    "dev_best_macro_f1": 0.7576,
+    "steps_run": 5250,
+    "n_test": 381,
+    "smallest_predicted_class_share": 0.184,
+    "dev": {
+     "n": 1746,
+     "macro_f1": 0.7576,
+     "f1": [
+      0.734,
+      0.749,
+      0.79
+     ],
+     "pred_share": [
+      0.302,
+      0.33,
+      0.368
+     ],
+     "gold_share": [
+      0.334,
+      0.288,
+      0.377
+     ]
+    }
+   },
+   {
+    "seed": 100,
+    "macro_f1": 0.7376,
+    "f1": [
+     0.811,
+     0.712,
+     0.69
+    ],
+    "pred_share": [
+     0.478,
+     0.367,
+     0.155
+    ],
+    "gold_share": [
+     0.441,
+     0.333,
+     0.226
+    ],
+    "train_share": [
+     0.326,
+     0.241,
+     0.433
+    ],
+    "train_total": 79788,
+    "teacher_labeled": 0,
+    "dev_best_macro_f1": 0.7555,
+    "steps_run": 4500,
+    "n_test": 381,
+    "smallest_predicted_class_share": 0.155,
+    "dev": {
+     "n": 1746,
+     "macro_f1": 0.7555,
+     "f1": [
+      0.754,
+      0.735,
+      0.777
+     ],
+     "pred_share": [
+      0.385,
+      0.296,
+      0.318
+     ],
+     "gold_share": [
+      0.334,
+      0.288,
+      0.377
+     ]
+    }
+   }
+  ]
+ },
+ "audited split, H | full": {
+  "summary": {
+   "n_seeds": 3,
+   "macro_f1_by_seed": [
+    0.7334,
+    0.7739,
+    0.7266
+   ],
+   "mean_macro_f1": 0.7446,
+   "mean_f1": [
+    0.829,
+    0.72,
+    0.686
+   ],
+   "mean_pred_share": [
+    0.423,
+    0.38,
+    0.198
+   ],
+   "gold_share": [
+    0.441,
+    0.333,
+    0.226
+   ],
+   "train_share": [
+    0.326,
+    0.241,
+    0.433
+   ],
+   "train_total": 79788,
+   "teacher_labeled": 0,
+   "dev_best_macro_f1_by_seed": [
+    0.7484,
+    0.7595,
+    0.7463
+   ],
+   "n_test": 381,
+   "smallest_predicted_class_share_any_seed": 0.194,
+   "dev_mean_f1": [
+    0.736,
+    0.742,
+    0.776
+   ],
+   "dev_mean_pred_share": [
+    0.319,
+    0.336,
+    0.345
+   ],
+   "dev_gold_share": [
+    0.334,
+    0.288,
+    0.377
+   ],
+   "dev_n": 1746
+  },
+  "seeds": [
+   {
+    "seed": 13,
+    "macro_f1": 0.7334,
+    "f1": [
+     0.815,
+     0.711,
+     0.675
+    ],
+    "pred_share": [
+     0.423,
+     0.383,
+     0.194
+    ],
+    "gold_share": [
+     0.441,
+     0.333,
+     0.226
+    ],
+    "train_share": [
+     0.326,
+     0.241,
+     0.433
+    ],
+    "train_total": 79788,
+    "teacher_labeled": 0,
+    "dev_best_macro_f1": 0.7484,
+    "steps_run": 3000,
+    "n_test": 381,
+    "smallest_predicted_class_share": 0.194,
+    "dev": {
+     "n": 1746,
+     "macro_f1": 0.7484,
+     "f1": [
+      0.732,
+      0.744,
+      0.77
+     ],
+     "pred_share": [
+      0.334,
+      0.322,
+      0.344
+     ],
+     "gold_share": [
+      0.334,
+      0.288,
+      0.377
+     ]
+    }
+   },
+   {
+    "seed": 42,
+    "macro_f1": 0.7739,
+    "f1": [
+     0.848,
+     0.75,
+     0.724
+    ],
+    "pred_share": [
+     0.438,
+     0.36,
+     0.202
+    ],
+    "gold_share": [
+     0.441,
+     0.333,
+     0.226
+    ],
+    "train_share": [
+     0.326,
+     0.241,
+     0.433
+    ],
+    "train_total": 79788,
+    "teacher_labeled": 0,
+    "dev_best_macro_f1": 0.7595,
+    "steps_run": 6000,
+    "n_test": 381,
+    "smallest_predicted_class_share": 0.202,
+    "dev": {
+     "n": 1746,
+     "macro_f1": 0.7595,
+     "f1": [
+      0.748,
+      0.745,
+      0.785
+     ],
+     "pred_share": [
+      0.31,
+      0.347,
+      0.343
+     ],
+     "gold_share": [
+      0.334,
+      0.288,
+      0.377
+     ]
+    }
+   },
+   {
+    "seed": 100,
+    "macro_f1": 0.7266,
+    "f1": [
+     0.824,
+     0.698,
+     0.658
+    ],
+    "pred_share": [
+     0.407,
+     0.396,
+     0.197
+    ],
+    "gold_share": [
+     0.441,
+     0.333,
+     0.226
+    ],
+    "train_share": [
+     0.326,
+     0.241,
+     0.433
+    ],
+    "train_total": 79788,
+    "teacher_labeled": 0,
+    "dev_best_macro_f1": 0.7463,
+    "steps_run": 3750,
+    "n_test": 381,
+    "smallest_predicted_class_share": 0.197,
+    "dev": {
+     "n": 1746,
+     "macro_f1": 0.7463,
+     "f1": [
+      0.729,
+      0.737,
+      0.772
+     ],
+     "pred_share": [
+      0.313,
+      0.338,
+      0.349
+     ],
+     "gold_share": [
+      0.334,
+      0.288,
+      0.377
+     ]
+    }
+   }
+  ]
+ },
+ "audited split, T | xlmr_ft": {
+  "summary": {
+   "n_seeds": 3,
+   "macro_f1_by_seed": [
+    0.6847,
+    0.7088,
+    0.6731
+   ],
+   "mean_macro_f1": 0.6889,
+   "mean_f1": [
+    0.724,
+    0.664,
+    0.68
+   ],
+   "mean_pred_share": [
+    0.333,
+    0.468,
+    0.199
+   ],
+   "gold_share": [
+    0.441,
+    0.333,
+    0.226
+   ],
+   "train_share": [
+    0.31,
+    0.293,
+    0.396
+   ],
+   "train_total": 79788,
+   "teacher_labeled": 0,
+   "dev_best_macro_f1_by_seed": [
+    0.7243,
+    0.7101,
+    0.7211
+   ],
+   "n_test": 381,
+   "smallest_predicted_class_share_any_seed": 0.16,
+   "dev_mean_f1": [
+    0.69,
+    0.713,
+    0.753
+   ],
+   "dev_mean_pred_share": [
+    0.286,
+    0.37,
+    0.345
+   ],
+   "dev_gold_share": [
+    0.334,
+    0.288,
+    0.377
+   ],
+   "dev_n": 1746
+  },
+  "seeds": [
+   {
+    "seed": 13,
+    "macro_f1": 0.6847,
+    "f1": [
+     0.719,
+     0.669,
+     0.667
+    ],
+    "pred_share": [
+     0.333,
+     0.507,
+     0.16
+    ],
+    "gold_share": [
+     0.441,
+     0.333,
+     0.226
+    ],
+    "train_share": [
+     0.31,
+     0.293,
+     0.396
+    ],
+    "train_total": 79788,
+    "teacher_labeled": 0,
+    "dev_best_macro_f1": 0.7243,
+    "steps_run": 6000,
+    "n_test": 381,
+    "smallest_predicted_class_share": 0.16,
+    "dev": {
+     "n": 1746,
+     "macro_f1": 0.7243,
+     "f1": [
+      0.702,
+      0.712,
+      0.759
+     ],
+     "pred_share": [
+      0.289,
+      0.399,
+      0.312
+     ],
+     "gold_share": [
+      0.334,
+      0.288,
+      0.377
+     ]
+    }
+   },
+   {
+    "seed": 42,
+    "macro_f1": 0.7088,
+    "f1": [
+     0.734,
+     0.671,
+     0.722
+    ],
+    "pred_share": [
+     0.318,
+     0.465,
+     0.218
+    ],
+    "gold_share": [
+     0.441,
+     0.333,
+     0.226
+    ],
+    "train_share": [
+     0.31,
+     0.293,
+     0.396
+    ],
+    "train_total": 79788,
+    "teacher_labeled": 0,
+    "dev_best_macro_f1": 0.7101,
+    "steps_run": 3750,
+    "n_test": 381,
+    "smallest_predicted_class_share": 0.218,
+    "dev": {
+     "n": 1746,
+     "macro_f1": 0.7101,
+     "f1": [
+      0.675,
+      0.706,
+      0.749
+     ],
+     "pred_share": [
+      0.258,
+      0.368,
+      0.375
+     ],
+     "gold_share": [
+      0.334,
+      0.288,
+      0.377
+     ]
+    }
+   },
+   {
+    "seed": 100,
+    "macro_f1": 0.6731,
+    "f1": [
+     0.718,
+     0.651,
+     0.651
+    ],
+    "pred_share": [
+     0.349,
+     0.433,
+     0.218
+    ],
+    "gold_share": [
+     0.441,
+     0.333,
+     0.226
+    ],
+    "train_share": [
+     0.31,
+     0.293,
+     0.396
+    ],
+    "train_total": 79788,
+    "teacher_labeled": 0,
+    "dev_best_macro_f1": 0.7211,
+    "steps_run": 2250,
+    "n_test": 381,
+    "smallest_predicted_class_share": 0.218,
+    "dev": {
+     "n": 1746,
+     "macro_f1": 0.7211,
+     "f1": [
+      0.692,
+      0.722,
+      0.75
+     ],
+     "pred_share": [
+      0.31,
+      0.344,
+      0.347
+     ],
+     "gold_share": [
+      0.334,
+      0.288,
+      0.377
+     ]
+    }
+   }
+  ]
+ },
+ "audited split, T | full": {
+  "summary": {
+   "n_seeds": 3,
+   "macro_f1_by_seed": [
+    0.6647,
+    0.6715,
+    0.7075
+   ],
+   "mean_macro_f1": 0.6812,
+   "mean_f1": [
+    0.696,
+    0.675,
+    0.673
+   ],
+   "mean_pred_share": [
+    0.3,
+    0.528,
+    0.171
+   ],
+   "gold_share": [
+    0.441,
+    0.333,
+    0.226
+   ],
+   "train_share": [
+    0.31,
+    0.293,
+    0.396
+   ],
+   "train_total": 79788,
+   "teacher_labeled": 0,
+   "dev_best_macro_f1_by_seed": [
+    0.7226,
+    0.7049,
+    0.7119
+   ],
+   "n_test": 381,
+   "smallest_predicted_class_share_any_seed": 0.144,
+   "dev_mean_f1": [
+    0.679,
+    0.71,
+    0.751
+   ],
+   "dev_mean_pred_share": [
+    0.278,
+    0.406,
+    0.316
+   ],
+   "dev_gold_share": [
+    0.334,
+    0.288,
+    0.377
+   ],
+   "dev_n": 1746
+  },
+  "seeds": [
+   {
+    "seed": 13,
+    "macro_f1": 0.6647,
+    "f1": [
+     0.667,
+     0.661,
+     0.667
+    ],
+    "pred_share": [
+     0.276,
+     0.549,
+     0.176
+    ],
+    "gold_share": [
+     0.441,
+     0.333,
+     0.226
+    ],
+    "train_share": [
+     0.31,
+     0.293,
+     0.396
+    ],
+    "train_total": 79788,
+    "teacher_labeled": 0,
+    "dev_best_macro_f1": 0.7226,
+    "steps_run": 3000,
+    "n_test": 381,
+    "smallest_predicted_class_share": 0.176,
+    "dev": {
+     "n": 1746,
+     "macro_f1": 0.7226,
+     "f1": [
+      0.689,
+      0.714,
+      0.764
+     ],
+     "pred_share": [
+      0.272,
+      0.392,
+      0.336
+     ],
+     "gold_share": [
+      0.334,
+      0.288,
+      0.377
+     ]
+    }
+   },
+   {
+    "seed": 42,
+    "macro_f1": 0.6715,
+    "f1": [
+     0.695,
+     0.667,
+     0.652
+    ],
+    "pred_share": [
+     0.291,
+     0.564,
+     0.144
+    ],
+    "gold_share": [
+     0.441,
+     0.333,
+     0.226
+    ],
+    "train_share": [
+     0.31,
+     0.293,
+     0.396
+    ],
+    "train_total": 79788,
+    "teacher_labeled": 0,
+    "dev_best_macro_f1": 0.7049,
+    "steps_run": 3750,
+    "n_test": 381,
+    "smallest_predicted_class_share": 0.144,
+    "dev": {
+     "n": 1746,
+     "macro_f1": 0.7049,
+     "f1": [
+      0.664,
+      0.71,
+      0.741
+     ],
+     "pred_share": [
+      0.275,
+      0.438,
+      0.287
+     ],
+     "gold_share": [
+      0.334,
+      0.288,
+      0.377
+     ]
+    }
+   },
+   {
+    "seed": 100,
+    "macro_f1": 0.7075,
+    "f1": [
+     0.725,
+     0.697,
+     0.7
+    ],
+    "pred_share": [
+     0.333,
+     0.472,
+     0.194
+    ],
+    "gold_share": [
+     0.441,
+     0.333,
+     0.226
+    ],
+    "train_share": [
+     0.31,
+     0.293,
+     0.396
+    ],
+    "train_total": 79788,
+    "teacher_labeled": 0,
+    "dev_best_macro_f1": 0.7119,
+    "steps_run": 2250,
+    "n_test": 381,
+    "smallest_predicted_class_share": 0.194,
+    "dev": {
+     "n": 1746,
+     "macro_f1": 0.7119,
+     "f1": [
+      0.684,
+      0.705,
+      0.747
+     ],
+     "pred_share": [
+      0.288,
+      0.387,
+      0.325
+     ],
+     "gold_share": [
+      0.334,
+      0.288,
+      0.377
+     ]
+    }
+   }
+  ]
+ },
+ "audited split, S | xlmr_ft": {
+  "summary": {
+   "n_seeds": 3,
+   "macro_f1_by_seed": [
+    0.7192,
+    0.678,
+    0.694
+   ],
+   "mean_macro_f1": 0.6971,
+   "mean_f1": [
+    0.732,
+    0.678,
+    0.682
+   ],
+   "mean_pred_share": [
+    0.348,
+    0.465,
+    0.187
+   ],
+   "gold_share": [
+    0.441,
+    0.333,
+    0.226
+   ],
+   "train_share": [
+    0.25,
+    0.347,
+    0.403
+   ],
+   "train_total": 208340,
+   "teacher_labeled": 128552,
+   "dev_best_macro_f1_by_seed": [
+    0.7408,
+    0.7318,
+    0.7646
+   ],
+   "n_test": 381,
+   "smallest_predicted_class_share_any_seed": 0.165,
+   "dev_mean_f1": [
+    0.723,
+    0.746,
+    0.768
+   ],
+   "dev_mean_pred_share": [
+    0.297,
+    0.341,
+    0.362
+   ],
+   "dev_gold_share": [
+    0.334,
+    0.288,
+    0.377
+   ],
+   "dev_n": 1746
+  },
+  "seeds": [
+   {
+    "seed": 13,
+    "macro_f1": 0.7192,
+    "f1": [
+     0.752,
+     0.699,
+     0.707
+    ],
+    "pred_share": [
+     0.362,
+     0.433,
+     0.205
+    ],
+    "gold_share": [
+     0.441,
+     0.333,
+     0.226
+    ],
+    "train_share": [
+     0.25,
+     0.347,
+     0.403
+    ],
+    "train_total": 208340,
+    "teacher_labeled": 128552,
+    "dev_best_macro_f1": 0.7408,
+    "steps_run": 3000,
+    "n_test": 381,
+    "smallest_predicted_class_share": 0.205,
+    "dev": {
+     "n": 1746,
+     "macro_f1": 0.7408,
+     "f1": [
+      0.716,
+      0.736,
+      0.771
+     ],
+     "pred_share": [
+      0.298,
+      0.319,
+      0.383
+     ],
+     "gold_share": [
+      0.334,
+      0.288,
+      0.377
+     ]
+    }
+   },
+   {
+    "seed": 42,
+    "macro_f1": 0.678,
+    "f1": [
+     0.707,
+     0.66,
+     0.667
+    ],
+    "pred_share": [
+     0.339,
+     0.47,
+     0.192
+    ],
+    "gold_share": [
+     0.441,
+     0.333,
+     0.226
+    ],
+    "train_share": [
+     0.25,
+     0.347,
+     0.403
+    ],
+    "train_total": 208340,
+    "teacher_labeled": 128552,
+    "dev_best_macro_f1": 0.7318,
+    "steps_run": 2250,
+    "n_test": 381,
+    "smallest_predicted_class_share": 0.192,
+    "dev": {
+     "n": 1746,
+     "macro_f1": 0.7318,
+     "f1": [
+      0.703,
+      0.739,
+      0.753
+     ],
+     "pred_share": [
+      0.288,
+      0.348,
+      0.365
+     ],
+     "gold_share": [
+      0.334,
+      0.288,
+      0.377
+     ]
+    }
+   },
+   {
+    "seed": 100,
+    "macro_f1": 0.694,
+    "f1": [
+     0.736,
+     0.675,
+     0.671
+    ],
+    "pred_share": [
+     0.344,
+     0.491,
+     0.165
+    ],
+    "gold_share": [
+     0.441,
+     0.333,
+     0.226
+    ],
+    "train_share": [
+     0.25,
+     0.347,
+     0.403
+    ],
+    "train_total": 208340,
+    "teacher_labeled": 128552,
+    "dev_best_macro_f1": 0.7646,
+    "steps_run": 6000,
+    "n_test": 381,
+    "smallest_predicted_class_share": 0.165,
+    "dev": {
+     "n": 1746,
+     "macro_f1": 0.7646,
+     "f1": [
+      0.749,
+      0.763,
+      0.781
+     ],
+     "pred_share": [
+      0.306,
+      0.356,
+      0.338
+     ],
+     "gold_share": [
+      0.334,
+      0.288,
+      0.377
+     ]
+    }
+   }
+  ]
+ },
+ "audited split, S | full": {
+  "summary": {
+   "n_seeds": 3,
+   "macro_f1_by_seed": [
+    0.7353,
+    0.7063,
+    0.7198
+   ],
+   "mean_macro_f1": 0.7205,
+   "mean_f1": [
+    0.764,
+    0.709,
+    0.688
+   ],
+   "mean_pred_share": [
+    0.362,
+    0.442,
+    0.196
+   ],
+   "gold_share": [
+    0.441,
+    0.333,
+    0.226
+   ],
+   "train_share": [
+    0.25,
+    0.347,
+    0.403
+   ],
+   "train_total": 208340,
+   "teacher_labeled": 128552,
+   "dev_best_macro_f1_by_seed": [
+    0.7582,
+    0.7507,
+    0.7598
+   ],
+   "n_test": 381,
+   "smallest_predicted_class_share_any_seed": 0.186,
+   "dev_mean_f1": [
+    0.74,
+    0.754,
+    0.774
+   ],
+   "dev_mean_pred_share": [
+    0.324,
+    0.332,
+    0.344
+   ],
+   "dev_gold_share": [
+    0.334,
+    0.288,
+    0.377
+   ],
+   "dev_n": 1746
+  },
+  "seeds": [
+   {
+    "seed": 13,
+    "macro_f1": 0.7353,
+    "f1": [
+     0.773,
+     0.722,
+     0.712
+    ],
+    "pred_share": [
+     0.367,
+     0.43,
+     0.202
+    ],
+    "gold_share": [
+     0.441,
+     0.333,
+     0.226
+    ],
+    "train_share": [
+     0.25,
+     0.347,
+     0.403
+    ],
+    "train_total": 208340,
+    "teacher_labeled": 128552,
+    "dev_best_macro_f1": 0.7582,
+    "steps_run": 6000,
+    "n_test": 381,
+    "smallest_predicted_class_share": 0.202,
+    "dev": {
+     "n": 1746,
+     "macro_f1": 0.7582,
+     "f1": [
+      0.749,
+      0.752,
+      0.773
+     ],
+     "pred_share": [
+      0.335,
+      0.309,
+      0.356
+     ],
+     "gold_share": [
+      0.334,
+      0.288,
+      0.377
+     ]
+    }
+   },
+   {
+    "seed": 42,
+    "macro_f1": 0.7063,
+    "f1": [
+     0.733,
+     0.695,
+     0.691
+    ],
+    "pred_share": [
+     0.325,
+     0.475,
+     0.199
+    ],
+    "gold_share": [
+     0.441,
+     0.333,
+     0.226
+    ],
+    "train_share": [
+     0.25,
+     0.347,
+     0.403
+    ],
+    "train_total": 208340,
+    "teacher_labeled": 128552,
+    "dev_best_macro_f1": 0.7507,
+    "steps_run": 5250,
+    "n_test": 381,
+    "smallest_predicted_class_share": 0.199,
+    "dev": {
+     "n": 1746,
+     "macro_f1": 0.7507,
+     "f1": [
+      0.723,
+      0.754,
+      0.775
+     ],
+     "pred_share": [
+      0.291,
+      0.355,
+      0.355
+     ],
+     "gold_share": [
+      0.334,
+      0.288,
+      0.377
+     ]
+    }
+   },
+   {
+    "seed": 100,
+    "macro_f1": 0.7198,
+    "f1": [
+     0.786,
+     0.711,
+     0.662
+    ],
+    "pred_share": [
+     0.394,
+     0.42,
+     0.186
+    ],
+    "gold_share": [
+     0.441,
+     0.333,
+     0.226
+    ],
+    "train_share": [
+     0.25,
+     0.347,
+     0.403
+    ],
+    "train_total": 208340,
+    "teacher_labeled": 128552,
+    "dev_best_macro_f1": 0.7598,
+    "steps_run": 5250,
+    "n_test": 381,
+    "smallest_predicted_class_share": 0.186,
+    "dev": {
+     "n": 1746,
+     "macro_f1": 0.7598,
+     "f1": [
+      0.748,
+      0.757,
+      0.774
+     ],
+     "pred_share": [
+      0.345,
+      0.332,
+      0.322
+     ],
+     "gold_share": [
+      0.334,
+      0.288,
+      0.377
+     ]
+    }
+   }
+  ]
+ }
+}

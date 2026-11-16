@@ -1,0 +1,65 @@
+{
+ "dapt_gain_indomain": {
+  "xlmr_dapt": 0.73849,
+  "xlmr_ft": 0.7169,
+  "diff_points_unrounded": 2.16,
+  "diff_points_from_rounded": 2.1
+ },
+ "dapt_gain_lodo": {
+  "xlmr_dapt": 0.73331,
+  "xlmr_ft": 0.72385,
+  "diff_points_unrounded": 0.946,
+  "diff_points_from_rounded": 0.9
+ },
+ "lodo_chain": {
+  "xlmr_ft": 0.7239,
+  "xlmr_dapt": 0.7333,
+  "xlmr_film": 0.7258,
+  "xlmr_dapt_film": 0.7316,
+  "full": 0.719,
+  "mdeberta_ft": 0.7391,
+  "mdeberta_dapt": 0.7341,
+  "full_mdeberta": 0.7258
+ },
+ "lodo_encoders": {
+  "mbert_ft": 0.6682,
+  "allma_ft": 0.7154,
+  "xlmr_ft": 0.7239,
+  "mdeberta_ft": 0.7391
+ },
+ "single_class_check": {
+  "n_runs": 616,
+  "min_pred_share_any_run": 0.0102,
+  "max_pred_share_any_run": 0.7769,
+  "n_mdeberta_runs": 115,
+  "min_pred_share_mdeberta": 0.1522,
+  "min_macro_f1_mdeberta": 0.6406,
+  "lowest_runs": [
+   {
+    "run": "indomain.Retail.fasttext_mlp.s21",
+    "min_pred_share": 0.0102,
+    "macro_f1": 0.3584
+   },
+   {
+    "run": "indomain.Retail.fasttext_mlp.s13",
+    "min_pred_share": 0.0256,
+    "macro_f1": 0.3866
+   },
+   {
+    "run": "indomain.Retail.fasttext_mlp.s42",
+    "min_pred_share": 0.0375,
+    "macro_f1": 0.381
+   },
+   {
+    "run": "indomain.Public.fasttext_mlp.s100",
+    "min_pred_share": 0.042,
+    "macro_f1": 0.3833
+   },
+   {
+    "run": "indomain.Retail.fasttext_mlp.s87",
+    "min_pred_share": 0.0444,
+    "macro_f1": 0.4153
+   }
+  ]
+ }
+}
